@@ -1,0 +1,26 @@
+/* Force the internal calendar layout to expand */
+.customCalendar .rdrCalendarWrapper,
+.customCalendar .rdrMonths,
+.customCalendar .rdrMonth {
+	width: 100%;
+	display: flex;
+	justify-content: center; /* Optional: center single month if you use one */
+}
+
+/* Make sure days stretch evenly */
+.customCalendar .rdrMonth {
+	flex-direction: column;
+}
+
+.customCalendar .rdrDays {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+	width: 100%;
+}
+
+.customCalendar .rdrDay {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	width: 100%;
+}
