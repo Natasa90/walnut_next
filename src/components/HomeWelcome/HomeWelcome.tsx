@@ -7,7 +7,7 @@ export const HomeWelcome = () => {
     };
     return (
         <div
-            className="relative bg-cover bg-center h-[83vh] flex items-center justify-center text-center"
+            className="relative bg-cover bg-center h-[84vh] flex items-center justify-center text-center"
             style={{ backgroundImage: "url('/images/home-cover.jpeg')" }}
         >
             <div className="p-8 text-white max-w-xl">
