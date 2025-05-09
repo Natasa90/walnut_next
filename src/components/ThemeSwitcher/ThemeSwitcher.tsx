@@ -4,30 +4,25 @@ export const ThemeSwitcher = () => {
   const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    // Check localStorage for the saved theme on initial load
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
-      setTheme(storedTheme); // Set theme based on stored value
+      setTheme(storedTheme); 
     } else {
-      // Default to 'light' if no theme is saved in localStorage
       setTheme('light');
     }
   }, []);
 
   useEffect(() => {
-    // Apply the 'dark' class to <html> element when dark mode is enabled
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
 
-    // Save the theme to localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    // Toggle between 'light' and 'dark' themes
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 

@@ -1,6 +1,5 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { supabase } from "@/lib/Supabase";
 
 export const ContactForm = () => {
     const validationSchema = Yup.object({
@@ -17,21 +16,18 @@ export const ContactForm = () => {
         { resetForm }: { resetForm: () => void }
     ) => {
         try {
-            const { data, error } = await supabase.from("inquiries").insert([
-                {
-                    name: values.fullName,
-                    email: values.email,
-                    phone: values.phone,
-                    message: values.message,
-                },
-            ]);
+            const response = await fetch("/api/inquiries", {
+							method: "POST", 
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify(values),
+						}); 
 
-            if (error) {
-                throw error;
-            }
+						if (!response.ok) {
+							throw new Error ("Failed to submit inquiry.")
+						}
 
-            alert("Your message has been sent. We will contact you soon.");
-            resetForm();
+						alert ("Your message has been sent. We will contact you soon.");
+						resetForm(); 
         } catch (error) {
             alert("Sending failed. Please try again.");
         }

@@ -1,14 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
-import { supabase } from "@/lib/Supabase";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
     onClose: () => void;
 }
 
-interface FormValues {
+export interface FormValues {
     fullName: string;
     email?: string;
     phone: string;
@@ -34,22 +33,28 @@ export const BookingFormModal = ({
     });
 
     const handleSubmit = async (values: FormValues) => {
-        const { data, error } = await supabase.from("bookings").insert([
-            {
-                full_name: values.fullName,
-                email: values.email,
-                phone: values.phone,
-                message: values.message,
-                start_date: dateRange.startDate,
-                end_date: dateRange.endDate,
-            },
-        ]);
+        try {
+            const response = await fetch("/api/bookings", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    fullName: values.fullName,
+                    email: values.email,
+                    phone: values.phone,
+                    message: values.message,
+                    startDate: dateRange.startDate,
+                    endDate: dateRange.endDate,
+                }),
+            });
 
-        if (error) {
-            alert("Something went wrong. Please try again later.");
-        } else {
+            if (!response.ok) {
+                throw new Error("Failed to submit Booking.");
+            }
+
             alert("Booking successfull! We'll contact you soon. Thank you!");
             onClose();
+        } catch (error) {
+            alert("Submitting Booking Failed. Try again!");
         }
     };
 

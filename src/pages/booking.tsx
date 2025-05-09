@@ -30,7 +30,7 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
                     dateRange={dateRange}
                     handleSelect={handleSelect}
 										disabledDates={disabledDates.map((d) => new Date(d))}
-                    onBookClick={() => setIsModalOpen(true)} // pass the click handler
+                    onBookClick={() => setIsModalOpen(true)} 
                 />
             {isModalOpen && (
                 <BookingFormModal
