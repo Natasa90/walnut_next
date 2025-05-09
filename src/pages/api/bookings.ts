@@ -4,7 +4,7 @@ import { supabase } from "@/lib/Supabase";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method == "POST") {
 
-	const { fullName, email, phone, message, startDate, endDate} = req.body; 
+	const { fullName, email, phone, message, startDate, endDate, typeOfRent, numOfPersons, totalPrice } = req.body; 
 
 	try {
 		const { data, error } = await supabase.from("bookings").insert([
@@ -15,6 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				message,
 				start_date: startDate,
 				end_date: endDate,
+				rent: typeOfRent,
+				persons: numOfPersons,
+				total_price: totalPrice,
 			}
 		]);
 
@@ -51,6 +54,6 @@ if (req.method === "GET") {
 		return res.status(200).json({ bookings: data });
 	
 	}	
-	
+
 	return res.status(405).json({ message: "Method not allowed." });
 }

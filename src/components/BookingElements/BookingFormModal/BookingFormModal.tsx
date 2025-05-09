@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
+import { pricePerNight } from "@/lib/const/prices";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
@@ -12,6 +13,9 @@ export interface FormValues {
     email?: string;
     phone: string;
     message?: string;
+    typeOfRent: string;
+    numOfPersons: number;
+    totalPrice: number;
 }
 
 export const BookingFormModal = ({
@@ -23,6 +27,9 @@ export const BookingFormModal = ({
         email: "",
         phone: "",
         message: "",
+        typeOfRent: "daily",
+        numOfPersons: 1,
+        totalPrice: 0,
     };
 
     const validationSchema = Yup.object({
@@ -30,9 +37,40 @@ export const BookingFormModal = ({
         email: Yup.string().email("Invalid email format").nullable(),
         phone: Yup.string().required("Phone Number field is required"),
         message: Yup.string().nullable(),
+        typeOfRent: Yup.string().required("Please select a type of rent"),
+        numOfPersons: Yup.number().nullable(),
     });
 
     const handleSubmit = async (values: FormValues) => {
+        if (values.typeOfRent === "night" && !values.numOfPersons) {
+            alert("Please select a number of persons.");
+            return;
+        }
+
+        let totalPrice = 0;
+
+        if (values.typeOfRent === "night") {
+            const persons = values.numOfPersons;
+            if (pricePerNight[persons]) {
+                totalPrice =
+                    (pricePerNight[persons] *
+                        (dateRange.endDate.getTime() -
+                            dateRange.startDate.getTime())) /
+                    (1000 * 3600 * 24);
+            } else {
+                alert("Invalid number of persons selected for night rent.");
+                return;
+            }
+        } else {
+            const numberOfDays = Math.floor(
+                (dateRange.endDate.getTime() - dateRange.startDate.getTime()) /
+                    (1000 * 3600 * 24)
+            );
+            totalPrice = 150 * numberOfDays;
+        }
+
+        values.totalPrice = totalPrice;
+
         try {
             const response = await fetch("/api/bookings", {
                 method: "POST",
@@ -44,6 +82,9 @@ export const BookingFormModal = ({
                     message: values.message,
                     startDate: dateRange.startDate,
                     endDate: dateRange.endDate,
+                    typeOfRent: values.typeOfRent,
+                    numOfPersons: values.numOfPersons,
+                    totalPrice: totalPrice,
                 }),
             });
 
@@ -51,7 +92,7 @@ export const BookingFormModal = ({
                 throw new Error("Failed to submit Booking.");
             }
 
-            alert("Booking successfull! We'll contact you soon. Thank you!");
+            alert("Booking successful! We'll contact you soon. Thank you!");
             onClose();
         } catch (error) {
             alert("Submitting Booking Failed. Try again!");
@@ -81,87 +122,160 @@ export const BookingFormModal = ({
                     validationSchema={validationSchema}
                     onSubmit={handleSubmit}
                 >
-                    <Form className="space-y-4">
-                        <div>
-                            <label className="block mb-1 text-black font-medium">
-                                Full Name*
-                            </label>
-                            <Field
-                                name="fullName"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
-                            />
-                            <ErrorMessage
-                                name="fullName"
-                                component="div"
-                                className="text-red-500 text-sm mt-1"
-                            />
-                        </div>
+                    {({ values }) => {
+                        let totalPrice = 0;
 
-                        <div>
-                            <label className="block mb-1 text-black font-medium">
-                                Email
-                            </label>
-                            <Field
-                                name="email"
-                                type="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
-                            />
-                            <ErrorMessage
-                                name="email"
-                                component="div"
-                                className="text-red-500 text-sm mt-1"
-                            />
-                        </div>
+                        if (values.typeOfRent === "night") {
+                            const persons = values.numOfPersons;
+                            if (pricePerNight[persons]) {
+                                totalPrice =
+                                    (pricePerNight[persons] *
+                                        (dateRange.endDate.getTime() -
+                                            dateRange.startDate.getTime())) /
+                                    (1000 * 3600 * 24);
+                            }
+                        } else {
+                            const numberOfDays = Math.floor(
+                                (dateRange.endDate.getTime() -
+                                    dateRange.startDate.getTime()) /
+                                    (1000 * 3600 * 24)
+                            );
+                            totalPrice = 150 * numberOfDays;
+                        }
 
-                        <div>
-                            <label className="block mb-1 text-black font-medium">
-                                Phone*
-                            </label>
-                            <Field
-                                name="phone"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
-                            />
-                            <ErrorMessage
-                                name="phone"
-                                component="div"
-                                className="text-red-500 text-sm mt-1"
-                            />
-                        </div>
+                        return (
+                            <Form className="space-y-4">
+                                <div>
+                                    <label className="block mb-1 text-black font-medium">
+                                        Full Name*
+                                    </label>
+                                    <Field
+                                        name="fullName"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                    />
+                                    <ErrorMessage
+                                        name="fullName"
+                                        component="div"
+                                        className="text-red-500 text-sm mt-1"
+                                    />
+                                </div>
 
-                        <div>
-                            <label className="block mb-1 text-black font-medium">
-                                Message
-                            </label>
-                            <Field
-                                name="message"
-                                as="textarea"
-                                rows={3}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79] resize-none"
-                            />
-                            <ErrorMessage
-                                name="message"
-                                component="div"
-                                className="text-red-500 text-sm mt-1"
-                            />
-                        </div>
+                                <div>
+                                    <label className="block mb-1 text-black font-medium">
+                                        Email
+                                    </label>
+                                    <Field
+                                        name="email"
+                                        type="email"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                    />
+                                    <ErrorMessage
+                                        name="email"
+                                        component="div"
+                                        className="text-red-500 text-sm mt-1"
+                                    />
+                                </div>
 
-                        <div className="flex justify-between items-center mt-6">
-                            <button
-                                type="button"
-                                className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 transition-colors"
-                                onClick={onClose}
-                            >
-                                Back
-                            </button>
+                                <div>
+                                    <label className="block mb-1 text-black font-medium">
+                                        Phone*
+                                    </label>
+                                    <Field
+                                        name="phone"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                    />
+                                    <ErrorMessage
+                                        name="phone"
+                                        component="div"
+                                        className="text-red-500 text-sm mt-1"
+                                    />
+                                </div>
 
-                            <button
-                                type="submit"
-                                className="px-6 py-2 bg-[#596e79] hover:bg-[#596e45] text-white rounded-md transition-colors"
-                            >
-                                Book
-                            </button>
-                        </div>
-                    </Form>
+                                <div>
+                                    <label className="block mb-1 text-black font-medium">
+                                        Message
+                                    </label>
+                                    <Field
+                                        name="message"
+                                        as="textarea"
+                                        rows={3}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79] resize-none"
+                                    />
+                                    <ErrorMessage
+                                        name="message"
+                                        component="div"
+                                        className="text-red-500 text-sm mt-1"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block mb-1 text-black font-medium">
+                                        Select Type of Rent:*
+                                    </label>
+                                    <Field
+                                        name="typeOfRent"
+                                        as="select"
+                                        className="text-black w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                    >
+                                        <option value="daily">Daily Rent</option>
+                                        <option value="night">Night Rent</option>
+                                    </Field>
+                                    <ErrorMessage
+                                        name="typeOfRent"
+                                        component="div"
+                                        className="text-red-500 text-sm mt-1"
+                                    />
+                                </div>
+
+                                {values.typeOfRent === "night" && (
+                                    <div>
+                                        <label className="block mb-1 text-black font-medium">
+                                            Select Number of Persons:*
+                                        </label>
+                                        <Field
+                                            name="numOfPersons"
+                                            as="select"
+                                            className="text-black w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                        >
+                                            <option value={1}>1 person</option>
+                                            <option value={2}>2 persons</option>
+                                            <option value={3}>3 persons</option>
+                                            <option value={4}>4 persons</option>
+                                        </Field>
+                                        <ErrorMessage
+                                            name="numOfPersons"
+                                            component="div"
+                                            className="text-red-500 text-sm mt-1"
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="text-black mt-4 text-lg font-semibold">
+                                    <p>
+                                        <strong>Total Price: </strong>€
+                                        {totalPrice.toFixed(2)}
+                                    </p>
+                                </div>
+
+                                <div className="flex justify-between items-center mt-6">
+                                    <button
+                                        type="button"
+                                        className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 transition-colors"
+                                        onClick={onClose}
+                                    >
+                                        Back
+                                    </button>
+
+                                    <button
+                                        type="submit"
+                                        className="px-6 py-2 bg-[#596e79] hover:bg-[#596e45] text-white rounded-md transition-colors"
+                                    >
+                                        Book
+                                    </button>
+                                </div>
+                            </Form>
+                        );
+                    }}
                 </Formik>
             </div>
         </div>
