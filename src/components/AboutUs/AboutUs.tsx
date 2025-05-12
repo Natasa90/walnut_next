@@ -1,7 +1,9 @@
+import { playfair } from "@/lib/fonts";
+
 export const AboutUs = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto text-lg leading-relaxed">
-      <h1 className="text-3xl font-bold mb-4">About Us</h1>
+      <h1 className={`${playfair.className} text-3xl font-bold mb-4`}>About Us</h1>
       <p className="mb-4">
         Welcome to your perfect countryside escape! 🏡
       </p>

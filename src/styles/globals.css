@@ -12,17 +12,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: rgb(239, 236, 232); /* your custom bg */
+  --foreground: #171717;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 .image-container {
   position: relative;
@@ -46,4 +43,19 @@ body {
   to {
     opacity: 1;
   }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%); /* starts off-screen */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* ends at its normal position */
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
 }
