@@ -1,25 +1,34 @@
-
-.customCalendar .rdrCalendarWrapper,
-.customCalendar .rdrMonths,
-.customCalendar .rdrMonth {
-	width: 100%;
-	display: flex;
-	justify-content: center; 
+.customCalendar :global(.rdrCalendarWrapper),
+.customCalendar :global(.rdrMonths),
+.customCalendar :global(.rdrMonth) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.customCalendar .rdrMonth {
-	flex-direction: column;
+.customCalendar :global(.rdrMonth) {
+  flex-direction: column;
 }
 
-.customCalendar .rdrDays {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr); 
-	width: 100%;
+.customCalendar :global(.rdrDays) {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
 }
 
-.customCalendar .rdrDay {
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	width: 100%;
+.customCalendar :global(.rdrDay) {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.customCalendar :global(.rdrDateDisplayWrapper) {
+  display: none;
+}
+
+.customCalendar :global(.rdrTaken) {
+  background-color: #ccc !important;
+  pointer-events: none;
+  opacity: 0.6;
 }

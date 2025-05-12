@@ -3,9 +3,10 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
 
-type MyDateRange = {
+export type MyDateRange = {
     startDate: Date;
     endDate: Date;
+    key: string;
 };
 
 interface CalendarPickerProps {
@@ -27,26 +28,28 @@ export const CalendarPicker = ({
                 Select Dates
             </h1>
             <div className="flex flex-col justify-center items-center mt-6">
-                <DateRange
-                    ranges={dateRange}
-                    onChange={handleSelect}
-                    minDate={new Date()}
-                    rangeColors={["#596e79"]}
-                    disabledDates={disabledDates}
-                    className={styles.customCalendar}
-                    dayClassName={(date: any) => {
-                        if (
-                            disabledDates?.some(
-                                (disabledDate) =>
-                                    disabledDate.toDateString() ===
-                                    date.toDateString()
-                            )
-                        ) {
-                            return "rdrTaken";
-                        }
-                        return "";
-                    }}
-                />
+                <div className={styles.customCalendar}>
+                    <DateRange
+                        ranges={dateRange}
+                        onChange={handleSelect}
+                        minDate={new Date()}
+                        rangeColors={["#596e79"]}
+                        disabledDates={disabledDates}
+                        className={styles.customCalendar}
+                        dayClassName={(date: any) => {
+                            if (
+                                disabledDates?.some(
+                                    (disabledDate) =>
+                                        disabledDate.toDateString() ===
+                                        date.toDateString()
+                                )
+                            ) {
+                                return "rdrTaken";
+                            }
+                            return "";
+                        }}
+                    />
+                </div>
                 <button
                     className="px-6 py-3  mt-4 rounded-xl bg-[#596e79] hover:bg-[#596e45] text-white disabled:bg-gray-900 w-[40%]"
                     disabled={!dateRange[0].startDate || !dateRange[0].endDate}

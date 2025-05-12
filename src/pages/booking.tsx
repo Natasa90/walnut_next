@@ -4,13 +4,14 @@ import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
 import { BookingFormModal } from "@/components/BookingElements/BookingFormModal";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
+import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 
 type BookingPageProps = {
   disabledDates: string[]; 
 };
 
 const BookingPage = ({ disabledDates }: BookingPageProps) => {
-  const [dateRange, setDateRange] = useState([
+  const [dateRange, setDateRange] = useState<MyDateRange[]>([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 1),
