@@ -2,10 +2,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
 import { pricePerNight } from "@/lib/const/prices";
+import { getBookedDates } from "@/lib/helpers/getBookedDates";
+import { differenceInCalendarDays } from "date-fns";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
     onClose: () => void;
+    typeOfRent: "daily" | "nightly";
 }
 
 export interface FormValues {
@@ -21,15 +24,16 @@ export interface FormValues {
 export const BookingFormModal = ({
     dateRange,
     onClose,
+    typeOfRent,
 }: BookingFormModalProps) => {
     const initialValues: FormValues = {
         fullName: "",
         email: "",
         phone: "",
         message: "",
-        typeOfRent: "daily",
-        numOfPersons: 1,
-        totalPrice: 0,
+        typeOfRent,
+        numOfPersons: 2,
+        totalPrice: typeOfRent === "daily" ? 150 : 0,
     };
 
     const validationSchema = Yup.object({
@@ -37,36 +41,22 @@ export const BookingFormModal = ({
         email: Yup.string().email("Invalid email format").nullable(),
         phone: Yup.string().required("Phone Number field is required"),
         message: Yup.string().nullable(),
-        typeOfRent: Yup.string().required("Please select a type of rent"),
         numOfPersons: Yup.number().nullable(),
     });
 
     const handleSubmit = async (values: FormValues) => {
-        if (values.typeOfRent === "night" && !values.numOfPersons) {
-            alert("Please select a number of persons.");
-            return;
-        }
-
         let totalPrice = 0;
 
-        if (values.typeOfRent === "night") {
+        if (values.typeOfRent === "nightly") {
             const persons = values.numOfPersons;
-            if (pricePerNight[persons]) {
-                totalPrice =
-                    (pricePerNight[persons] *
-                        (dateRange.endDate.getTime() -
-                            dateRange.startDate.getTime())) /
-                    (1000 * 3600 * 24);
-            } else {
-                alert("Invalid number of persons selected for night rent.");
-                return;
-            }
+            const nights =
+                differenceInCalendarDays(
+                    dateRange.endDate,
+                    dateRange.startDate
+                ) + 1;
+            totalPrice = pricePerNight[persons] * nights;
         } else {
-            const numberOfDays = Math.floor(
-                (dateRange.endDate.getTime() - dateRange.startDate.getTime()) /
-                    (1000 * 3600 * 24)
-            );
-            totalPrice = 150 * numberOfDays;
+            totalPrice = 150;
         }
 
         values.totalPrice = totalPrice;
@@ -94,27 +84,35 @@ export const BookingFormModal = ({
 
             alert("Booking successful! We'll contact you soon. Thank you!");
             onClose();
+            getBookedDates();
         } catch (error) {
             alert("Submitting Booking Failed. Try again!");
         }
     };
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white rounded-lg p-8 w-full max-w-md">
+        <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50 px-5">
+            <div className="bg-white border border-gray-400 rounded-lg p-8 w-full max-w-md">
                 <h2 className="text-2xl mb-4 text-black text-center">
                     Reservation Details
                 </h2>
-
-                <div className="mb-6 text-center text-gray-700">
-                    <div>
-                        <strong>From:</strong>{" "}
-                        {format(dateRange.startDate, "dd-MM-yyyy")}
-                    </div>
-                    <div>
-                        <strong>To:</strong>{" "}
-                        {format(dateRange.endDate, "dd-MM-yyyy")}
-                    </div>
+                <div className="mb-4 text-center text-gray-700">
+                    <p>
+                        You have selected <strong>{typeOfRent}</strong> rental
+                        for{" "}
+                        {typeOfRent === "nightly" ? (
+                            <>
+                                selected dates:{" "}
+                                {format(dateRange.startDate, "dd-MM-yyyy")} to{" "}
+                                {format(dateRange.endDate, "dd-MM-yyyy")}
+                            </>
+                        ) : (
+                            <>
+                                selected date:{" "}
+                                {format(dateRange.startDate, "dd-MM-yyyy")}
+                            </>
+                        )}
+                    </p>
                 </div>
 
                 <Formik
@@ -125,22 +123,16 @@ export const BookingFormModal = ({
                     {({ values }) => {
                         let totalPrice = 0;
 
-                        if (values.typeOfRent === "night") {
+                        if (values.typeOfRent === "nightly") {
                             const persons = values.numOfPersons;
-                            if (pricePerNight[persons]) {
-                                totalPrice =
-                                    (pricePerNight[persons] *
-                                        (dateRange.endDate.getTime() -
-                                            dateRange.startDate.getTime())) /
-                                    (1000 * 3600 * 24);
-                            }
+                            const nights =
+                                differenceInCalendarDays(
+                                    dateRange.endDate,
+                                    dateRange.startDate
+                                ) + 1;
+                            totalPrice = pricePerNight[persons] * nights;
                         } else {
-                            const numberOfDays = Math.floor(
-                                (dateRange.endDate.getTime() -
-                                    dateRange.startDate.getTime()) /
-                                    (1000 * 3600 * 24)
-                            );
-                            totalPrice = 150 * numberOfDays;
+                            totalPrice = 150;
                         }
 
                         return (
@@ -208,26 +200,7 @@ export const BookingFormModal = ({
                                     />
                                 </div>
 
-                                <div>
-                                    <label className="block mb-1 text-black font-medium">
-                                        Select Type of Rent:*
-                                    </label>
-                                    <Field
-                                        name="typeOfRent"
-                                        as="select"
-                                        className="text-black w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
-                                    >
-                                        <option value="daily">Daily Rent</option>
-                                        <option value="night">Night Rent</option>
-                                    </Field>
-                                    <ErrorMessage
-                                        name="typeOfRent"
-                                        component="div"
-                                        className="text-red-500 text-sm mt-1"
-                                    />
-                                </div>
-
-                                {values.typeOfRent === "night" && (
+                                {values.typeOfRent === "nightly" && (
                                     <div>
                                         <label className="block mb-1 text-black font-medium">
                                             Select Number of Persons:*
@@ -237,10 +210,12 @@ export const BookingFormModal = ({
                                             as="select"
                                             className="text-black w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
                                         >
-                                            <option value={1}>1 person</option>
-                                            <option value={2}>2 persons</option>
-                                            <option value={3}>3 persons</option>
-                                            <option value={4}>4 persons</option>
+                                            <option value={2}>
+                                                1 - 2 persons
+                                            </option>
+                                            <option value={4}>
+                                                3 - 4 persons
+                                            </option>
                                         </Field>
                                         <ErrorMessage
                                             name="numOfPersons"

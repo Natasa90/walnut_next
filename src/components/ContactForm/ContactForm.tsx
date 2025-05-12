@@ -34,7 +34,7 @@ export const ContactForm = () => {
     };
 
     return (
-        <div className="bg-[#dfd3c3] p-6 rounded-2xl space-y-4 w-11/12 md:w-1/2 mx-auto">
+        <div className="bg-[#dfd3c3] p-6 rounded-2xl space-y-4 w-11/12 md:w-1/2 mx-auto mb-6">
             <p className="text-xl font-semibold text-[#596e79] mb-2">
                 Contact Us
             </p>

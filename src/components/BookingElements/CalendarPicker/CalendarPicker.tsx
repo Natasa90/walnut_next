@@ -14,6 +14,7 @@ interface CalendarPickerProps {
     handleSelect: (ranges: any) => void;
     disabledDates?: Date[];
     onBookClick: () => void;
+    rentType: "daily" | "nightly";
 }
 
 export const CalendarPicker = ({
@@ -21,9 +22,10 @@ export const CalendarPicker = ({
     handleSelect,
     disabledDates,
     onBookClick,
+    rentType,
 }: CalendarPickerProps) => {
     return (
-        <div className="flex flex-col bg-[#dfd3c3] text-center p-8 rounded-2xl w-11/12 md:w-1/2 mx-auto border-top">
+        <div className="flex flex-col bg-[#dfd3c3] text-center p-8 rounded-2xl w-11/12 md:w-1/2 mx-auto">
             <h1 className="text-2xl font-semibold text-[#596e79] mb-6">
                 Select Dates
             </h1>
@@ -35,7 +37,9 @@ export const CalendarPicker = ({
                         minDate={new Date()}
                         rangeColors={["#596e79"]}
                         disabledDates={disabledDates}
-                        className={styles.customCalendar}
+                        retainEndDateOnFirstSelection={false}
+                        moveRangeOnFirstSelection={false}
+                        dragSelectionEnabled={rentType === "nightly"}
                         dayClassName={(date: any) => {
                             if (
                                 disabledDates?.some(
@@ -47,6 +51,17 @@ export const CalendarPicker = ({
                                 return "rdrTaken";
                             }
                             return "";
+                        }}
+                        onPreviewChange={(value: any) => {
+                            if (rentType === "daily" && value?.startDate) {
+                                handleSelect({
+                                    selection: {
+                                        startDate: value.startDate,
+                                        endDate: value.startDate,
+                                        key: "selection",
+                                    },
+                                });
+                            }
                         }}
                     />
                 </div>

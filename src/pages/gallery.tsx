@@ -1,10 +1,13 @@
 import { Gallery } from "@/components/Gallery";
+import { playfair } from "@/lib/fonts";
+import StickyCTA from "@/components/StickyCTA/StickyCTA";
 
 const GalleryPage = () => {
     return (
-        <div className="border-t text-center pt-10">
-					<h1 className="text-3xl font-bold mb-8">Gallery</h1>
+        <div className="text-center">
+					<h1 className={`${playfair.className} text-3xl font-bold my-6`}>Gallery</h1>
             <Gallery />
+						<StickyCTA /> 
         </div>
     );
 };
