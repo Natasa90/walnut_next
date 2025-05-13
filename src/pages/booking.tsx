@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import { addDays } from "date-fns";
 import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
@@ -20,73 +21,92 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-		useEffect(() => {
-			const today = new Date();
-			const tomorrow = addDays(today, 1);
-		
-			setDateRange([
-				{
-					startDate: today,
-					endDate: rentType === "daily" ? today : tomorrow,
-					key: "selection",
-				},
-			]);
-		}, [rentType]);
+    useEffect(() => {
+        const today = new Date();
+        const tomorrow = addDays(today, 1);
 
-		const handleSelect = (ranges: any) => {
-			const selection = ranges?.selection;
-			if (!selection) return;
-		
-			if (rentType === "daily") {
-				const selectedDate = selection.startDate;
-		
-				setDateRange([
-					{
-						startDate: selectedDate,
-						endDate: selectedDate,
-						key: "selection", 
-					},
-				]);
-			} else {
-				setDateRange([selection]);
-			}
-		};
+        setDateRange([
+            {
+                startDate: today,
+                endDate: rentType === "daily" ? today : tomorrow,
+                key: "selection",
+            },
+        ]);
+    }, [rentType]);
+
+    const handleSelect = (ranges: any) => {
+        const selection = ranges?.selection;
+        if (!selection) return;
+
+        if (rentType === "daily") {
+            const selectedDate = selection.startDate;
+
+            setDateRange([
+                {
+                    startDate: selectedDate,
+                    endDate: selectedDate,
+                    key: "selection",
+                },
+            ]);
+        } else {
+            setDateRange([selection]);
+        }
+    };
     return (
-        <div>
-            <div className="flex items-center gap-4 mx-7 my-6">
-                <label
-                    htmlFor="rentType"
-                    className="text-[#596e79] font-medium"
-                >
-                    Type of Rent:
-                </label>
-                <select
-                    id="rentType"
-                    className="px-2 py-1 border rounded-md"
-                    value={rentType}
-                    onChange={(e) =>
-                        setRentType(e.target.value as "daily" | "nightly")
-                    }
-                >
-                    <option value="daily">Daily</option>
-                    <option value="nightly">Nightly</option>
-                </select>
-            </div>
-            <CalendarPicker
-                dateRange={dateRange}
-                handleSelect={handleSelect}
-                disabledDates={disabledDates.map((d) => new Date(d))}
-                onBookClick={() => setIsModalOpen(true)}
-                rentType={rentType}
-            />
-            {isModalOpen && (
-                <BookingFormModal
-                    dateRange={dateRange[0]}
-                    onClose={() => setIsModalOpen(false)}
-										typeOfRent={rentType}
+        <>
+            <Head>
+                <title>Book Your Stay | Check Availability & Prices</title>
+                <meta
+                    name="description"
+                    content="Select your dates, view pricing, and easily book your stay at our cozy property. Choose between daily or nightly rates."
                 />
-            )}
-        </div>
+                <meta
+                    property="og:title"
+                    content="Book Your Stay | Check Availability & Prices"
+                />
+                <meta
+                    property="og:description"
+                    content="Select your dates, view pricing, and easily book your stay at our cozy property."
+                />
+                <meta property="og:type" content="website" />
+            </Head>
+
+            <div>
+                <div className="flex items-center gap-4 mx-7 my-6">
+                    <label
+                        htmlFor="rentType"
+                        className="text-[#596e79] font-medium"
+                    >
+                        Type of Rent:
+                    </label>
+                    <select
+                        id="rentType"
+                        className="px-2 py-1 border rounded-md"
+                        value={rentType}
+                        onChange={(e) =>
+                            setRentType(e.target.value as "daily" | "nightly")
+                        }
+                    >
+                        <option value="daily">Daily</option>
+                        <option value="nightly">Nightly</option>
+                    </select>
+                </div>
+                <CalendarPicker
+                    dateRange={dateRange}
+                    handleSelect={handleSelect}
+                    disabledDates={disabledDates.map((d) => new Date(d))}
+                    onBookClick={() => setIsModalOpen(true)}
+                    rentType={rentType}
+                />
+                {isModalOpen && (
+                    <BookingFormModal
+                        dateRange={dateRange[0]}
+                        onClose={() => setIsModalOpen(false)}
+                        typeOfRent={rentType}
+                    />
+                )}
+            </div>
+        </>
     );
 };
 

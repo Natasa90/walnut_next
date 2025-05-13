@@ -1,9 +1,7 @@
+import Head from "next/head";
 import { HomeWelcome } from "@/components/HomeWelcome";
 import { HomeInfo } from "@/components/HomeInfo";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
-import { facilities } from "@/lib/const/facilities";
-import { FacilityCard } from "@/components/FacilityCard/FacilityCard";
-import { playfair } from "@/lib/fonts";
 import { BackyardSection } from "@/components/BackyardSection";
 import { ThingsToSeeSection } from "@/components/ThingsToSeeSection";
 import { ButtonsBookingContact } from "@/components/ButtonsBookContact";
@@ -12,6 +10,24 @@ import { FacilitiesSection } from "@/components/FacilitiesSection";
 export default function Home() {
     return (
         <>
+            <Head>
+                <title>
+                    Welcome to HabitDesk | Your Dream Rental Home Awaits
+                </title>
+                <meta
+                    name="description"
+                    content="Discover your perfect rental home with HabitDesk! Explore facilities, images, and nearby attractions—book your stay today!"
+                />
+                <meta
+                    property="og:title"
+                    content="Welcome to HabitDesk | Your Dream Rental Home Awaits"
+                />
+                <meta
+                    property="og:description"
+                    content="Take a look at our stunning rental home, see the facilities, and plan your visit today!"
+                />
+                <meta property="og:type" content="website" />
+            </Head>
             <HomeWelcome />
             <HomeInfo />
             <StickyCTA />

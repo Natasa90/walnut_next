@@ -27,12 +27,10 @@ export const HomeInfo = () => {
                     (injected humour and the like).
                 </p>
                 <Link href="/about">
-                    <Link href="/booking">
-                        <div className="cursor-pointer transition-transform hover:scale-105 flex justify-center items-center gap-3 bg-gradient-to-r from-gray-600 to-green-600 hover:from-gray-700 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-full shadow-md w-64">
-                            <span>Learn more</span>
-                            <MdArrowForwardIos className="text-sm" />
-                        </div>
-                    </Link>
+                    <div className="cursor-pointer transition-transform hover:scale-105 flex justify-center items-center gap-3 bg-gradient-to-r from-gray-600 to-green-600 hover:from-gray-700 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-full shadow-md w-64">
+                        <span>More about us</span>
+                        <MdArrowForwardIos className="text-sm" />
+                    </div>
                 </Link>
             </div>
             <div className="m-4">
