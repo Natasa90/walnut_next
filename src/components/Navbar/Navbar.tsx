@@ -58,6 +58,7 @@ export const Navbar = () => {
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden text-2xl absolute top-10 right-4"
+										aria-label={menuOpen ? "Close menu" : "Open menu"}
                 >
                     {menuOpen ? <FaTimes size={36}/> : <FaBars size={36}/>}
                 </button>

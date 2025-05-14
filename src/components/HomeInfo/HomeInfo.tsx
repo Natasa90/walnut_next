@@ -10,7 +10,7 @@ export const HomeInfo = () => {
                 <h2 className={`${playfair.className} text-2xl`}>
                     Walnut Pool House
                 </h2>
-                <h3 className="italic text-gray-500">
+                <h3 className="italic text-gray-900">
                     - Where Nature Meets Refined Living -
                 </h3>
                 <p className="mt-4">
@@ -35,7 +35,7 @@ export const HomeInfo = () => {
             </div>
             <div className="m-4">
                 <Image
-                    src="/images/home_info.jpeg"
+                    src="/images/home_info.webp"
                     alt="Walnut House Front"
                     width={2500}
                     height={100}
