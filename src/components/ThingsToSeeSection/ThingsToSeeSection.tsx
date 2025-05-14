@@ -19,6 +19,7 @@ export const ThingsToSeeSection: FC = () => {
             whatToSee={item.whatToSee}
             bonus={item.bonus}
             imageSrc={item.imageSrc}
+						href={item.href}
           />
         ))}
       </div>

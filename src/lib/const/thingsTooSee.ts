@@ -6,6 +6,7 @@ export const thingsToSee = [
     whatToSee: "Thermal baths, an amphitheater, tombs, mosaics, and even a mammoth skeleton!",
     bonus: "The park also has a replica of a Roman camp, and guided tours are available.",
     imageSrc: "/images/viminacium.webp", 
+		href: "https://togp.rs/viminacijum/"
   },
   {
     title: "Milena Pavlović Barili Gallery",
@@ -14,6 +15,7 @@ export const thingsToSee = [
     whatToSee: "The house where Milena was born, with an extensive collection of her artwork.",
     bonus: "", 
     imageSrc: "/images/Barili3.webp",
+		href: "https://togp.rs/galerija-milene-pavlovic-barilli/"
   },
   {
     title: "Čačalica – Memorial Park",
@@ -22,6 +24,7 @@ export const thingsToSee = [
     whatToSee: "Stunning views of the city, well-maintained walking paths, a great place for a stroll or a rest.",
     bonus: "", 
     imageSrc: "/images/cacalica.webp",
+		href: "https://togp.rs/spomen-park-cacalica/"
   },
   {
     title: "Silver Lake (Srebrno jezero)",
@@ -30,6 +33,7 @@ export const thingsToSee = [
     whatToSee: "Swimming, fishing, boating, camping, and lakeside restaurants.",
     bonus: "", 
     imageSrc: "/images/srebrno-jezero.webp", 
+		href: "https://poseti-srebrnojezero.rs/"
   },
   {
     title: "Tumane Monastery",
@@ -38,6 +42,7 @@ export const thingsToSee = [
     whatToSee: "An increasingly popular destination for tourists, especially for pilgrims.",
     bonus: "", 
     imageSrc: "/images/tumane.webp", 
+		href: "https://manastirtumane.org/"
   },
   {
     title: "Golubac Fortress",
@@ -46,5 +51,6 @@ export const thingsToSee = [
     whatToSee: "A breathtaking view, excellent exhibitions, and guided tours.",
     bonus: "", 
     imageSrc: "/images/golubac.webp", 
+		href: "https://tvrdjavagolubackigrad.rs/"
   },
 ];
