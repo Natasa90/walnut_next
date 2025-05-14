@@ -37,8 +37,8 @@ export const HomeInfo = () => {
                 <Image
                     src="/images/home_info.webp"
                     alt="Walnut House Front"
-                    width={2500}
-                    height={100}
+                    width={800}
+                    height={600}
                     className="rounded-xl"
                 />
             </div>

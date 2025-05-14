@@ -10,7 +10,6 @@ export const HomeWelcome = () => {
     };
     return (
         <div className="relative bg-cover rounded-xl bg-center h-[84vh] flex items-center justify-center text-center m-4">
-            {/* The actual image */}
             <div className="absolute inset-0">
                 <Image
                     src="/images/home-cover1.webp"
@@ -18,10 +17,9 @@ export const HomeWelcome = () => {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-xl"
+										loading="eager"
                 />
             </div>
-
-            {/* Text and other content */}
             <div className="relative p-8 text-white max-w-xl z-10">
                 <h1 className="text-4xl md:text-5xl font-semibold mb-4 tracking-wide">
                     <Typewriter
