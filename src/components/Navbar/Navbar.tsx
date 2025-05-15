@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { playfair } from "@/lib/fonts";
+import { LanguageSwitcher } from "../LanguageSwitcher";
 
 const links = [
     { href: "/", label: "Home" },
@@ -52,6 +53,7 @@ export const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
+										<LanguageSwitcher />
                 </div>
 
                 {/* Hamburger menu toggle */}
@@ -91,6 +93,7 @@ export const Navbar = () => {
                                 </Link>
                             ))}
                         </div>
+												<LanguageSwitcher />
                     </div>
                 </>
             )}

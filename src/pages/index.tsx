@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { HomeWelcome } from "@/components/HomeWelcome";
 import { HomeInfo } from "@/components/HomeInfo";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
@@ -38,3 +40,11 @@ export default function Home() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || "sr", ["common"])),
+    },
+  };
+};

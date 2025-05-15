@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import { FC } from "react";
 import { ThingsToSeeCard } from "../ThingsToSeeCard";
 import { thingsToSee } from "@/lib/const/thingsTooSee";

@@ -17,7 +17,7 @@ export const HomeWelcome = () => {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-xl"
-										loading="eager"
+                    loading="eager"
                 />
             </div>
             <div className="relative p-8 text-white max-w-xl z-10">
