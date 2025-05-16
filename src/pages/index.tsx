@@ -13,15 +13,15 @@ export default function Home() {
         <>
             <Head>
                 <title>
-                    Welcome to HabitDesk | Your Dream Rental Home Awaits
+                    Welcome to Walnut Pool House | Your Dream Rental Home Awaits
                 </title>
                 <meta
                     name="description"
-                    content="Discover your perfect rental home with HabitDesk! Explore facilities, images, and nearby attractions—book your stay today!"
+                    content="Discover your perfect rental home with Walnut Pool House! Explore facilities, images, and nearby attractions—book your stay today!"
                 />
                 <meta
                     property="og:title"
-                    content="Welcome to HabitDesk | Your Dream Rental Home Awaits"
+                    content="Welcome to Walnut Pool House | Your Dream Rental Home Awaits"
                 />
                 <meta
                     property="og:description"
