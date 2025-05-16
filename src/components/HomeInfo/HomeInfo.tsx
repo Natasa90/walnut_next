@@ -2,10 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdArrowForwardIos } from "react-icons/md";
 import { playfair } from "@/lib/fonts";
-import { useTranslation } from "next-i18next";
 
 export const HomeInfo = () => {
-	const { t } = useTranslation("common");
+
     return (
         <div className="flex flex-wrap shadow-md">
             <div className="flex flex-col p-6 justify-center items-center gap-2">
@@ -15,8 +14,6 @@ export const HomeInfo = () => {
                 <h3 className="italic text-gray-900">
                     - Where Nature Meets Refined Living -
                 </h3>
-								<p className="text-green-800 font-semibold">{t("welcome")}</p>
-								<p className="text-green-800 font-semibold">{t("greeting")}</p>
                 <p className="mt-4">
                     It is a long established fact that a reader will be
                     distracted by the readable content of a page when looking at

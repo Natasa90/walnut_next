@@ -1,4 +1,8 @@
 {
   "greeting": "Zdravo",
-  "welcome": "Dobrodošla u aplikaciju!"
+  "welcome": "Dobrodošla u aplikaciju!",
+  "bookingSuccessTitle": "Rezervacija potvrđena!",
+  "bookingSuccessMessage": "Vaša rezervacija je uspešno završena, a fajl sa potvrdom se automatski preuzima na vaš uređaj. Uskoro ćemo vas kontaktirati. Radujemo se što ćemo vas ugostiti!",
+  "bookingSuccessSignature": "Vaš Walnut Pool House ❤️",
+	"callUs": "Pozovite nas!"
 }

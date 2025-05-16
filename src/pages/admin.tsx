@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { supabase } from "@/lib/Supabase";
 import { format } from "date-fns";
 
 interface Booking {

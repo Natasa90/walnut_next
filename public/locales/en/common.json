@@ -1,4 +1,8 @@
 {
   "greeting": "Hello",
-  "welcome": "Welcome to the app!"
+  "welcome": "Welcome to the app!",
+  "bookingSuccessTitle": "Booking Confirmed!",
+  "bookingSuccessMessage": "Your booking was successful, and your confirmation file is now being downloaded to your device automatically. We’ll be in touch with you shortly. We can’t wait to have you as our guest!",
+  "bookingSuccessSignature": "Yours, Walnut Pool House ❤️",
+	"callUs": "Call us!"
 }

@@ -5,7 +5,9 @@ import { format } from "date-fns";
 import { pricePerNight } from "@/lib/const/prices";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { differenceInCalendarDays } from "date-fns";
-import { generateBookingPDF } from "@/lib/pdfGenerator";
+import { generateBookingPDF } from "@/lib/helpers/pdfGenerator";
+import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
+import { useTranslation } from "next-i18next";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
@@ -28,9 +30,7 @@ export const BookingFormModal = ({
     onClose,
     typeOfRent,
 }: BookingFormModalProps) => {
-    const [bookingData, setBookingData] = useState<
-        (FormValues & { startDate: Date; endDate: Date }) | null
-    >(null);
+    const [isBookingSuccess, setIsBookingSuccess] = useState<boolean>(false);
     const initialValues: FormValues = {
         fullName: "",
         email: "",
@@ -40,6 +40,8 @@ export const BookingFormModal = ({
         numOfPersons: 2,
         totalPrice: typeOfRent === "daily" ? 150 : 0,
     };
+
+		const { t } = useTranslation("common");
 
     const validationSchema = Yup.object({
         fullName: Yup.string().required("Full Name field is required"),
@@ -89,12 +91,12 @@ export const BookingFormModal = ({
                 throw new Error("Failed to submit Booking.");
             }
 
-            alert("Booking successful! The Booking info will be downloaded automatically. We'll contact you soon. Thank you!");
-						generateBookingPDF(bookingData); 
-            onClose();
+            setIsBookingSuccess(true);
             getBookedDates();
+						generateBookingPDF(bookingData);
         } catch (error) {
             alert("Submitting Booking Failed. Try again!");
+            setIsBookingSuccess(false);
         }
     };
 
@@ -260,6 +262,17 @@ export const BookingFormModal = ({
                         );
                     }}
                 </Formik>
+                <SuccessBookingModal
+                    isOpen={isBookingSuccess}
+                    onClose={() => {
+                        setIsBookingSuccess(false);
+                        onClose(); // ✅ now close the modal
+                    }}
+                    title={t("bookingSuccessTitle")}
+                >
+                    <p>{t("bookingSuccessMessage")}</p>
+                    <p>{t("bookingSuccessSignature")}</p>
+                </SuccessBookingModal>
             </div>
         </div>
     );
