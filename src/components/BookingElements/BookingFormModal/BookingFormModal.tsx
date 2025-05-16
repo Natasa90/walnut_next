@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { pricePerNight } from "@/lib/const/prices";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { differenceInCalendarDays } from "date-fns";
-import { PdfButton } from "@/components/PdfButton";
+import { generateBookingPDF } from "@/lib/pdfGenerator";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
@@ -89,7 +89,8 @@ export const BookingFormModal = ({
                 throw new Error("Failed to submit Booking.");
             }
 
-            alert("Booking successful! We'll contact you soon. Thank you!");
+            alert("Booking successful! The Booking info will be downloaded automatically. We'll contact you soon. Thank you!");
+						generateBookingPDF(bookingData); 
             onClose();
             getBookedDates();
         } catch (error) {
