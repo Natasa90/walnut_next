@@ -7,6 +7,7 @@ import { BookingFormModal } from "@/components/BookingElements/BookingFormModal"
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
 import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
+import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 
 type BookingPageProps = {
     disabledDates: string[];
@@ -14,26 +15,33 @@ type BookingPageProps = {
 
 const BookingPage = ({ disabledDates }: BookingPageProps) => {
     const [rentType, setRentType] = useState<"daily" | "nightly">("nightly");
+		const nextAvailableDate = getNextAvailableDate(disabledDates.map((d) => new Date(d)));
     const [dateRange, setDateRange] = useState<MyDateRange[]>([
         {
-            startDate: new Date(),
-            endDate: addDays(new Date(), 1),
+            startDate: nextAvailableDate,
+            endDate: nextAvailableDate,
             key: "selection",
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    useEffect(() => {
-        const today = new Date();
-        const tomorrow = addDays(today, 1);
-
-        setDateRange([
-            {
-                startDate: today,
-                endDate: rentType === "daily" ? today : tomorrow,
-                key: "selection",
-            },
-        ]);
-    }, [rentType]);
+		useEffect(() => {
+			const nextAvailable = getNextAvailableDate(disabledDates.map((d) => new Date(d)));
+	
+			if (nextAvailable) {
+					const endDate =
+							rentType === "daily"
+									? nextAvailable
+									: addDays(nextAvailable, 1);
+	
+					setDateRange([
+							{
+									startDate: nextAvailable,
+									endDate,
+									key: "selection",
+							},
+					]);
+			}
+	}, [rentType, disabledDates]);
 
     const handleSelect = (ranges: any) => {
         const selection = ranges?.selection;

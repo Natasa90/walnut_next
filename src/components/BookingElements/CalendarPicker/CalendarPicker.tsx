@@ -2,6 +2,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
+import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 
 export type MyDateRange = {
     startDate: Date;
