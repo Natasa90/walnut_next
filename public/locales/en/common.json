@@ -4,5 +4,24 @@
   "bookingSuccessTitle": "Booking Confirmed!",
   "bookingSuccessMessage": "Your booking was successful, and your confirmation file is now being downloaded to your device automatically. We’ll be in touch with you shortly. We can’t wait to have you as our guest!",
   "bookingSuccessSignature": "Yours, Walnut Pool House ❤️",
-	"callUs": "Call us!"
+  "callUs": "Call us!",
+  "aboutUs": {
+    "title": "About Us",
+    "intro": "Welcome to your perfect countryside escape! 🏡",
+    "description": "Tucked away in the heart of Brezane, a charming village near Požarevac, our wooden A-frame house is more than just a place to stay - it’s a peaceful retreat built with love by the Stefanović family. We opened our doors in May 2025, and ever since, we've been sharing our little slice of paradise with guests looking to unwind, unplug, and enjoy nature’s simplicity.",
+    "comforts": "Our home is where rustic charm meets modern comfort. Surrounded by greenery and fresh village air, the property offers everything you need for an unforgettable stay:",
+    "features": {
+      "pool": "A swimming pool for sunny days ☀️",
+      "patio": "A cozy patio and fully-equipped garden kitchen",
+      "bbq": "A barbecue area and a traditional Serbian ražanj (rotisserie grill) 🍖",
+      "firePit": "A fire pit for starlit storytelling 🔥",
+      "playground": "A fun-filled playground for the little ones",
+      "backyard": "A large backyard with cornhole, picado, and plenty of space for relaxing 🌳",
+      "petFriendly": "Pet-friendly! Because vacations are better with furry friends 🐾"
+    },
+    "closing": "Whether you're celebrating, recharging, or just escaping the city buzz, our home is your home.",
+    "extra": "And if you're up for a mountain adventure, we’ve got you covered there too! The Stefanović family also owns a beautiful apartment in Zlatibor, one of Serbia’s most popular mountain destinations—ideal for winter getaways or summer hiking trips.",
+    "note": "We're a family-owned business, and we take pride in creating a cozy and welcoming atmosphere for every guest. No big corporations, just genuine Serbian hospitality and the joy of sharing what we’ve built with you.",
+    "final": "We can’t wait to welcome you to Brezane. Come as guests, leave as friends! 💛"
+  }
 }

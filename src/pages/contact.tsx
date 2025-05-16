@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { GetStaticProps } from 'next';
+import { GetStaticProps } from "next";
 import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactText } from "@/components/ContactText";
+import { ContactUsExtra } from "@/components/ContactUsExtra";
 
 const ContactPage = () => {
     return (
@@ -23,9 +24,10 @@ const ContactPage = () => {
                 />
                 <meta property="og:type" content="website" />
             </Head>
-            <div className="flex flex-wrap mt-6">
+            <div className="flex flex-wrap my-6 justify-center items-center">
                 <ContactText />
                 <ContactForm />
+                <ContactUsExtra />
             </div>
         </>
     );
@@ -34,5 +36,5 @@ const ContactPage = () => {
 export default ContactPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  return loadTranslation(context);
+    return loadTranslation(context);
 };
