@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { GetStaticProps } from 'next';
+import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { Gallery } from "@/components/Gallery";
 import { playfair } from "@/lib/fonts";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
@@ -35,3 +37,7 @@ const GalleryPage = () => {
 };
 
 export default GalleryPage;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return loadTranslation(context);
+};

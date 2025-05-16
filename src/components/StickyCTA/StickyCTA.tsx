@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
+import { useTranslation, UseTranslation } from "next-i18next";
+
 
 const StickyCTA = () => {
     const [show, setShow] = useState(false);
+
+		const { t } = useTranslation("common"); 
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,7 +31,7 @@ const StickyCTA = () => {
                 onClick={() => window.location.href = 'tel:+1234567890'}
             >
                 <FaPhoneAlt className="animate-pulse-on-hover" />
-                <span>Call us!</span>
+                <span>{t("callUs")}</span>
             </button>
         </div>
     );

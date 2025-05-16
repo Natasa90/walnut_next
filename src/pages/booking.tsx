@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { addDays } from "date-fns";
 import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
 import { BookingFormModal } from "@/components/BookingElements/BookingFormModal";
@@ -112,22 +113,31 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
 
 export default BookingPage;
 
-export async function getServerSideProps() {
-    try {
-        const bookings = await getBookedDates();
-        const disabledDates = formatBlockedDates(bookings);
+export async function getServerSideProps({ locale }: { locale: string }) {
+	console.log("getServerSideProps locale:", locale);
 
-        return {
-            props: {
-                disabledDates: disabledDates.map((date) => date.toISOString()),
-            },
-        };
-    } catch (error) {
-        console.error("SSR error:", error);
-        return {
-            props: {
-                disabledDates: [],
-            },
-        };
-    }
+	try {
+			const bookings = await getBookedDates();
+			const disabledDates = formatBlockedDates(bookings);
+
+			const translations = await serverSideTranslations(locale, ["common"]);
+
+			return {
+					props: {
+							disabledDates: disabledDates.map((date) => date.toISOString()),
+							...translations,
+					},
+			};
+	} catch (error) {
+			console.error("SSR error:", error);
+
+			const translations = await serverSideTranslations(locale, ["common"]);
+
+			return {
+					props: {
+							disabledDates: [],
+							...translations,
+					},
+			};
+	}
 }
