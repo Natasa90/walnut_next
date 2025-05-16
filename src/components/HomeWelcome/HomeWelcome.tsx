@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Typewriter } from "react-simple-typewriter";
+import { CustomLink } from "../CustomLink";
+import { FaRegCalendarCheck } from "react-icons/fa";
 import { MdArrowForwardIos } from "react-icons/md";
 
 export const HomeWelcome = () => {
@@ -9,17 +11,22 @@ export const HomeWelcome = () => {
         router.push("/booking");
     };
     return (
-        <div className="relative bg-cover rounded-xl bg-center h-[84vh] flex items-center justify-center text-center m-4">
+        <div className="relative rounded-xl h-[84vh] flex items-center justify-center text-center m-4 overflow-hidden">
+            {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
                     src="/images/home-cover1.webp"
                     alt="A-frame retreat home cover image"
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-xl"
+                    className="w-full h-full"
                     loading="eager"
                 />
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/30" />
             </div>
+
+            {/* Content */}
             <div className="relative p-8 text-white max-w-xl z-10">
                 <h1 className="text-4xl md:text-5xl font-semibold mb-4 tracking-wide">
                     <Typewriter
@@ -36,15 +43,12 @@ export const HomeWelcome = () => {
                     Escape to nature in our charming A-frame retreat nestled in
                     Brezane.
                 </p>
-                <button
-                    onClick={handleBooking}
-                    className="border text-white px-5 py-3 rounded-lg font-medium transition"
-                >
-                    <div className="cursor-pointer flex items-center gap-4">
-                        <p className="italic text-bold">Book Now!</p>
-                        <MdArrowForwardIos />
-                    </div>
-                </button>
+								<CustomLink
+                    href="/booking"
+                    title="Check Availability"
+										leftIcon={<FaRegCalendarCheck/>}
+                    rightIcon={<MdArrowForwardIos />}
+                />
             </div>
         </div>
     );

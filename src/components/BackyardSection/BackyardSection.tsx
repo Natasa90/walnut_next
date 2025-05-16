@@ -1,16 +1,23 @@
 import Image from "next/image";
 import { FC } from "react";
 import { playfair } from "@/lib/fonts";
+import { CustomLink } from "../CustomLink";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { MdArrowForwardIos } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 interface BackyardSectionProps {
     imageSrc: string;
 }
 
 export const BackyardSection: FC<BackyardSectionProps> = ({ imageSrc }) => {
+
+		const { t } = useTranslation("common"); 
     return (
-        <section className="w-full flex flex-col-reverse md:flex-row items-center gap-8 my-5 px-4 md:px-16">
+        <section className="w-full flex flex-col-reverse md:flex-col items-center gap-8 my-5 px-4 md:px-16">
             <div className="flex-1 text-center md:text-left">
-						<h2 className={`${playfair.className} text-2xl`}>
+                <h2 className={`${playfair.className} text-2xl text-center`}>
                     Enjoy our beautiful backyard!
                 </h2>
                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed my-4">
@@ -31,6 +38,18 @@ export const BackyardSection: FC<BackyardSectionProps> = ({ imageSrc }) => {
                     className="rounded-xl shadow-lg object-cover w-full h-auto"
                 />
             </div>
+            <CustomLink
+                href="/booking"
+                title="Check Availability"
+                leftIcon={<FaRegCalendarCheck />}
+                rightIcon={<MdArrowForwardIos />}
+            />
+            <CustomLink
+                href="/contact"
+                title="Contact us!"
+                leftIcon={<FaPhoneAlt />}
+                rightIcon={<MdArrowForwardIos />}
+            />
         </section>
     );
 };

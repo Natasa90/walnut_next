@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MdArrowForwardIos } from "react-icons/md";
+import { CustomLink } from "../CustomLink";
 import { playfair } from "@/lib/fonts";
 
 export const HomeInfo = () => {
-
     return (
         <div className="flex flex-wrap shadow-md">
             <div className="flex flex-col p-6 justify-center items-center gap-2">
@@ -27,12 +27,11 @@ export const HomeInfo = () => {
                     over the years, sometimes by accident, sometimes on purpose
                     (injected humour and the like).
                 </p>
-                <Link href="/about">
-                    <div className="cursor-pointer transition-transform hover:scale-105 flex justify-center items-center gap-3 bg-gradient-to-r from-gray-600 to-green-600 hover:from-gray-700 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-full shadow-md w-64">
-                        <span>More about us</span>
-                        <MdArrowForwardIos className="text-sm" />
-                    </div>
-                </Link>
+                <CustomLink
+                    href="/about"
+                    title="More about us"
+                    rightIcon={<MdArrowForwardIos />}
+                />
             </div>
             <div className="m-4">
                 <Image

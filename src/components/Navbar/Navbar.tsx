@@ -32,19 +32,23 @@ export const Navbar = () => {
                             className="rounded-full transition-transform duration-300 hover:scale-110 hover:rotate-6 sm:w-[100px] sm:h-[100px]"
                         />
                         {/* Title hidden on small screens */}
-                        <p className={`${playfair.className} ml-4 text-2xl sm:text-3xl hidden sm:block`}>
+                        <p
+                            className={`${playfair.className} ml-4 mb-1 text-2xl hidden lg:block`}
+                        >
                             Walnut Pool House
                         </p>
                     </div>
                 </Link>
 
                 {/* Desktop links */}
-                <div className="hidden md:flex gap-6">
+                <div className="hidden md:flex gap-6 mt-2">
                     {links.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`${playfair.className} hover:scale-110 transition duration-200 text-xl ${
+                            className={`${
+                                playfair.className
+                            } hover:scale-110 transition duration-200 text-sm md:text-base lg:text-xl ${
                                 router.pathname === link.href
                                     ? "font-semibold text-red-500"
                                     : ""
@@ -53,16 +57,16 @@ export const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
-										<LanguageSwitcher />
+                    <LanguageSwitcher />
                 </div>
 
                 {/* Hamburger menu toggle */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden text-2xl absolute top-10 right-4"
-										aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
                 >
-                    {menuOpen ? <FaTimes size={36}/> : <FaBars size={36}/>}
+                    {menuOpen ? <FaTimes size={36} /> : <FaBars size={36} />}
                 </button>
             </div>
 
@@ -93,7 +97,7 @@ export const Navbar = () => {
                                 </Link>
                             ))}
                         </div>
-												<LanguageSwitcher />
+                        <LanguageSwitcher />
                     </div>
                 </>
             )}

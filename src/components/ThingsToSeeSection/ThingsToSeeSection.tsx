@@ -5,7 +5,7 @@ import { playfair } from "@/lib/fonts";
 
 export const ThingsToSeeSection: FC = () => {
   return (
-    <section className="w-full py-12 px-4 bg-gray-300 border-t-4">
+    <section className="w-full py-12 px-4 bg-gray-300 border-t-3 border-gray-400">
       <h2 className={`${playfair.className} text-2xl text-center mb-5`}>
         Things to See Near Our Cottage
       </h2>

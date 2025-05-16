@@ -6,7 +6,6 @@ import { HomeInfo } from "@/components/HomeInfo";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
 import { BackyardSection } from "@/components/BackyardSection";
 import { ThingsToSeeSection } from "@/components/ThingsToSeeSection";
-import { ButtonsBookingContact } from "@/components/ButtonsBookContact";
 import { FacilitiesSection } from "@/components/FacilitiesSection";
 
 export default function Home() {
@@ -35,7 +34,6 @@ export default function Home() {
             <StickyCTA />
             <FacilitiesSection />
             <BackyardSection imageSrc="/images/exterior2.webp" />
-            <ButtonsBookingContact />
             <ThingsToSeeSection />
         </>
     );

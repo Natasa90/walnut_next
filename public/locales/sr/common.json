@@ -4,5 +4,24 @@
   "bookingSuccessTitle": "Rezervacija potvrđena!",
   "bookingSuccessMessage": "Vaša rezervacija je uspešno završena, a fajl sa potvrdom se automatski preuzima na vaš uređaj. Uskoro ćemo vas kontaktirati. Radujemo se što ćemo vas ugostiti!",
   "bookingSuccessSignature": "Vaš Walnut Pool House ❤️",
-	"callUs": "Pozovite nas!"
+  "callUs": "Pozovite nas!",
+  "aboutUs": {
+    "title": "O nama",
+    "intro": "Dobrodošli u vaše savršeno utočište na selu! 🏡",
+    "description": "Skrivena u srcu Brezana, šarmantnog sela blizu Požarevca, naša drvena kućica u obliku slova A nije samo mesto za boravak - ona je mirno utočište koje je sa ljubavlju izgradila porodica Stefanović. Otvorili smo vrata u maju 2025. godine i od tada delimo naš mali raj sa gostima koji žele da se opuste, isključe i uživaju u jednostavnosti prirode.",
+    "comforts": "Naš dom je mesto gde se rustični šarm susreće sa modernim komforom. Okružena zelenilom i svežim seoskim vazduhom, naša kuća nudi sve što vam je potrebno za nezaboravan boravak:",
+    "features": {
+      "pool": "Bazen za sunčane dane ☀️",
+      "patio": "Udobna terasa i potpuno opremljena baštenska kuhinja",
+      "bbq": "Roštilj zona i tradicionalni srpski ražanj 🍖",
+      "firePit": "Ognjište za pričanje priča pod zvezdama 🔥",
+      "playground": "Igralište puno zabave za najmlađe",
+      "backyard": "Veliko dvorište sa cornhole-om, pikadom i mnogo prostora za opuštanje 🌳",
+      "petFriendly": "Pet-friendly! Jer odmori su bolji sa krznenim prijateljima 🐾"
+    },
+    "closing": "Bilo da slavite, punite baterije ili jednostavno bežite od gradske gužve—naš dom je i vaš dom.",
+    "extra": "Ako ste raspoloženi za planinsku avanturu, i tu imamo rešenje! Porodica Stefanović takođe poseduje prelep apartman na Zlatiboru, jednoj od najpopularnijih planinskih destinacija u Srbiji—idealno za zimski odmor ili letnje planinarenje.",
+    "note": "Mi smo porodični biznis i ponosimo se stvaranjem prijatne i tople atmosfere za svakog gosta. Nema velikih korporacija—samo iskreno srpsko gostoprimstvo i radost deljenja onoga što smo izgradili.",
+    "final": "Jedva čekamo da Vas ugostimo u Brezanima. Dođite kao gosti - odlazite kao prijatelji! 💛"
+  }
 }
