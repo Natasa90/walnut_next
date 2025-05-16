@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
 import { pricePerNight } from "@/lib/const/prices";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { differenceInCalendarDays } from "date-fns";
+import { generateBookingPDF } from "@/lib/pdfGenerator";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
@@ -26,6 +28,9 @@ export const BookingFormModal = ({
     onClose,
     typeOfRent,
 }: BookingFormModalProps) => {
+    const [bookingData, setBookingData] = useState<
+        (FormValues & { startDate: Date; endDate: Date }) | null
+    >(null);
     const initialValues: FormValues = {
         fullName: "",
         email: "",
@@ -61,28 +66,31 @@ export const BookingFormModal = ({
 
         values.totalPrice = totalPrice;
 
+        const bookingData = {
+            fullName: values.fullName,
+            email: values.email,
+            phone: values.phone,
+            message: values.message,
+            startDate: dateRange.startDate,
+            endDate: dateRange.endDate,
+            typeOfRent: values.typeOfRent,
+            numOfPersons: values.numOfPersons,
+            totalPrice: totalPrice,
+        };
+
         try {
             const response = await fetch("/api/bookings", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    fullName: values.fullName,
-                    email: values.email,
-                    phone: values.phone,
-                    message: values.message,
-                    startDate: dateRange.startDate,
-                    endDate: dateRange.endDate,
-                    typeOfRent: values.typeOfRent,
-                    numOfPersons: values.numOfPersons,
-                    totalPrice: totalPrice,
-                }),
+                body: JSON.stringify(bookingData),
             });
 
             if (!response.ok) {
                 throw new Error("Failed to submit Booking.");
             }
 
-            alert("Booking successful! We'll contact you soon. Thank you!");
+            alert("Booking successful! The Booking info will be downloaded automatically. We'll contact you soon. Thank you!");
+						generateBookingPDF(bookingData); 
             onClose();
             getBookedDates();
         } catch (error) {
