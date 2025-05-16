@@ -114,8 +114,6 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
 export default BookingPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-	console.log("getServerSideProps locale:", locale);
-
 	try {
 			const bookings = await getBookedDates();
 			const disabledDates = formatBlockedDates(bookings);
@@ -129,8 +127,6 @@ export async function getServerSideProps({ locale }: { locale: string }) {
 					},
 			};
 	} catch (error) {
-			console.error("SSR error:", error);
-
 			const translations = await serverSideTranslations(locale, ["common"]);
 
 			return {

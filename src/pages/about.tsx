@@ -11,15 +11,15 @@ const AboutPage = () => {
                 <title>About Our Family & Property | HabitDesk</title>
                 <meta
                     name="description"
-                    content="Learn more about the family behind HabitDesk and the story of our beautiful property. Discover our mission and values."
+                    content="Learn more about the family behind Walnut Pool House and the story of our beautiful property. Discover our mission and values."
                 />
                 <meta
                     property="og:title"
-                    content="About Our Family & Property | HabitDesk"
+                    content="About Our Family & Property | Walnut Pool House"
                 />
                 <meta
                     property="og:description"
-                    content="Learn more about the family behind HabitDesk and the story of our beautiful property."
+                    content="Learn more about the family behind Walnut Pool House and the story of our beautiful property."
                 />
                 <meta property="og:type" content="website" />
             </Head>

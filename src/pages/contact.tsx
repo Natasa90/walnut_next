@@ -16,7 +16,7 @@ const ContactPage = () => {
                 />
                 <meta
                     property="og:title"
-                    content="Contact Us | Get in Touch with HabitDesk"
+                    content="Contact Us | Get in Touch with Walnut Pool House"
                 />
                 <meta
                     property="og:description"
