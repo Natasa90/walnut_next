@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FC } from "react";
 import { playfair } from "@/lib/fonts";
 import { CustomLink } from "../CustomLink";
 import { FaRegCalendarCheck } from "react-icons/fa";
@@ -7,13 +6,8 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
-interface BackyardSectionProps {
-    imageSrc: string;
-}
-
-export const BackyardSection: FC<BackyardSectionProps> = ({ imageSrc }) => {
-
-		const { t } = useTranslation("common"); 
+export const BackyardSection = () => {
+    const { t } = useTranslation("common");
     return (
         <section className="w-full flex flex-col-reverse md:flex-col items-center gap-8 my-5 px-4 md:px-16">
             <div className="flex-1 text-center md:text-left">
@@ -29,10 +23,17 @@ export const BackyardSection: FC<BackyardSectionProps> = ({ imageSrc }) => {
                     made for making memories!
                 </p>
             </div>
-            <div className="flex-1">
+            <div className="flex flex-col gap-4 md:flex-row md:flex-wrap">
                 <Image
-                    src={imageSrc}
-                    alt="Walnut Pool House backyard"
+                    src="/images/Backyard/Firepit8.webp"
+                    alt="Walnut Pool House Firepit"
+                    width={600}
+                    height={400}
+                    className="rounded-xl shadow-lg object-cover w-full h-auto"
+                />
+                <Image
+                    src="/images/Backyard/Backyard7.webp"
+                    alt="Walnut Pool House Swimming Pool"
                     width={600}
                     height={400}
                     className="rounded-xl shadow-lg object-cover w-full h-auto"

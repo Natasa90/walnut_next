@@ -24,6 +24,8 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+
 		useEffect(() => {
 			const nextAvailable = getNextAvailableDate(disabledDates.map((d) => new Date(d)));
 	

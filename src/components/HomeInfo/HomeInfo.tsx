@@ -6,7 +6,7 @@ import { playfair } from "@/lib/fonts";
 
 export const HomeInfo = () => {
     return (
-        <div className="flex flex-wrap shadow-md">
+        <div className="flex flex-wrap shadow-md my-6">
             <div className="flex flex-col p-6 justify-center items-center gap-2">
                 <h2 className={`${playfair.className} text-2xl`}>
                     Walnut Pool House
@@ -14,7 +14,7 @@ export const HomeInfo = () => {
                 <h3 className="italic text-gray-900">
                     - Where Nature Meets Refined Living -
                 </h3>
-                <p className="mt-4">
+                <p className="my-6">
                     It is a long established fact that a reader will be
                     distracted by the readable content of a page when looking at
                     its layout. The point of using Lorem Ipsum is that it has a
@@ -33,13 +33,20 @@ export const HomeInfo = () => {
                     rightIcon={<MdArrowForwardIos />}
                 />
             </div>
-            <div className="m-4">
+            <div className="flex flex-col m-4">
                 <Image
-                    src="/images/home_info.webp"
+                    src="/images/Kitchen/Kitchen_indoor1.webp"
                     alt="Walnut House Front"
+                    width={600}
+                    height={400}
+                    className="rounded-3xl p-4"
+                />
+								<Image
+                    src="/images/Living_room/Livingroom17.webp"
+                    alt="Walnut House Living Room"
                     width={800}
                     height={600}
-                    className="rounded-xl"
+                    className="rounded-3xl p-4"
                 />
             </div>
         </div>

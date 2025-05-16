@@ -33,7 +33,7 @@ export default function Home() {
             <HomeInfo />
             <StickyCTA />
             <FacilitiesSection />
-            <BackyardSection imageSrc="/images/exterior2.webp" />
+            <BackyardSection />
             <ThingsToSeeSection />
         </>
     );
