@@ -1,15 +1,11 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { Typewriter } from "react-simple-typewriter";
 import { CustomLink } from "../CustomLink";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { MdArrowForwardIos } from "react-icons/md";
+import { playfair } from "@/lib/fonts";
 
 export const HomeWelcome = () => {
-    const router = useRouter();
-    const handleBooking = () => {
-        router.push("/booking");
-    };
     return (
         <div className="relative rounded-xl h-[84vh] flex items-center justify-center text-center m-4 overflow-hidden">
             {/* Background Image */}
@@ -28,7 +24,7 @@ export const HomeWelcome = () => {
 
             {/* Content */}
             <div className="relative p-8 text-white max-w-xl z-10">
-                <h1 className="text-4xl md:text-5xl font-semibold mb-4 tracking-wide">
+                <h1 className={`${playfair.className} text-4xl md:text-5xl font-semibold mb-4 tracking-wide}`}>
                     <Typewriter
                         words={["Relax.", "Unwind.", "Breathe.", "Recharge."]}
                         loop={false}

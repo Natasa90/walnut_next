@@ -4,7 +4,7 @@ import { FacilityCard } from "../FacilityCard/FacilityCard";
 
 export const FacilitiesSection = () => {
     return (
-        <section className="flex flex-col items-center my-5 shadow-md pb-6">
+        <section className="flex flex-col items-center my-5 shadow-md pb-12">
             <h2 className={`${playfair.className} text-center text-2xl`}>
                 Facilities
             </h2>
