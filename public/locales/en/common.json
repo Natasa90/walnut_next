@@ -23,5 +23,20 @@
     "extra": "And if you're up for a mountain adventure, we’ve got you covered there too! The Stefanović family also owns a beautiful apartment in Zlatibor, one of Serbia’s most popular mountain destinations—ideal for winter getaways or summer hiking trips.",
     "note": "We're a family-owned business, and we take pride in creating a cozy and welcoming atmosphere for every guest. No big corporations, just genuine Serbian hospitality and the joy of sharing what we’ve built with you.",
     "final": "We can’t wait to welcome you to Brezane. Come as guests, leave as friends! 💛"
+  },
+	"home": {
+    "homeInfo": {
+      "typewriterWords": ["Relax.", "Unwind.", "Breathe.", "Recharge."],
+      "subtitle": "Escape to nature in our charming A-frame retreat nestled in Brezane.",
+      "linkText": "Check Availability"
+    },
+		"homeInfo2" : {
+			"title": "Walnut Pool House",
+      "subtitle": "– Where Nature Meets Refined Living –",
+      "p1": "Welcome to Walnut Pool House – a charming frame wooden retreat nestled in the peaceful village of Brezane, near Požarevac. Surrounded by a serene walnut forest, this cozy getaway blends nature’s calm with the comfort of modern living ✨.",
+      "p2": "Whether you’re seeking a tranquil escape, a relaxed family gathering, a sunny afternoon by the pool, or a laid-back barbecue with friends – we’ve got you covered. Our space is designed for small groups looking to unwind, reconnect, and enjoy the quiet beauty of the countryside.",
+      "p3": "We would be more than happy to welcome you and show you exactly why we fell in love with this place – and why we think you will too 💛.",
+      "linkText": "More about us"
+    }
   }
 }

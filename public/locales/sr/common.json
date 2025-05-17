@@ -23,5 +23,21 @@
     "extra": "Ako ste raspoloženi za planinsku avanturu, i tu imamo rešenje! Porodica Stefanović takođe poseduje prelep apartman na Zlatiboru, jednoj od najpopularnijih planinskih destinacija u Srbiji—idealno za zimski odmor ili letnje planinarenje.",
     "note": "Mi smo porodični biznis i ponosimo se stvaranjem prijatne i tople atmosfere za svakog gosta. Nema velikih korporacija—samo iskreno srpsko gostoprimstvo i radost deljenja onoga što smo izgradili.",
     "final": "Jedva čekamo da Vas ugostimo u Brezanima. Dođite kao gosti - odlazite kao prijatelji! 💛"
-  }
+  },
+	"home": {
+  "homeInfo": {
+    "imageAlt": "Slika naslovnice planinske A-frame kuće",
+    "typewriterWords": ["Opusti se.", "Odmori.", "Udahni.", "Napuni baterije."],
+    "subtitle": "Pobegnite u prirodu i uživajte u šarmantnoj A-frame kući u Brezanu.",
+    "linkText": "Proveri dostupnost"
+  },
+	"homeInfo2": {
+  	"title": "Walnut Pool House",
+  	"subtitle": "– Gde se priroda susreće sa udobnim životom –",
+  	"p1": "Dobrodošli u Walnut Pool House – šarmantnu drvenu kuću smeštenu u mirnom selu Brežane, blizu Požarevca. Okružena spokojnom šumom oraha, ova udobna oaza spaja smirenost prirode sa komforom modernog života ✨.",
+  	"p2": "Bilo da tražite miran beg, opušteno porodično okupljanje, sunčano popodne pored bazena ili lagani roštilj sa prijateljima – kod nas ste na pravom mestu. Naš prostor je osmišljen za manje grupe koje žele da se opuste, povežu i uživaju u tihom šarmu sela.",
+  	"p3": "Biće nam zadovoljstvo da vas ugostimo i pokažemo vam zašto smo se zaljubili u ovo mesto – i zašto verujemo da ćete i vi 💛.",
+  	"linkText": "Više o nama"
+		}
+	}
 }
