@@ -9,10 +9,10 @@ export const HomeInfo = () => {
   if (!ready) return null;
 
     return (
-        <section className="w-full flex flex-col-reverse md:flex-col items-center gap-8 my-5 px-4 md:px-16">
+        <section className="flex flex-col-reverse md:flex-col items-center gap-8 my-5 md:px-16">
             <HomePageCard
                 title={t("home.homeInfo2.title")}
-                subTitle={t("home.homeInfo2.subTitle")}
+                subTitle={t("home.homeInfo2.subtitle")}
                 paragraph1={t("home.homeInfo2.p1")}
                 paragraph2={t("home.homeInfo2.p2")}
                 paragraph3={t("home.homeInfo2.p3")}

@@ -8,7 +8,7 @@
   "aboutUs": {
     "title": "About Us",
     "intro": "Welcome to your perfect countryside escape! 🏡",
-    "description": "Tucked away in the heart of Brezane, a charming village near Požarevac, our wooden A-frame house is more than just a place to stay - it’s a peaceful retreat built with love by the Stefanović family. We opened our doors in May 2025, and ever since, we've been sharing our little slice of paradise with guests looking to unwind, unplug, and enjoy nature’s simplicity.",
+    "description": "Tucked away in the heart of Brezane, a charming village near Požarevac, our wooden A-frame house is more than just a place to stay, it’s a peaceful retreat built with love by the Stefanović family. We opened our doors in May 2025, and ever since, we've been sharing our little slice of paradise with guests looking to unwind, unplug, and enjoy nature’s simplicity.",
     "comforts": "Our home is where rustic charm meets modern comfort. Surrounded by greenery and fresh village air, the property offers everything you need for an unforgettable stay:",
     "features": {
       "pool": "A swimming pool for sunny days ☀️",
@@ -21,7 +21,7 @@
     },
     "closing": "Whether you're celebrating, recharging, or just escaping the city buzz, our home is your home.",
     "extra": "And if you're up for a mountain adventure, we’ve got you covered there too! The Stefanović family also owns a beautiful apartment in Zlatibor, one of Serbia’s most popular mountain destinations—ideal for winter getaways or summer hiking trips.",
-    "note": "We're a family-owned business, and we take pride in creating a cozy and welcoming atmosphere for every guest. No big corporations, just genuine Serbian hospitality and the joy of sharing what we’ve built with you.",
+    "note": "We're a family-owned business, and we take pride in creating a cozy and welcoming atmosphere for every guest. No big corporations. Just genuine Serbian hospitality and the joy of sharing what we’ve built with you.",
     "final": "We can’t wait to welcome you to Brezane. Come as guests, leave as friends! 💛"
   },
 	"home": {
@@ -33,10 +33,76 @@
 		"homeInfo2" : {
 			"title": "Walnut Pool House",
       "subtitle": "– Where Nature Meets Refined Living –",
-      "p1": "Welcome to Walnut Pool House – a charming frame wooden retreat nestled in the peaceful village of Brezane, near Požarevac. Surrounded by a serene walnut forest, this cozy getaway blends nature’s calm with the comfort of modern living ✨.",
-      "p2": "Whether you’re seeking a tranquil escape, a relaxed family gathering, a sunny afternoon by the pool, or a laid-back barbecue with friends – we’ve got you covered. Our space is designed for small groups looking to unwind, reconnect, and enjoy the quiet beauty of the countryside.",
-      "p3": "We would be more than happy to welcome you and show you exactly why we fell in love with this place – and why we think you will too 💛.",
+      "p1": "Welcome to Walnut Pool House, a charming frame wooden retreat nestled in the peaceful village of Brezane, near Požarevac. Surrounded by a serene walnut forest, this cozy getaway blends nature’s calm with the comfort of modern living ✨.",
+      "p2": "Whether you’re seeking a tranquil escape, a relaxed family gathering, a sunny afternoon by the pool, or a laid-back barbecue with friends, we’ve got you covered. Our space is designed for small groups looking to unwind, reconnect, and enjoy the quiet beauty of the countryside.",
+      "p3": "We would be more than happy to welcome you and show you exactly why we fell in love with this place, and why we think you will too 💛.",
       "linkText": "More about us"
-    }
-  }
+    },
+		"homeInfo3": {
+			"title": "The Ultimate Chill Zone",
+			"subtitle": "Relax, Play, Enjoy. Right in Our Backyard!",
+			"p1": "Soak up the sun by the private pool, grill up something delicious in the outdoor kitchen or try your hand at some corn hole.",
+			"p2": "From giggles on the playground to fireside chats under the stars—our backyard has it all. Kick back on the patio, fire up the grill, or gather ‘round the separate fire pit for a night to remember. Whether it’s a relaxed family evening or a summer bash with friends, this space was made for memories.",
+			"linkText": "More about us"
+		},
+	"facilities": {
+		"facilitiesTitle": "Facilities", 
+  	"privatePool": "Private Pool",
+  	"freeWifi": "Free WiFi",
+  	"beds": "1 Queen Bed + 1 Sofa Bed",
+  	"kitchen": "Fully Equipped Kitchen",
+  	"bbq": "BBQ Grill + Spit Roast",
+  	"firePit": "Fire Pit",
+  	"bathroom": "1 Bathroom",
+  	"patio": "Private Patio",
+		"parking": "Parking Lot",
+		"outdoorKitchen": "Outdoor Kitchen",
+		"playground": "Playground"
+		},
+		"thingsToSee": {
+			"title": "Things to See Near Our Cottage",
+			"viminacium": {
+				"title": "Viminacium - Archaeological Park",
+				"location": "12 km from Požarevac, near Kostolac",
+				"significance": "Once a Roman city and military camp.",
+				"whatToSee": "Thermal baths, an amphitheater, tombs, mosaics, and even a mammoth skeleton!",
+				"bonus": "The park also has a replica of a Roman camp, and guided tours are available."
+			},
+			"milenaPavlovicBarili": {
+				"title": "Milena Pavlović Barili Gallery",
+				"location": "In the center of Požarevac",
+				"significance": "Dedicated to the life and work of the famous painter and poet.",
+				"whatToSee": "The house where Milena was born, with an extensive collection of her artwork.",
+				"bonus": ""
+			},
+			"cacalica": {
+				"title": "Čačalica – Memorial Park",
+				"location": "A hill above Požarevac",
+				"significance": "A memorial complex dedicated to the victims of World War II.",
+				"whatToSee": "Stunning views of the city, well-maintained walking paths, a great place for a stroll or a rest.",
+				"bonus": ""
+			},
+			"silverLake": {
+				"title": "Silver Lake (Srebrno jezero)",
+				"location": "About 18 km from Požarevac, near Veliko Gradište",
+				"significance": "A popular tourist and recreational destination.",
+				"whatToSee": "Swimming, fishing, boating, camping, and lakeside restaurants.",
+				"bonus": ""
+			},
+			"tumaneMonastery": {
+				"title": "Tumane Monastery",
+				"location": "About 30 km from Požarevac",
+				"significance": "A spiritual and peaceful place, known for the legend of Saint Zosimus and its healing powers.",
+				"whatToSee": "An increasingly popular destination for tourists, especially for pilgrims.",
+				"bonus": ""
+			},
+			"golubacFortress": {
+				"title": "Golubac Fortress",
+				"location": "About 60 km from Požarevac, at the entrance of the Đerdap Gorge",
+				"significance": "A spectacular medieval fortress on the Danube River.",
+				"whatToSee": "A breathtaking view, excellent exhibitions, and guided tours.",
+				"bonus": ""
+			}
+		}
+	}
 }

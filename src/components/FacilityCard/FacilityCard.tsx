@@ -1,21 +1,24 @@
 import { FC } from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "react-i18next";
+
 
 interface FacilityCardProps {
     title: string;
     icon: IconDefinition;
 }
 export const FacilityCard: FC<FacilityCardProps> = ({ title, icon }) => {
+	 const { t } = useTranslation("common");
     return (
-        <div className="flex flex-col items-center justify-center w-42 h-38 bg-white rounded-xl shadow-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out cursor-pointer gap-3">
+        <div className="flex flex-col items-center justify-center h-38 bg-white rounded-xl shadow-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out cursor-pointer gap-3">
             <FontAwesomeIcon
                 icon={icon}
 								size="2xl"
                 className="text-gray-500 mb-2" 
             />
             <p className="text-sm text-center font-medium text-gray-800">
-                {title}
+                {t(title)}
             </p>
         </div>
     );

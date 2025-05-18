@@ -54,7 +54,7 @@ export const HomePageCard: FC<HomePageCardProps> = ({
                 >
                     {subTitle}
                 </motion.h3>
-                <div className="text-gray-700 space-y-4 leading-relaxed text-[17px] text-justify mb-4">
+                <div className="text-gray-700 space-y-2 leading-relaxed text-[17px] text-justify mb-2">
                     <p>{paragraph1}</p>
                     <p>{paragraph2}</p>
                     <p>{paragraph3}</p>

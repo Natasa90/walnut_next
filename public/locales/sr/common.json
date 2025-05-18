@@ -1,43 +1,120 @@
 {
-  "greeting": "Zdravo",
-  "welcome": "Dobrodošla u aplikaciju!",
   "bookingSuccessTitle": "Rezervacija potvrđena!",
-  "bookingSuccessMessage": "Vaša rezervacija je uspešno završena, a fajl sa potvrdom se automatski preuzima na vaš uređaj. Uskoro ćemo vas kontaktirati. Radujemo se što ćemo vas ugostiti!",
+  "bookingSuccessMessage": "Vaša rezervacija je uspešno završena, a fajl sa potvrdom se automatski preuzima na Vaš uređaj. Uskoro ćemo Vas kontaktirati. Radujemo se što ćemo Vas ugostiti!",
   "bookingSuccessSignature": "Vaš Walnut Pool House ❤️",
   "callUs": "Pozovite nas!",
   "aboutUs": {
     "title": "O nama",
     "intro": "Dobrodošli u vaše savršeno utočište na selu! 🏡",
-    "description": "Skrivena u srcu Brezana, šarmantnog sela blizu Požarevca, naša drvena kućica u obliku slova A nije samo mesto za boravak - ona je mirno utočište koje je sa ljubavlju izgradila porodica Stefanović. Otvorili smo vrata u maju 2025. godine i od tada delimo naš mali raj sa gostima koji žele da se opuste, isključe i uživaju u jednostavnosti prirode.",
-    "comforts": "Naš dom je mesto gde se rustični šarm susreće sa modernim komforom. Okružena zelenilom i svežim seoskim vazduhom, naša kuća nudi sve što vam je potrebno za nezaboravan boravak:",
+    "description": "Skrivena u srcu Brezana, šarmantnog sela blizu Požarevca, naša drvena kuća nije samo mesto za boravak - ona je mirno utočište koje je sa ljubavlju izgradila porodica Stefanović. Otvorili smo vrata u maju 2025. godine i od tada delimo naš mali raj sa gostima koji žele da se opuste, isključe i uživaju u jednostavnosti prirode.",
+    "comforts": "Naš dom je mesto gde se rustični šarm susreće sa modernim komforom. Okružena zelenilom i svežim seoskim vazduhom, naša kuća nudi sve što Vam je potrebno za nezaboravan boravak:",
     "features": {
       "pool": "Bazen za sunčane dane ☀️",
       "patio": "Udobna terasa i potpuno opremljena baštenska kuhinja",
       "bbq": "Roštilj zona i tradicionalni srpski ražanj 🍖",
       "firePit": "Ognjište za pričanje priča pod zvezdama 🔥",
       "playground": "Igralište puno zabave za najmlađe",
-      "backyard": "Veliko dvorište sa cornhole-om, pikadom i mnogo prostora za opuštanje 🌳",
+      "backyard": "Veliko dvorište sa corn hole-om, pikadom i mnogo prostora za opuštanje 🌳",
       "petFriendly": "Pet-friendly! Jer odmori su bolji sa krznenim prijateljima 🐾"
     },
-    "closing": "Bilo da slavite, punite baterije ili jednostavno bežite od gradske gužve—naš dom je i vaš dom.",
-    "extra": "Ako ste raspoloženi za planinsku avanturu, i tu imamo rešenje! Porodica Stefanović takođe poseduje prelep apartman na Zlatiboru, jednoj od najpopularnijih planinskih destinacija u Srbiji—idealno za zimski odmor ili letnje planinarenje.",
-    "note": "Mi smo porodični biznis i ponosimo se stvaranjem prijatne i tople atmosfere za svakog gosta. Nema velikih korporacija—samo iskreno srpsko gostoprimstvo i radost deljenja onoga što smo izgradili.",
-    "final": "Jedva čekamo da Vas ugostimo u Brezanima. Dođite kao gosti - odlazite kao prijatelji! 💛"
+    "closing": "Bilo da slavite, punite baterije ili jednostavno bežite od gradske gužve, naš dom je i Vaš dom.",
+    "extra": "Ako ste raspoloženi za planinsku avanturu, i tu imamo rešenje! Porodica Stefanović takođe poseduje prelep apartman na Zlatiboru, jednoj od najpopularnijih planinskih destinacija u Srbiji. Idealno za zimski odmor ili letnje planinarenje.",
+    "note": "Mi smo porodični biznis i ponosimo se stvaranjem prijatne i tople atmosfere za svakog gosta. Nema velikih korporacija. Samo iskreno srpsko gostoprimstvo i radost deljenja onoga što smo izgradili.",
+    "final": "Jedva čekamo da Vas ugostimo u Brezanu! Dođete kao gosti - odlazite kao prijatelji! 💛"
   },
 	"home": {
   "homeInfo": {
     "imageAlt": "Slika naslovnice planinske A-frame kuće",
     "typewriterWords": ["Opusti se.", "Odmori.", "Udahni.", "Napuni baterije."],
-    "subtitle": "Pobegnite u prirodu i uživajte u šarmantnoj A-frame kući u Brezanu.",
+    "subtitle": "Pobegni u prirodu i uživaj u šarmantnoj A-frame kući u Brezanu.",
     "linkText": "Proveri dostupnost"
   },
 	"homeInfo2": {
   	"title": "Walnut Pool House",
   	"subtitle": "– Gde se priroda susreće sa udobnim životom –",
-  	"p1": "Dobrodošli u Walnut Pool House – šarmantnu drvenu kuću smeštenu u mirnom selu Brežane, blizu Požarevca. Okružena spokojnom šumom oraha, ova udobna oaza spaja smirenost prirode sa komforom modernog života ✨.",
-  	"p2": "Bilo da tražite miran beg, opušteno porodično okupljanje, sunčano popodne pored bazena ili lagani roštilj sa prijateljima – kod nas ste na pravom mestu. Naš prostor je osmišljen za manje grupe koje žele da se opuste, povežu i uživaju u tihom šarmu sela.",
-  	"p3": "Biće nam zadovoljstvo da vas ugostimo i pokažemo vam zašto smo se zaljubili u ovo mesto – i zašto verujemo da ćete i vi 💛.",
+  	"p1": "Dobrodošli u Walnut Pool House, šarmantnu drvenu kuću smeštenu u mirnom selu Brežane, blizu Požarevca. Okružena spokojnom šumom oraha, ova udobna oaza spaja smirenost prirode sa komforom modernog života ✨.",
+  	"p2": "Bilo da tražite miran beg, opušteno porodično okupljanje, sunčano popodne pored bazena ili lagani roštilj sa prijateljima, kod nas ste na pravom mestu. Naš prostor je osmišljen za manje grupe koje žele da se opuste, povežu i uživaju u tihom šarmu sela.",
+  	"p3": "Biće nam zadovoljstvo da Vas ugostimo i pokažemo Vam zašto smo se zaljubili u ovo mesto, i zašto verujemo da ćete i Vi 💛.",
   	"linkText": "Više o nama"
+		},
+	"homeInfo3": {
+  	"title": "Zona potpunog opuštanja",
+  	"subtitle": "Zabavi se. Odmori. Uzivaj. Sve to u našem dvorištu!",
+  	"p1": "Upijajte sunce pored privatnog bazena, ispecite nešto ukusno u letnjoj kuhinji ili se oprobajte u igri 'cornhole'.",
+  	"p2": "Od dečjih osmeha na igralištu do večernjih razgovora pod zvezdama, naše dvorište ima sve. Opustite se na terasi, upalite roštilj ili se okupite oko posebnog mesta za vatru za veče koje ćete pamtiti. Bilo da je u pitanju porodično opuštanje ili letnja žurka s prijateljima, ovaj prostor je stvoren za uspomene.",
+		"linkText": "Kontaktirajte nas"
+	},
+	"facilities": {
+		"facilitiesTitle": "Sadržaji", 
+ 	 	"privatePool": "Privatni bazen",
+  	"freeWifi": "Besplatan WiFi",
+  	"beds": "1 francuski ležaj + 1 sofa",
+  	"kitchen": "Potpuno opremljena kuhinja",
+  	"bbq": "Roštilj + Ražanj",
+  	"firePit": "Fire Pit",
+  	"bathroom": "1 kupatilo",
+  	"patio": "Privatna terasa",
+		"parking": "Parking",
+		"outdoorKitchen": "Spoljna kuhinja",
+		"playground": "Decije igralište"
+		},
+		"thingsToSee": {
+			"title": "Turističke atrakcije u blizini naše vikendice",
+			"viminacium": {
+				"title": "Viminacijum Arheološki park",
+				"location": "12 km od Požarevca, blizu Kostolca",
+				"significance": "Nekada rimski grad i vojni logor.",
+				"whatToSee": "Toplice, amfiteatar, grobnice, mozaici, pa čak i skelet mamuta!",
+				"bonus": "Park poseduje repliku rimskog logora, a dostupne su i vođene ture.",
+				"imageSrc": "/images/viminacium.webp",
+				"href": "https://togp.rs/viminacijum/"
+			},
+			"milenaPavlovicBarili": {
+				"title": "Galerija Milene Pavlović Barili",
+				"location": "U centru Požarevca",
+				"significance": "Posvećena životu i delu poznate slikarke i pesnikinje.",
+				"whatToSee": "Kuća u kojoj je Milena rođena, sa bogatom kolekcijom njenih radova.",
+				"bonus": "",
+				"imageSrc": "/images/Barili3.webp",
+				"href": "https://togp.rs/galerija-milene-pavlovic-barilli/"
+			},
+			"cacalica": {
+				"title": "Čačalica Spomen-park",
+				"location": "Brdo iznad Požarevca",
+				"significance": "Spomen-kompleks posvećen žrtvama Drugog svetskog rata.",
+				"whatToSee": "Prelepi pogledi na grad, uređene šetališne staze, idealno mesto za odmor ili šetnju.",
+				"bonus": "",
+				"imageSrc": "/images/cacalica.webp",
+				"href": "https://togp.rs/spomen-park-cacalica/"
+			},
+			"silverLake": {
+				"title": "Srebrno jezero",
+				"location": "Oko 18 km od Požarevca, blizu Velikog Gradišta",
+				"significance": "Popularno turističko i rekreativno mesto.",
+				"whatToSee": "Kupanje, pecanje, vožnja čamcem, kampovanje i restorani uz jezero.",
+				"bonus": "",
+				"imageSrc": "/images/srebrno-jezero.webp",
+				"href": "https://poseti-srebrnojezero.rs/"
+			},
+			"tumaneMonastery": {
+				"title": "Manastir Tumane",
+				"location": "Oko 30 km od Požarevca",
+				"significance": "Duhovno i mirno mesto, poznato po legendi o Svetom Zosimu i lekovitim moćima.",
+				"whatToSee": "Sve popularnije odredište za turiste, naročito hodočasnike.",
+				"bonus": "",
+				"imageSrc": "/images/tumane.webp",
+				"href": "https://manastirtumane.org/"
+			},
+			"golubacFortress": {
+				"title": "Tvrđava Golubac",
+				"location": "Oko 60 km od Požarevca, na ulazu u Đerdapsku klisuru",
+				"significance": "Spektakularna srednjovekovna tvrđava na Dunavu.",
+				"whatToSee": "Impresivan pogled, odlične izložbe i vođene ture.",
+				"bonus": "",
+				"imageSrc": "/images/golubac.webp",
+				"href": "https://tvrdjavagolubackigrad.rs/"
+			}
 		}
 	}
 }
+

@@ -1,20 +1,24 @@
 import { playfair } from "@/lib/fonts";
 import { facilities } from "@/lib/const/facilities";
-import { FacilityCard } from "../FacilityCard/FacilityCard";
+import { FacilityCard } from "../FacilityCard";
+import { useTranslation } from "react-i18next";
 
 export const FacilitiesSection = () => {
+	const { t } = useTranslation("common")
     return (
-        <section className="flex flex-col items-center my-5 shadow-md pb-12">
-            <h2 className={`${playfair.className} text-center text-2xl`}>
-                Facilities
+        <section className="flex flex-col items-center mx-5 mt-4">
+            <h2 className={`${playfair.className} text-center text-3xl text-gray-700`}>
+                {t("home.facilities.facilitiesTitle")}
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6">
+            <div className="flex flex-wrap mt-8">
                 {facilities.map((facility, index) => (
-                    <FacilityCard
-                        key={index}
-                        title={facility.title}
-                        icon={facility.icon}
-                    />
+                    <div key={index} className="w-1/2 px-2 mb-4">
+                        <FacilityCard
+                            key={index}
+                            title={facility.title}
+                            icon={facility.icon}
+                        />
+                    </div>
                 ))}
             </div>
         </section>

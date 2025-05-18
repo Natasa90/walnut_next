@@ -7,6 +7,10 @@ import {
   faShower,
   faChair,
   faDrumstickBite,
+	faSquareParking,
+  faUtensils,
+  faPepperHot,
+  faChildren,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -16,12 +20,16 @@ interface Facility {
 }
 
 export const facilities: Facility[] = [
-  { title: "Private Pool", icon: faSwimmingPool },
-  { title: "Free WiFi", icon: faWifi },
-  { title: "1 Queen Bed + 1 Sofa Bed", icon: faBed },
-  { title: "Fully Equipped Kitchen", icon: faKitchenSet },
-  { title: "BBQ Grill", icon: faDrumstickBite },
-  { title: "Fire Pit", icon: faFire },
-  { title: "1 Bathroom", icon: faShower },
-  { title: "Private Patio", icon: faChair },
+  { title: "home.facilities.privatePool", icon: faSwimmingPool },
+  { title: "home.facilities.freeWifi", icon: faWifi },
+  { title: "home.facilities.beds", icon: faBed },
+  { title: "home.facilities.kitchen", icon: faKitchenSet },
+  { title: "home.facilities.bbq", icon: faDrumstickBite },
+  { title: "home.facilities.firePit", icon: faFire },
+  { title: "home.facilities.bathroom", icon: faShower },
+  { title: "home.facilities.patio", icon: faChair },
+	{ title: "home.facilities.parking", icon: faSquareParking },
+  { title: "home.facilities.outdoorKitchen", icon: faUtensils },
+  { title: "home.facilities.playground", icon: faChildren },
+	{ title: "home.facilities.playground", icon: faChildren },
 ];
