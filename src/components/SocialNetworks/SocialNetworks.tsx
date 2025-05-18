@@ -4,7 +4,7 @@ import { FaInstagram, FaArrowRight } from "react-icons/fa";
 export const SocialNetworks = () => {
     const { t } = useTranslation("common");
     return (
-        <div className="flex flex-wrap mb-6 justify-center cursor-pointer">
+        <div className="flex flex-wrap justify-center cursor-pointer shadow-md pb-4">
             <a
                 href="https://www.instagram.com/walnut_pool_house?igsh=dGNnbHlzdXJrMWdn" 
                 target="_blank"
@@ -18,7 +18,7 @@ export const SocialNetworks = () => {
                     }}
                 >
                     <p className="text-lg font-medium text-gray-800">
-                        {t("socialNetworks.instagram")}
+                        {t("Networks")}
                     </p>
                     <FaArrowRight className="text-gray-500 text-lg" />
                     <FaInstagram className="text-pink-600 text-4xl" />

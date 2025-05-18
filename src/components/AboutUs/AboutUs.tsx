@@ -10,7 +10,7 @@ export const AboutUs = () => {
     const { t } = useTranslation("common");
 
     return (
-        <div className="p-6 mx-2 text-lg leading-relaxed">
+        <div className="text-justify text-lg leading-relaxed">
             <h1 className={`${playfair.className} text-3xl font-bold mb-4`}>
                 {t("aboutUs.title")}
             </h1>
@@ -28,7 +28,7 @@ export const AboutUs = () => {
             </ul>
             <p className="mb-4">{t("aboutUs.closing")}</p>
             <p className="mb-4">{t("aboutUs.extra")}</p>
-						<p className="mb-4">{t("aboutUs.zlatibor")}</p>
+						<p className="mb-4">{t("aboutUs.aptTriSove")}</p>
 						<AptTriSove />
             <p className="mb-4">{t("aboutUs.note")}</p>
             <p className="mb-8">{t("aboutUs.final")}</p>

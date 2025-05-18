@@ -19,7 +19,8 @@
     },
     "closing": "Bilo da slavite, punite baterije ili jednostavno bežite od gradske gužve, naš dom je i Vaš dom.",
     "extra": "Ako ste raspoloženi za planinsku avanturu, i tu imamo rešenje! Porodica Stefanović takođe poseduje prelep apartman, 'Apartman Tri Sove' na Zlatiboru, jednoj od najpopularnijih planinskih destinacija u Srbiji. Idealno za zimski odmor ili letnje planinarenje.",
-		"zlatibor" : "Boravkom u našoj Walnut Pool House, ostvarujete popust za boravak na Zlatiboru, u apartmanu 'Tri Sove'!",
+		"followAptTriSove": "Zapratite Tri Sove", 
+		"aptTriSove" : "Boravkom u našoj Walnut Pool House, ostvarujete popust za boravak na Zlatiboru, u apartmanu 'Tri Sove'!",
     "note": "Mi smo porodični biznis i ponosimo se stvaranjem prijatne i tople atmosfere za svakog gosta. Nema velikih korporacija. Samo iskreno srpsko gostoprimstvo i radost deljenja onoga što smo izgradili.",
     "final": "Jedva čekamo da Vas ugostimo u Brezanu! Dođete kao gosti - odlazite kao prijatelji! 💛"
   },
@@ -40,7 +41,7 @@
 		},
 		"homeInfo3": {
   	"title": "Zona potpunog opuštanja",
-  	"subtitle": "Zabavi se. Odmori. Uzivaj. Sve to u našem dvorištu!",
+  	"subtitle": "Zabavi se. Odmori. Uživaj. Sve to u našem dvorištu!",
   	"p1": "Upijajte sunce pored privatnog bazena, ispecite nešto ukusno u letnjoj kuhinji ili se oprobajte u igri 'cornhole'.",
   	"p2": "Od dečjih osmeha na igralištu do večernjih razgovora pod zvezdama, naše dvorište ima sve. Opustite se na terasi, upalite roštilj ili se okupite oko posebnog mesta za vatru za veče koje ćete pamtiti. Bilo da je u pitanju porodično opuštanje ili letnja žurka s prijateljima, ovaj prostor je stvoren za uspomene.",
 		"linkText": "Kontaktirajte nas"
@@ -124,9 +125,7 @@
     "booking": "Rezervacija",
     "contact": "Kontakt"
 	},
-	"socialNetworks": {
-		"instagram": "Zapratite nas na Instagramu"
-	},
-	"aptTriSove": "Apartman Tri Sove"
+	"Networks": "Zapratite nas",
+	"aptTriSoveModal": "Apartman Tri Sove"	
 }
 

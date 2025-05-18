@@ -23,7 +23,7 @@ const AboutPage = () => {
                 />
                 <meta property="og:type" content="website" />
             </Head>
-            <div>
+            <div className="p-6">
                 <AboutUs />
                 <StickyCTA />
             </div>

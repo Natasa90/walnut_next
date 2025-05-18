@@ -21,6 +21,8 @@
     },
     "closing": "Whether you're celebrating, recharging, or just escaping the city buzz, our home is your home.",
     "extra": "And if you're up for a mountain adventure, we’ve got you covered there too! The Stefanović family also owns a beautiful apartment in Zlatibor, one of Serbia’s most popular mountain destinations—ideal for winter getaways or summer hiking trips.",
+		"followAptTriSove": "Follow Apt Tri Sove", 
+		"aptTriSove": "By staying at our Walnut Pool House, you get a discount for your stay in Zlatibor, at our apartment 'Tri Sove'!",
     "note": "We're a family-owned business, and we take pride in creating a cozy and welcoming atmosphere for every guest. No big corporations. Just genuine Serbian hospitality and the joy of sharing what we’ve built with you.",
     "final": "We can’t wait to welcome you to Brezane. Come as guests, leave as friends! 💛"
   },
@@ -112,8 +114,6 @@
 		"booking": "Booking",
 		"contact": "Contact"
 	},
-	"socialNetworks": {
-		"instagram": "Follow us on Instagram"
-	},
-	"aptTriSove": "Apartment Tri Sove"
+	"Networks": "Follow us",
+	"aptTriSoveModal": "Apartment Tri Sove"
 }
