@@ -72,14 +72,28 @@ export const HomePageCard: FC<HomePageCardProps> = ({
                 </div>
                 <div className="flex flex-col justify-center items-center mt-6 gap-8">
                     {[image1, image2, image3].map((image, index) => (
-                        <Image
+                        <motion.div
                             key={index}
-                            src={image.src}
-                            alt={image.alt}
-                            width={800}
-                            height={600}
-                            className="rounded-3xl w-[600px] h-[400px] object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-                        />
+                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                                type: "spring",
+                                stiffness: 80,
+                                damping: 15,
+                            }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            className="hover:scale-[1.02] transition-transform duration-300 ease-in-out"
+                        >
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={800}
+                                height={600}
+                                className="rounded-3xl w-[600px] h-[400px] object-cover shadow-lg"
+                            />
+                        </motion.div>
                     ))}
                 </div>
                 <div>

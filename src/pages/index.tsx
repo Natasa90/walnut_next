@@ -7,6 +7,7 @@ import StickyCTA from "@/components/StickyCTA/StickyCTA";
 import { BackyardSection } from "@/components/BackyardSection";
 import { ThingsToSeeSection } from "@/components/ThingsToSeeSection";
 import { FacilitiesSection } from "@/components/FacilitiesSection";
+import { SocialNetworks } from "@/components/SocialNetworks";
 
 export default function Home() {
     return (
@@ -34,6 +35,7 @@ export default function Home() {
             <StickyCTA />
             <FacilitiesSection />
             <BackyardSection />
+						<SocialNetworks />
             <ThingsToSeeSection />
         </>
     );

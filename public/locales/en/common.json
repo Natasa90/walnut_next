@@ -12,10 +12,10 @@
     "comforts": "Our home is where rustic charm meets modern comfort. Surrounded by greenery and fresh village air, the property offers everything you need for an unforgettable stay:",
     "features": {
       "pool": "A swimming pool for sunny days ☀️",
-      "patio": "A cozy patio and fully-equipped garden kitchen",
-      "bbq": "A barbecue area and a traditional Serbian ražanj (rotisserie grill) 🍖",
+      "patio": "A cozy patio and fully-equipped garden kitchen 🌿",
+      "bbq": "A barbecue area and a traditional Serbian ražanj (Spit Roast) 🍖",
       "firePit": "A fire pit for starlit storytelling 🔥",
-      "playground": "A fun-filled playground for the little ones",
+      "playground": "A fun-filled playground for the little ones 🎠",
       "backyard": "A large backyard with cornhole, picado, and plenty of space for relaxing 🌳",
       "petFriendly": "Pet-friendly! Because vacations are better with furry friends 🐾"
     },
@@ -111,5 +111,9 @@
 		"gallery": "Gallery",
 		"booking": "Booking",
 		"contact": "Contact"
-	}
+	},
+	"socialNetworks": {
+		"instagram": "Follow us on Instagram"
+	},
+	"aptTriSove": "Apartment Tri Sove"
 }

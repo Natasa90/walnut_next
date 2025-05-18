@@ -4,9 +4,9 @@ import { CustomLink } from "../CustomLink";
 import { useTranslation } from "react-i18next";
 
 export const HomeInfo = () => {
-	const { t, ready } = useTranslation("common");
+    const { t, ready } = useTranslation("common");
 
-  if (!ready) return null;
+    if (!ready) return null;
 
     return (
         <section className="flex flex-col-reverse md:flex-col items-center gap-8 my-5 md:px-16">
@@ -24,16 +24,16 @@ export const HomeInfo = () => {
                     />
                 }
                 image1={{
-                    src: "/images/Living_room/Livingroom17.webp",
-                    alt: "Walnut House Living Room",
+                    src: "/images/Backyard/Backyard7.webp",
+                    alt: "Walnut Pool House Swimming Pool",
                 }}
                 image2={{
-                    src: "/images/Kitchen/Kitchen_indoor1.webp",
-                    alt: "Walnut House Indoor Kitchen",
+                    src: "/images/Backyard/Backyard3.webp",
+                    alt: "Walnut Pool A-frame House",
                 }}
                 image3={{
-                    src: "/images/Gallery_sleep/Gallery.webp",
-                    alt: "Walnut House Bedroom",
+                    src: "/images/Backyard/Firepit1.webp",
+                    alt: "Walnut House Backyard Firepit",
                 }}
             />
         </section>

@@ -31,5 +31,5 @@ export const facilities: Facility[] = [
 	{ title: "home.facilities.parking", icon: faSquareParking },
   { title: "home.facilities.outdoorKitchen", icon: faUtensils },
   { title: "home.facilities.playground", icon: faChildren },
-	{ title: "home.facilities.playground", icon: faChildren },
+	{ title: "add one more", icon: faChildren },
 ];
