@@ -70,7 +70,7 @@ export const HomePageCard: FC<HomePageCardProps> = ({
                         {link}
                     </motion.div>
                 </div>
-                <div className="flex flex-col justify-center items-center mt-6">
+                <div className="flex flex-col justify-center items-center mt-6 gap-8">
                     {[image1, image2, image3].map((image, index) => (
                         <Image
                             key={index}
@@ -78,7 +78,7 @@ export const HomePageCard: FC<HomePageCardProps> = ({
                             alt={image.alt}
                             width={800}
                             height={600}
-                            className="rounded-3xl p-4 w-[600px] h-[400px] object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                            className="rounded-3xl w-[600px] h-[400px] object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                         />
                     ))}
                 </div>

@@ -1,4 +1,4 @@
-import { HomePageCard } from "../HomePageCard/HomePageCard";
+import { HomePageCard } from "../HomePageCard";
 import { CustomLink } from "../CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";

@@ -1,4 +1,4 @@
-import { HomePageCard } from "../HomePageCard/HomePageCard";
+import { HomePageCard } from "../HomePageCard";
 import { MdArrowForwardIos } from "react-icons/md";
 import { CustomLink } from "../CustomLink";
 import { useTranslation } from "react-i18next";
