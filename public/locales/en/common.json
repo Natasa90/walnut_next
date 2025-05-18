@@ -45,20 +45,20 @@
 			"p2": "From giggles on the playground to fireside chats under the stars—our backyard has it all. Kick back on the patio, fire up the grill, or gather ‘round the separate fire pit for a night to remember. Whether it’s a relaxed family evening or a summer bash with friends, this space was made for memories.",
 			"linkText": "More about us"
 		},
-	"facilities": {
-		"facilitiesTitle": "Facilities", 
-  	"privatePool": "Private Pool",
-  	"freeWifi": "Free WiFi",
-  	"beds": "1 Queen Bed + 1 Sofa Bed",
-  	"kitchen": "Fully Equipped Kitchen",
-  	"bbq": "BBQ Grill + Spit Roast",
-  	"firePit": "Fire Pit",
-  	"bathroom": "1 Bathroom",
-  	"patio": "Private Patio",
-		"parking": "Parking Lot",
-		"outdoorKitchen": "Outdoor Kitchen",
-		"playground": "Playground"
-		},
+		"facilities": {
+			"facilitiesTitle": "Facilities", 
+  		"privatePool": "Private Pool",
+  		"freeWifi": "Free WiFi",
+  		"beds": "1 Queen Bed + 1 Sofa Bed",
+  		"kitchen": "Fully Equipped Kitchen",
+  		"bbq": "BBQ Grill + Spit Roast",
+  		"firePit": "Fire Pit",
+  		"bathroom": "1 Bathroom",
+  		"patio": "Private Patio",
+			"parking": "Parking Lot",
+			"outdoorKitchen": "Outdoor Kitchen",
+			"playground": "Playground"
+			},
 		"thingsToSee": {
 			"title": "Things to See Near Our Cottage",
 			"viminacium": {
@@ -104,5 +104,12 @@
 				"bonus": ""
 			}
 		}
+	},
+	"nav": {
+		"home": "Home",
+		"about": "About Us",
+		"gallery": "Gallery",
+		"booking": "Booking",
+		"contact": "Contact"
 	}
 }

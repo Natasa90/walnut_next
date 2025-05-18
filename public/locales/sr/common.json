@@ -23,13 +23,13 @@
     "final": "Jedva čekamo da Vas ugostimo u Brezanu! Dođete kao gosti - odlazite kao prijatelji! 💛"
   },
 	"home": {
-  "homeInfo": {
+  	"homeInfo": {
     "imageAlt": "Slika naslovnice planinske A-frame kuće",
     "typewriterWords": ["Opusti se.", "Odmori.", "Udahni.", "Napuni baterije."],
     "subtitle": "Pobegni u prirodu i uživaj u šarmantnoj A-frame kući u Brezanu.",
     "linkText": "Proveri dostupnost"
-  },
-	"homeInfo2": {
+  	},
+		"homeInfo2": {
   	"title": "Walnut Pool House",
   	"subtitle": "– Gde se priroda susreće sa udobnim životom –",
   	"p1": "Dobrodošli u Walnut Pool House, šarmantnu drvenu kuću smeštenu u mirnom selu Brežane, blizu Požarevca. Okružena spokojnom šumom oraha, ova udobna oaza spaja smirenost prirode sa komforom modernog života ✨.",
@@ -37,14 +37,14 @@
   	"p3": "Biće nam zadovoljstvo da Vas ugostimo i pokažemo Vam zašto smo se zaljubili u ovo mesto, i zašto verujemo da ćete i Vi 💛.",
   	"linkText": "Više o nama"
 		},
-	"homeInfo3": {
+		"homeInfo3": {
   	"title": "Zona potpunog opuštanja",
   	"subtitle": "Zabavi se. Odmori. Uzivaj. Sve to u našem dvorištu!",
   	"p1": "Upijajte sunce pored privatnog bazena, ispecite nešto ukusno u letnjoj kuhinji ili se oprobajte u igri 'cornhole'.",
   	"p2": "Od dečjih osmeha na igralištu do večernjih razgovora pod zvezdama, naše dvorište ima sve. Opustite se na terasi, upalite roštilj ili se okupite oko posebnog mesta za vatru za veče koje ćete pamtiti. Bilo da je u pitanju porodično opuštanje ili letnja žurka s prijateljima, ovaj prostor je stvoren za uspomene.",
 		"linkText": "Kontaktirajte nas"
-	},
-	"facilities": {
+		},
+		"facilities": {
 		"facilitiesTitle": "Sadržaji", 
  	 	"privatePool": "Privatni bazen",
   	"freeWifi": "Besplatan WiFi",
@@ -115,6 +115,13 @@
 				"href": "https://tvrdjavagolubackigrad.rs/"
 			}
 		}
+	},
+	"nav": {
+		"home": "Početna",
+    "about": "O nama",
+    "gallery": "Galerija",
+    "booking": "Rezervacija",
+    "contact": "Kontakt"
 	}
 }
 
