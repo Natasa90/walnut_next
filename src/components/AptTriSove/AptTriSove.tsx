@@ -29,7 +29,7 @@ export const AptTriSove = () => {
                     <div className="flex flex-col lg:flex-row w-full gap-4 mb-6">
                         <div className="w-full lg:w-1/3 rounded-xl overflow-hidden">
                             <Image
-                                src="/images/apt/Apt2.webp"
+                                src="/images/Apt/Apt2.webp"
                                 alt="Apartment 1"
                                 width={100}
                                 height={75}
@@ -39,7 +39,7 @@ export const AptTriSove = () => {
                         </div>
                         <div className="w-full lg:w-1/3 rounded-xl overflow-hidden">
                             <Image
-                                src="/images/apt/Apt4.webp"
+                                src="/images/Apt/Apt4.webp"
                                 alt="Apartment 2"
                                 width={100}
                                 height={75}
@@ -49,7 +49,7 @@ export const AptTriSove = () => {
                         </div>
                         <div className="w-full lg:w-1/3 rounded-xl overflow-hidden">
                             <Image
-                                src="/images/apt/Apt5.webp"
+                                src="/images/Apt/Apt5.webp"
                                 alt="Apartment 3"
                                 width={100}
                                 height={75}
