@@ -127,5 +127,18 @@
 			"bathroom": "Bathroom",
 			"backyard": "Backyard"
 		}
+	},
+	"prices": {
+		"title": "Walnut pool house price list:",
+		"nightForTwo": "Overnight for two: 120€",
+		"nightForFour": "Overnight for four people: 150€",
+		"dailySwimming": "Daily swimming (max 6 people): 150€",
+		"description": "Enjoy the comfort of our charming A-frame cabin, ideal for rest and relaxation in nature. Book your appointment and spend unforgettable moments with family or friends!",
+		"typeOfRent": "Type Of Rent",
+		"daily": "Daily",
+		"nightly": "Nightly"
+	},
+	"calendar": {
+		"title": "Select Dates"
 	}
 }
