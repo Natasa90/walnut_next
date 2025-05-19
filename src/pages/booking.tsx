@@ -9,13 +9,18 @@ import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
 import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 
-type BookingPageProps = {
-    disabledDates: string[];
-};
-
-const BookingPage = ({ disabledDates }: BookingPageProps) => {
+const BookingPage = ({
+    initialDisabledDates,
+}: {
+    initialDisabledDates: string[];
+}) => {
+    const [disabledDates, setDisabledDates] = useState<Date[]>(
+        initialDisabledDates.map((d) => new Date(d))
+    );
     const [rentType, setRentType] = useState<"daily" | "nightly">("nightly");
-		const nextAvailableDate = getNextAvailableDate(disabledDates.map((d) => new Date(d)));
+    const nextAvailableDate = getNextAvailableDate(
+        disabledDates.map((d) => new Date(d))
+    );
     const [dateRange, setDateRange] = useState<MyDateRange[]>([
         {
             startDate: nextAvailableDate,
@@ -25,25 +30,43 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    useEffect(() => {
+        const loadDates = async () => {
+            const booked = await getBookedDates();
+            const formatted = formatBlockedDates(booked);
+            setDisabledDates(formatted);
+        };
 
-		useEffect(() => {
-			const nextAvailable = getNextAvailableDate(disabledDates.map((d) => new Date(d)));
-	
-			if (nextAvailable) {
-					const endDate =
-							rentType === "daily"
-									? nextAvailable
-									: addDays(nextAvailable, 1);
-	
-					setDateRange([
-							{
-									startDate: nextAvailable,
-									endDate,
-									key: "selection",
-							},
-					]);
-			}
-	}, [rentType, disabledDates]);
+        loadDates();
+    }, []);
+
+    useEffect(() => {
+        const nextAvailable = getNextAvailableDate(
+            disabledDates.map((d) => new Date(d))
+        );
+
+        if (nextAvailable) {
+            const endDate =
+                rentType === "daily"
+                    ? nextAvailable
+                    : addDays(nextAvailable, 1);
+
+            setDateRange([
+                {
+                    startDate: nextAvailable,
+                    endDate,
+                    key: "selection",
+                },
+            ]);
+        }
+    }, [rentType, disabledDates]);
+
+		const handleBookingSuccess = async () => {
+			const updated = await getBookedDates();
+			const formatted = formatBlockedDates(updated);
+			setDisabledDates(formatted);
+			setIsModalOpen(false);
+	};
 
     const handleSelect = (ranges: any) => {
         const selection = ranges?.selection;
@@ -114,6 +137,7 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
                         dateRange={dateRange[0]}
                         onClose={() => setIsModalOpen(false)}
                         typeOfRent={rentType}
+                        onBookingSuccess={handleBookingSuccess}
                     />
                 )}
             </div>
@@ -124,26 +148,28 @@ const BookingPage = ({ disabledDates }: BookingPageProps) => {
 export default BookingPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-	try {
-			const bookings = await getBookedDates();
-			const disabledDates = formatBlockedDates(bookings);
+    try {
+        const bookings = await getBookedDates();
+        const disabledDates = formatBlockedDates(bookings);
 
-			const translations = await serverSideTranslations(locale, ["common"]);
+        const translations = await serverSideTranslations(locale, ["common"]);
 
-			return {
-					props: {
-							disabledDates: disabledDates.map((date) => date.toISOString()),
-							...translations,
-					},
-			};
-	} catch (error) {
-			const translations = await serverSideTranslations(locale, ["common"]);
+        return {
+            props: {
+                initialDisabledDates: disabledDates.map((date) =>
+                    date.toISOString()
+                ),
+                ...translations,
+            },
+        };
+    } catch (error) {
+        const translations = await serverSideTranslations(locale, ["common"]);
 
-			return {
-					props: {
-							disabledDates: [],
-							...translations,
-					},
-			};
-	}
+        return {
+            props: {
+                disabledDates: [],
+                ...translations,
+            },
+        };
+    }
 }
