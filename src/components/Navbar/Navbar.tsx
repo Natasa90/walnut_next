@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { playfair } from "@/lib/fonts";
 import { LanguageSwitcher } from "../LanguageSwitcher";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 export const Navbar = () => {
     const router = useRouter();
