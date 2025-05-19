@@ -19,7 +19,7 @@ const BookingPage = ({
     const [disabledDates, setDisabledDates] = useState<Date[]>(
         initialDisabledDates.map((d) => new Date(d))
     );
-    const [rentType, setRentType] = useState<"daily" | "nightly">("nightly");
+    const [rentType, setRentType] = useState<"daily" | "nightly">("daily");
     const nextAvailableDate = getNextAvailableDate(
         disabledDates.map((d) => new Date(d))
     );
