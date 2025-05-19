@@ -5,7 +5,7 @@ export const thingsToSee = [
     significance: "Once a Roman city and military camp.",
     whatToSee: "Thermal baths, an amphitheater, tombs, mosaics, and even a mammoth skeleton!",
     bonus: "The park also has a replica of a Roman camp, and guided tours are available.",
-    imageSrc: "/images/viminacium.webp", 
+    imageSrc: "/images/thingsToSee/viminacium.webp", 
 		href: "https://togp.rs/viminacijum/"
   },
   {
@@ -14,7 +14,7 @@ export const thingsToSee = [
     significance: "Dedicated to the life and work of the famous painter and poet.",
     whatToSee: "The house where Milena was born, with an extensive collection of her artwork.",
     bonus: "", 
-    imageSrc: "/images/Barili3.webp",
+    imageSrc: "/images/thingsToSee/Barili3.webp",
 		href: "https://togp.rs/galerija-milene-pavlovic-barilli/"
   },
   {
@@ -23,7 +23,7 @@ export const thingsToSee = [
     significance: "A memorial complex dedicated to the victims of World War II.",
     whatToSee: "Stunning views of the city, well-maintained walking paths, a great place for a stroll or a rest.",
     bonus: "", 
-    imageSrc: "/images/cacalica.webp",
+    imageSrc: "/images/thingsToSee/cacalica.webp",
 		href: "https://togp.rs/spomen-park-cacalica/"
   },
   {
@@ -32,7 +32,7 @@ export const thingsToSee = [
     significance: "A popular tourist and recreational destination.",
     whatToSee: "Swimming, fishing, boating, camping, and lakeside restaurants.",
     bonus: "", 
-    imageSrc: "/images/srebrno-jezero.webp", 
+    imageSrc: "/images/thingsToSee/srebrno-jezero.webp", 
 		href: "https://poseti-srebrnojezero.rs/"
   },
   {
@@ -41,7 +41,7 @@ export const thingsToSee = [
     significance: "A spiritual and peaceful place, known for the legend of Saint Zosimus and its healing powers.",
     whatToSee: "An increasingly popular destination for tourists, especially for pilgrims.",
     bonus: "", 
-    imageSrc: "/images/tumane.webp", 
+    imageSrc: "/images/thingsToSee/tumane.webp", 
 		href: "https://manastirtumane.org/"
   },
   {
@@ -50,7 +50,7 @@ export const thingsToSee = [
     significance: "A spectacular medieval fortress on the Danube River.",
     whatToSee: "A breathtaking view, excellent exhibitions, and guided tours.",
     bonus: "", 
-    imageSrc: "/images/golubac.webp", 
+    imageSrc: "/images/thingsToSee/golubac.webp", 
 		href: "https://tvrdjavagolubackigrad.rs/"
   },
 ];

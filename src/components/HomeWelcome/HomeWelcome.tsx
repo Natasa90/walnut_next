@@ -8,12 +8,14 @@ import { useTranslation } from "react-i18next";
 
 export const HomeWelcome = () => {
     const { t } = useTranslation("common");
-		const words = t("home.homeInfo.typewriterWords", { returnObjects: true }) as string[];
+    const words = t("home.homeInfo.typewriterWords", {
+        returnObjects: true,
+    }) as string[];
     return (
         <div className="relative rounded-xl h-[84vh] flex items-center justify-center text-center m-4 overflow-hidden">
             <div className="absolute inset-0">
                 <Image
-                    src="/images/home-cover1.webp"
+                    src="/images/Home-cover.webp"
                     alt="A-frame"
                     layout="fill"
                     objectFit="cover"
