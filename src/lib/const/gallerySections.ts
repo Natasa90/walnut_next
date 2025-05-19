@@ -17,6 +17,6 @@ export const gallerySections = [
   },
   {
     title: 'gallery.cardTitle.backyard',
-    folder: 'backyard',
+    folder: 'Backyard',
   },
 ];
