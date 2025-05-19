@@ -13,6 +13,7 @@ interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
     onClose: () => void;
     typeOfRent: "daily" | "nightly";
+		onBookingSuccess: () => void;
 }
 
 export interface FormValues {
@@ -29,6 +30,7 @@ export const BookingFormModal = ({
     dateRange,
     onClose,
     typeOfRent,
+		onBookingSuccess,
 }: BookingFormModalProps) => {
     const [isBookingSuccess, setIsBookingSuccess] = useState<boolean>(false);
     const initialValues: FormValues = {
@@ -92,8 +94,8 @@ export const BookingFormModal = ({
             }
 
             setIsBookingSuccess(true);
-            getBookedDates();
 						generateBookingPDF(bookingData);
+						onBookingSuccess(); 
         } catch (error) {
             alert("Submitting Booking Failed. Try again!");
             setIsBookingSuccess(false);
