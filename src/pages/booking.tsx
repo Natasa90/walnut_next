@@ -31,6 +31,8 @@ const BookingPage = ({
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+		const [showSuccessModal, setShowSuccessModal] = useState(false);
+
 		const { t } = useTranslation("common");
 
     useEffect(() => {
@@ -69,6 +71,7 @@ const BookingPage = ({
         const formatted = formatBlockedDates(updated);
         setDisabledDates(formatted);
         setIsModalOpen(false);
+				setShowSuccessModal(true)
     };
 
     const handleSelect = (ranges: any) => {

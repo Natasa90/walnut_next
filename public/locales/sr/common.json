@@ -151,5 +151,32 @@
 	},
 	"calendar": {
 		"title": "Izaberite datume"
-	}
+	},
+	"bookingForm": {
+  	"fullNameReq": "Polje za puno ime je obavezno",
+  	"invalidEmail": "Nevažeći format e-pošte",
+  	"emailReq": "Polje za e-poštu je obavezno",
+  	"phoneReq": "Polje za broj telefona je obavezno",
+  	"bookingFailed": "Slanje rezervacije nije uspelo. Pokušajte ponovo!",
+  	"resDetails": "Detalji rezervacije",
+  	"selectedDates": "Izabrani datumi",
+  	"selectedDate": "Izabrani datum",
+  	"rentalType": "Tip iznajmljivanja:",
+  	"fullName": "Puno ime*",
+  	"email": "E-pošta",
+  	"phone": "Telefon*",
+  	"message": "Poruka",
+  	"numOfPersons": "Izaberite broj osoba:*",
+  	"personsOption1": "1 - 2 osobe",
+  	"personsOption2": "3 - 4 osobe",
+  	"totalPrice": "Ukupna cena:",
+  	"back": "Nazad",
+  	"book": "Rezerviši",
+  	"to": "do",
+		"rentalTypes": {
+			"daily": "dnevno",
+			"nightly": "noćno"
+		}
+  }
 }
+
