@@ -24,15 +24,15 @@ export const HomeInfo = () => {
                     />
                 }
                 image1={{
-                    src: "/images/backyard/Backyard6.webp",
+                    src: "/images/backyard/backyard6.webp",
                     alt: "Walnut Pool House Swimming Pool",
                 }}
                 image2={{
-                    src: "/images/backyard/Backyard3.webp",
+                    src: "/images/backyard/backyard3.webp",
                     alt: "Walnut Pool A-frame House",
                 }}
                 image3={{
-                    src: "/images/backyard/Backyard8.webp",
+                    src: "/images/backyard/backyard8.webp",
                     alt: "Walnut House Backyard Firepit",
                 }}
             />

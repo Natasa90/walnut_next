@@ -14,7 +14,7 @@ export const thingsToSee = [
     significance: "Dedicated to the life and work of the famous painter and poet.",
     whatToSee: "The house where Milena was born, with an extensive collection of her artwork.",
     bonus: "", 
-    imageSrc: "/images/thingsToSee/Barili3.webp",
+    imageSrc: "/images/thingsToSee/barili3.webp",
 		href: "https://togp.rs/galerija-milene-pavlovic-barilli/"
   },
   {
