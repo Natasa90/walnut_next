@@ -13,6 +13,7 @@ import { CustomLink } from "@/components/CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FaPhoneAlt } from "react-icons/fa";
 
 interface GalleryPageProps {
     sections: {
@@ -57,22 +58,34 @@ const GalleryPage: FC<GalleryPageProps> = ({ sections }) => {
                     ))}
                 </div>
             </div>
-            <div>
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    viewport={{ once: false, amount: 0.6 }}
-										className="pb-10 shadow-md"
-                >
-                    <CustomLink
-                        href="/booking"
-                        title={t("home.homeInfo.linkText")}
-                        leftIcon={<FaRegCalendarCheck />}
-                        rightIcon={<MdArrowForwardIos />}
-                    />
-                </motion.div>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.6 }}
+								className="mb-8"
+            >
+                <CustomLink
+                    href="/booking"
+                    title={t("home.homeInfo.linkText")}
+                    leftIcon={<FaRegCalendarCheck />}
+                    rightIcon={<MdArrowForwardIos />}
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.6 }}
+                className="pb-10 shadow-md"
+            >
+                <CustomLink
+                    href="/contact"
+                    title={t("home.homeInfo3.linkText")}
+                    leftIcon={<FaPhoneAlt />}
+                    rightIcon={<MdArrowForwardIos />}
+                />
+            </motion.div>
             <StickyCTA />
         </>
     );
