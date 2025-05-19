@@ -8,6 +8,8 @@ import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
 import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
+import { Prices } from "@/components/BookingElements/Prices";
+import { useTranslation } from "next-i18next";
 
 const BookingPage = ({
     initialDisabledDates,
@@ -29,6 +31,7 @@ const BookingPage = ({
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+		const { t } = useTranslation("common");
 
     useEffect(() => {
         const loadDates = async () => {
@@ -61,12 +64,12 @@ const BookingPage = ({
         }
     }, [rentType, disabledDates]);
 
-		const handleBookingSuccess = async () => {
-			const updated = await getBookedDates();
-			const formatted = formatBlockedDates(updated);
-			setDisabledDates(formatted);
-			setIsModalOpen(false);
-	};
+    const handleBookingSuccess = async () => {
+        const updated = await getBookedDates();
+        const formatted = formatBlockedDates(updated);
+        setDisabledDates(formatted);
+        setIsModalOpen(false);
+    };
 
     const handleSelect = (ranges: any) => {
         const selection = ranges?.selection;
@@ -106,32 +109,45 @@ const BookingPage = ({
             </Head>
 
             <div>
-                <div className="flex items-center gap-4 mx-7 my-6">
-                    <label
-                        htmlFor="rentType"
-                        className="text-[#596e79] font-medium"
-                    >
-                        Type of Rent:
-                    </label>
-                    <select
-                        id="rentType"
-                        className="px-2 py-1 border rounded-md"
-                        value={rentType}
-                        onChange={(e) =>
-                            setRentType(e.target.value as "daily" | "nightly")
-                        }
-                    >
-                        <option value="daily">Daily</option>
-                        <option value="nightly">Nightly</option>
-                    </select>
+                <div className="mx-7 my-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                    <div className="md:flex-[1] md:px-6">
+                        <Prices />
+                    </div>
+
+                    <div className="md:flex-[0_0_200px]">
+                        <label
+                            htmlFor="rentType"
+                            className="text-[#596e79] font-medium mb-2 block"
+                        >
+                            {t("prices.typeOfRent")}
+                        </label>
+                        <select
+                            id="rentType"
+                            className="w-full px-2 py-1 border rounded-md"
+                            value={rentType}
+                            onChange={(e) =>
+                                setRentType(
+                                    e.target.value as "daily" | "nightly"
+                                )
+                            }
+                        >
+                            <option value="daily">{t("prices.daily")}</option>
+                            <option value="nightly">{t("prices.nightly")}</option>
+                        </select>
+                    </div>
+                    <div className="md:flex-[2]">
+                        <CalendarPicker
+                            dateRange={dateRange}
+                            handleSelect={handleSelect}
+                            disabledDates={disabledDates.map(
+                                (d) => new Date(d)
+                            )}
+                            onBookClick={() => setIsModalOpen(true)}
+                            rentType={rentType}
+                        />
+                    </div>
                 </div>
-                <CalendarPicker
-                    dateRange={dateRange}
-                    handleSelect={handleSelect}
-                    disabledDates={disabledDates.map((d) => new Date(d))}
-                    onBookClick={() => setIsModalOpen(true)}
-                    rentType={rentType}
-                />
+
                 {isModalOpen && (
                     <BookingFormModal
                         dateRange={dateRange[0]}

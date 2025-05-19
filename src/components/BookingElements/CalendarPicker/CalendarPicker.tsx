@@ -2,6 +2,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
+import { useTranslation } from "react-i18next";
 
 export type MyDateRange = {
     startDate: Date;
@@ -24,10 +25,11 @@ export const CalendarPicker = ({
     onBookClick,
     rentType,
 }: CalendarPickerProps) => {
+	const { t } = useTranslation("common"); 
     return (
         <div className="flex flex-col bg-[#dfd3c3] text-center p-8 rounded-2xl w-11/12 md:w-1/2 mx-auto">
             <h1 className="text-2xl font-semibold text-[#596e79] mb-6">
-                Select Dates
+                {t("calendar.title")}
             </h1>
             <div className="flex flex-col justify-center items-center mt-6">
                 <div className={styles.customCalendar}>

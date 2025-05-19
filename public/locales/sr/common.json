@@ -138,5 +138,18 @@
 			"bathroom": "Kupatilo",
 			"backyard": "Dvorište"
 		}
+	},
+	"prices": {
+		"title": "Walnut pool house cenovnik:",
+		"nightForTwo": "Noćenje za dvoje: 120€",
+		"nightForFour": "Noćenje za četiri osobe: 150€",
+		"dailySwimming": "Dnevno kupanje (maksimalno 6 osoba): 150€",
+		"description": "Uživajte u udobnosti naše šarmantne A-frame brvnare, idealne za odmor i opuštanje u prirodi. Rezervišite svoj termin i provedite nezaboravne trenutke sa porodicom ili prijateljima!",
+		"typeOfRent": "Vrsta iznajmljivanja",
+		"daily": "Dnevno",
+		"nightly": "Noćno"
+	},
+	"calendar": {
+		"title": "Izaberite datume"
 	}
 }
