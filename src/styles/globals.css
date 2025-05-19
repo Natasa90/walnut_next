@@ -67,3 +67,16 @@ body {
 .pulse-scale {
   animation: pulse-scale 1.5s ease-in-out infinite;
 }
+
+@keyframes bounce-sassy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+.animate-bounce-sassy {
+  animation: bounce-sassy 1s infinite;
+}
