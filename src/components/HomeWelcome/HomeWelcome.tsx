@@ -17,8 +17,8 @@ export const HomeWelcome = () => {
                 <Image
                     src="/images/Home-cover.webp"
                     alt="A-frame"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     className="w-full h-full"
                     loading="eager"
                 />
