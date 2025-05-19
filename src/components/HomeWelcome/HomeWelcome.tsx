@@ -21,6 +21,7 @@ export const HomeWelcome = () => {
                     style={{ objectFit: 'cover' }}
                     className="w-full h-full"
                     loading="eager"
+										priority
                 />
                 <div className="absolute inset-0 bg-black/30" />
             </div>

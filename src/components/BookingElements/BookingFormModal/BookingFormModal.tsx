@@ -3,9 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
 import { pricePerNight } from "@/lib/const/prices";
-import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { differenceInCalendarDays } from "date-fns";
-import { generateBookingPDF } from "@/lib/helpers/pdfGenerator";
 import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
 import { useTranslation } from "next-i18next";
 
@@ -13,7 +11,7 @@ interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
     onClose: () => void;
     typeOfRent: "daily" | "nightly";
-		onBookingSuccess: () => void;
+    onBookingSuccess: () => void;
 }
 
 export interface FormValues {
@@ -30,9 +28,8 @@ export const BookingFormModal = ({
     dateRange,
     onClose,
     typeOfRent,
-		onBookingSuccess,
+    onBookingSuccess,
 }: BookingFormModalProps) => {
-    const [isBookingSuccess, setIsBookingSuccess] = useState<boolean>(false);
     const initialValues: FormValues = {
         fullName: "",
         email: "",
@@ -43,12 +40,13 @@ export const BookingFormModal = ({
         totalPrice: typeOfRent === "daily" ? 150 : 0,
     };
 
-		const { t } = useTranslation("common");
+    const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
+    const { t } = useTranslation("common");
 
     const validationSchema = Yup.object({
-        fullName: Yup.string().required("Full Name field is required"),
-        email: Yup.string().email("Invalid email format").nullable(),
-        phone: Yup.string().required("Phone Number field is required"),
+        fullName: Yup.string().required(t("bookingForm.fullNameReq")),
+        email: Yup.string().email(t("bookingForm.invalidEmail")).nullable(),
+        phone: Yup.string().required(t("bookingForm.phoneReq")),
         message: Yup.string().nullable(),
         numOfPersons: Yup.number().nullable(),
     });
@@ -93,34 +91,33 @@ export const BookingFormModal = ({
                 throw new Error("Failed to submit Booking.");
             }
 
-            setIsBookingSuccess(true);
-						generateBookingPDF(bookingData);
-						onBookingSuccess(); 
+            setSuccessModalOpen(true);
+						onBookingSuccess();
         } catch (error) {
-            alert("Submitting Booking Failed. Try again!");
-            setIsBookingSuccess(false);
+            alert(t("bookingForm.bookingFailed"));
         }
     };
-
+ 
     return (
         <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50 px-5">
             <div className="bg-white border border-gray-400 rounded-lg p-8 w-full max-w-md">
                 <h2 className="text-2xl mb-4 text-black text-center">
-                    Reservation Details
+                    {t("bookingForm.resDetails")}
                 </h2>
                 <div className="mb-4 text-center text-gray-700">
                     <p>
-                        You have selected <strong>{typeOfRent}</strong> rental
-                        for{" "}
+                        {t("bookingForm.rentalType")}{" "}
+                        <strong>{t(`bookingForm.rentalTypes.${typeOfRent}`)}</strong>{" "}
                         {typeOfRent === "nightly" ? (
                             <>
-                                selected dates:{" "}
-                                {format(dateRange.startDate, "dd-MM-yyyy")} to{" "}
+                                {t("bookingForm.selectedDates")}:{" "}
+                                {format(dateRange.startDate, "dd-MM-yyyy")}{" "}
+                                {t("bookingForm.to")}{" "}
                                 {format(dateRange.endDate, "dd-MM-yyyy")}
                             </>
                         ) : (
                             <>
-                                selected date:{" "}
+                                {t("bookingForm.selectedDate")}:{" "}
                                 {format(dateRange.startDate, "dd-MM-yyyy")}
                             </>
                         )}
@@ -151,7 +148,7 @@ export const BookingFormModal = ({
                             <Form className="space-y-4">
                                 <div>
                                     <label className="block mb-1 text-black font-medium">
-                                        Full Name*
+                                        {t("bookingForm.fullName")}
                                     </label>
                                     <Field
                                         name="fullName"
@@ -166,7 +163,7 @@ export const BookingFormModal = ({
 
                                 <div>
                                     <label className="block mb-1 text-black font-medium">
-                                        Email
+                                        {t("bookingForm.email")}
                                     </label>
                                     <Field
                                         name="email"
@@ -182,7 +179,7 @@ export const BookingFormModal = ({
 
                                 <div>
                                     <label className="block mb-1 text-black font-medium">
-                                        Phone*
+                                        {t("bookingForm.phone")}
                                     </label>
                                     <Field
                                         name="phone"
@@ -197,7 +194,7 @@ export const BookingFormModal = ({
 
                                 <div>
                                     <label className="block mb-1 text-black font-medium">
-                                        Message
+                                        {t("bookingForm.message")}
                                     </label>
                                     <Field
                                         name="message"
@@ -215,7 +212,7 @@ export const BookingFormModal = ({
                                 {values.typeOfRent === "nightly" && (
                                     <div>
                                         <label className="block mb-1 text-black font-medium">
-                                            Select Number of Persons:*
+                                            {t("bookingForm.numOfPersons")}
                                         </label>
                                         <Field
                                             name="numOfPersons"
@@ -223,10 +220,14 @@ export const BookingFormModal = ({
                                             className="text-black w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
                                         >
                                             <option value={2}>
-                                                1 - 2 persons
+                                                {t(
+                                                    "bookingForm.personsOption1"
+                                                )}
                                             </option>
                                             <option value={4}>
-                                                3 - 4 persons
+                                                {t(
+                                                    "bookingForm.personsOption2"
+                                                )}
                                             </option>
                                         </Field>
                                         <ErrorMessage
@@ -239,8 +240,10 @@ export const BookingFormModal = ({
 
                                 <div className="text-black mt-4 text-lg font-semibold">
                                     <p>
-                                        <strong>Total Price: </strong>€
-                                        {totalPrice.toFixed(2)}
+                                        <strong>
+                                            {t("bookingForm.totalPrice")}{" "}
+                                        </strong>
+                                        €{totalPrice.toFixed(2)}
                                     </p>
                                 </div>
 
@@ -250,31 +253,33 @@ export const BookingFormModal = ({
                                         className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 transition-colors"
                                         onClick={onClose}
                                     >
-                                        Back
+                                        {t("bookingForm.back")}
                                     </button>
 
                                     <button
                                         type="submit"
                                         className="px-6 py-2 bg-[#596e79] hover:bg-[#596e45] text-white rounded-md transition-colors"
                                     >
-                                        Book
+                                        {t("bookingForm.book")}
                                     </button>
                                 </div>
                             </Form>
                         );
                     }}
                 </Formik>
-                <SuccessBookingModal
-                    isOpen={isBookingSuccess}
-                    onClose={() => {
-                        setIsBookingSuccess(false);
-                        onClose(); // ✅ now close the modal
-                    }}
-                    title={t("bookingSuccessTitle")}
-                >
-                    <p>{t("bookingSuccessMessage")}</p>
-                    <p>{t("bookingSuccessSignature")}</p>
-                </SuccessBookingModal>
+                {isSuccessModalOpen && (
+                    <SuccessBookingModal
+                        isOpen={isSuccessModalOpen}
+												onClose={() => {
+													setSuccessModalOpen(false);
+													onClose(); // <- Closes the whole booking modal after success
+											}}
+                        title={t("bookingSuccessTitle")}
+                    >
+                        <p>{t("bookingSuccessMessage")}</p>
+                        <p>{t("bookingSuccessSignature")}</p>
+                    </SuccessBookingModal>
+                )}
             </div>
         </div>
     );
