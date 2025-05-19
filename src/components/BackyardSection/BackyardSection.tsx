@@ -13,7 +13,7 @@ export const BackyardSection = () => {
                 title={t("home.homeInfo3.title")}
                 subTitle={t("home.homeInfo3.subtitle")}
                 image1={{
-                    src: "/images/backyard/backyard2.webp",
+                    src: "/images/Backyard/Backyard2.webp",
                     alt: "Walnut Pool House Swimming Pool At Night",
                 }}
                 paragraph1={t("home.homeInfo3.p1")}
@@ -27,11 +27,11 @@ export const BackyardSection = () => {
                     />
                 }
                 image2={{
-                    src: "/images/backyard/backyard10.webp",
+                    src: "/images/Backyard/Backyard10.webp",
                     alt: "Walnut Pool House Firepit",
                 }}
                 image3={{
-                    src: "/images/backyard/backyard4.webp",
+                    src: "/images/Backyard/Backyard4.webp",
                     alt: "Walnut Pool A-frame House Sun Down",
                 }}
                 link2={
