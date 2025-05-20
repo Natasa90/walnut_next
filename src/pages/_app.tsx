@@ -9,6 +9,7 @@ import { BottomInfo } from "@/components/BottomInfo";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { BouncingLogo } from "@/components/BouncingLogo/BouncingLogo";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
@@ -46,24 +47,14 @@ function App({ Component, pageProps }: AppProps) {
         };
     }, [router]);
 
-		if (loading) return <div>Loading translations...</div>;
+		if (loading) return <BouncingLogo />;
 
     return (
         <div
             className={`${inter.className} min-h-screen flex flex-col relative`}
         >
             {showSpinner && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-white/50">
-                    <div className="w-40 h-50 animate-bounce-sassy relative">
-                        <Image
-                            src="/images/Logo_trans.webp"
-                            alt="Loading logo"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
-                    </div>
-                </div>
+               <BouncingLogo />
             )}
             <Navbar />
             <main className="flex-1">
