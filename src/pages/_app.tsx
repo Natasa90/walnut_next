@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { appWithTranslation } from "next-i18next";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
@@ -15,56 +14,57 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
 function App({ Component, pageProps }: AppProps) {
-	const { t, loading } = useI18nReady("common");
-    const [isRouteChanging, setIsRouteChanging] = useState(false);
-    const [showSpinner, setShowSpinner] = useState(false);
-    const router = useRouter();
+  const { t, loading } = useI18nReady("common");
+  const [showSpinner, setShowSpinner] = useState(false);
+  const router = useRouter();
 
-    useEffect(() => {
-        let timer: NodeJS.Timeout;
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
 
-        const handleStart = () => {
-            setIsRouteChanging(true);
-            timer = setTimeout(() => {
-                setShowSpinner(true);
-            }, 300);
-        };
+    const handleStart = () => {
+      timer = setTimeout(() => {
+        setShowSpinner(true);
+      }, 300);
+    };
 
-        const handleComplete = () => {
-            clearTimeout(timer);
-            setIsRouteChanging(false);
-            setShowSpinner(false);
-        };
+    const handleComplete = () => {
+      clearTimeout(timer);
+      setShowSpinner(false);
+    };
 
-        router.events.on("routeChangeStart", handleStart);
-        router.events.on("routeChangeComplete", handleComplete);
-        router.events.on("routeChangeError", handleComplete);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
 
-        return () => {
-            router.events.off("routeChangeStart", handleStart);
-            router.events.off("routeChangeComplete", handleComplete);
-            router.events.off("routeChangeError", handleComplete);
-        };
-    }, [router]);
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
 
-		if (loading) return <BouncingLogo />;
-
-    return (
-        <div
-            className={`${inter.className} min-h-screen flex flex-col relative`}
-        >
-            {showSpinner && (
-               <BouncingLogo />
-            )}
-            <Navbar />
-            <main className="flex-1">
-                <Component {...pageProps} />
-            </main>
-            <BottomInfo />
-            <Footer />
+  return (
+    <div className={`${inter.className} min-h-screen flex flex-col relative`}>
+      {showSpinner && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/80">
+          <BouncingLogo />
         </div>
-    );
+      )}
+
+      <Navbar />
+
+      <main
+        className={`flex-1 transition-opacity duration-300 ease-in-out ${
+          loading ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <Component {...pageProps} />
+      </main>
+
+      <BottomInfo />
+      <Footer />
+    </div>
+  );
 }
 
 export default appWithTranslation(App);
-
