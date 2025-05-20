@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 
 
 export interface BookingFormModalProps {
@@ -18,11 +19,6 @@ export interface FormValues {
 	numOfPersons: number;
 	totalPrice: number;
 }
-export interface MyDateRange {
-	startDate: Date;
-	endDate: Date;
-	key: string;
-};
 
 export interface CalendarPickerProps {
 	dateRange: MyDateRange[];

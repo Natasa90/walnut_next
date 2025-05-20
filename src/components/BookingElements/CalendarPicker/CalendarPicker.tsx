@@ -5,6 +5,13 @@ import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
 import { CalendarPickerProps } from "@/types/Types";
 
+export type MyDateRange = {
+	startDate: Date;
+	endDate: Date;
+	key: string;
+};
+
+
 export const CalendarPicker = ({
     dateRange,
     handleSelect,

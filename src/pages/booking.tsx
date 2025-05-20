@@ -6,7 +6,7 @@ import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
 import { BookingFormModal } from "@/components/BookingElements/BookingFormModal";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
 import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
-import { MyDateRange } from "@/types/Types";
+import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 import { Prices } from "@/components/BookingElements/Prices";
 import { useTranslation } from "next-i18next";
