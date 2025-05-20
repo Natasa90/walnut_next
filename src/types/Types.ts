@@ -18,8 +18,7 @@ export interface FormValues {
 	numOfPersons: number;
 	totalPrice: number;
 }
-
-export interface MyDateRange {
+interface MyDateRange {
 	startDate: Date;
 	endDate: Date;
 	key: string;

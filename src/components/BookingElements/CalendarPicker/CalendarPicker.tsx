@@ -3,7 +3,7 @@ import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
-import { MyDateRange, CalendarPickerProps } from "@/types/Types";
+import { CalendarPickerProps } from "@/types/Types";
 
 export const CalendarPicker = ({
     dateRange,
