@@ -166,29 +166,29 @@ const BookingPage = ({
 
 export default BookingPage;
 
-export async function getServerSideProps({ locale }: { locale: string }) {
-    try {
-        const bookings = await getBookedDates();
-        const disabledDates = formatBlockedDates(bookings);
+export async function getStaticProps({ locale }: { locale: string }) {
+	try {
+			const bookings = await getBookedDates();
+			const disabledDates = formatBlockedDates(bookings);
+			const translations = await serverSideTranslations(locale, ["common"]);
 
-        const translations = await serverSideTranslations(locale, ["common"]);
+			return {
+					props: {
+							initialDisabledDates: disabledDates.map((date) =>
+									date.toISOString()
+							),
+							...translations,
+					},
+				};
+	} catch (error) {
+			const translations = await serverSideTranslations(locale, ["common"]);
 
-        return {
-            props: {
-                initialDisabledDates: disabledDates.map((date) =>
-                    date.toISOString()
-                ),
-                ...translations,
-            },
-        };
-    } catch (error) {
-        const translations = await serverSideTranslations(locale, ["common"]);
-
-        return {
-            props: {
-                disabledDates: [],
-                ...translations,
-            },
-        };
-    }
+			return {
+					props: {
+							disabledDates: [],
+							...translations,
+					},
+			};
+	}
 }
+
