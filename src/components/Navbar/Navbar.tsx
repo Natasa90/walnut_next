@@ -32,7 +32,7 @@ export const Navbar = () => {
                 <Link href="/">
                     <div className="flex items-center">
                         <Image
-                            src="/images/Logo.webp"
+                            src="/images/Logo_trans.webp"
                             alt="Walnut House Logo"
                             width={100}
                             height={80}
