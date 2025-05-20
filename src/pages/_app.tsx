@@ -15,23 +15,32 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
 function App({ Component, pageProps }: AppProps) {
   const { t, loading } = useI18nReady("common");
-  const [showSpinner, setShowSpinner] = useState(false);
+	const [showSpinner, setShowSpinner] = useState(false);
+  const [i18nTimedOut, setI18nTimedOut] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setI18nTimedOut(true);
+    }, 3000); // ⏰ fallback if i18n.ready is never true
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // 2. Route-based page transition spinner
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
     const handleStart = () => {
       timer = setTimeout(() => {
         setShowSpinner(true);
-      }, 300);
+      }, 300); // delay to avoid flicker
     };
 
     const handleComplete = () => {
       clearTimeout(timer);
       setShowSpinner(false);
     };
-
+		
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
     router.events.on("routeChangeError", handleComplete);
