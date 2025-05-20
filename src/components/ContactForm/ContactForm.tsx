@@ -70,8 +70,8 @@ export const ContactForm = () => {
                         <div>
                             <Field
                                 type="email"
-                                name={t("contactForm.emailPlaceholder")}
-                                placeholder="Email"
+                                name="email"
+                                placeholder={t("contactForm.emailPlaceholder")}
                                 className="bg-[#f0ece2] p-4 rounded-xl text-gray-700 w-full"
                             />
                             <ErrorMessage
