@@ -18,7 +18,7 @@ export const ThingsToSeeCard: FC<ThingsToSeeCardProps> = ({
                     <Image
                         src={imageSrc}
                         alt={title}
-                        fill
+												fill
                         style={{ objectFit: 'cover' }}
                         className="absolute inset-0 rounded-t-xl"
                     />
