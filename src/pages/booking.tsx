@@ -10,6 +10,7 @@ import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 import { Prices } from "@/components/BookingElements/Prices";
 import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
+import { BouncingLogo } from "@/components/BouncingLogo";
 
 const BookingPage = ({
     initialDisabledDates,

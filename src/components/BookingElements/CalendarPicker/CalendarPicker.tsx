@@ -62,7 +62,7 @@ export const CalendarPicker = ({
                     />
                 </div>
                 <button
-                    className="px-6 py-3  mt-4 rounded-xl bg-[#596e79] hover:bg-[#596e45] text-white disabled:bg-gray-900 w-[40%]"
+                    className="px-6 py-3  mt-4 rounded-xl bg-[#596e79] hover:bg-[#596e45] text-white disabled:bg-gray-900"
                     disabled={!dateRange[0].startDate || !dateRange[0].endDate}
                     onClick={onBookClick}
                 >

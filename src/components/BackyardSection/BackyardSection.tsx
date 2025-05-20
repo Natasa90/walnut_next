@@ -2,12 +2,11 @@ import { HomePageCard } from "../HomePageCard";
 import { CustomLink } from "../CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
+import { IoIosChatbubbles } from "react-icons/io";
 import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
-
 export const BackyardSection = () => {
-	const t = useCommonTranslation();
+    const t = useCommonTranslation();
     return (
         <section className="w-full flex flex-col-reverse md:flex-col items-center gap-8 mt-5 md:px-16">
             <HomePageCard
@@ -38,8 +37,8 @@ export const BackyardSection = () => {
                 link2={
                     <CustomLink
                         href="/contact"
-                        title={t("home.homeInfo3.linkText")}
-                        leftIcon={<FaPhoneAlt />}
+                        title={t("contactForm.contactUs")}
+                        leftIcon={<IoIosChatbubbles />}
                         rightIcon={<MdArrowForwardIos />}
                     />
                 }

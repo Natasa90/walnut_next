@@ -59,7 +59,7 @@ export const AptTriSove = () => {
 									</div>
 									<div className="flex items-center space-x-3">
 											<p className="text-lg font-medium text-gray-800">
-													{t("Networks")}
+													{t("aptTriSoveInsta")}
 											</p>
 											<FaArrowRight className="text-gray-500 text-lg" />
 											<FaInstagram className="text-pink-600 text-3xl" />

@@ -5,17 +5,17 @@
   "callUs": "Call us!",
   "aboutUs": {
     "title": "About Us",
-    "intro": "Welcome to your perfect countryside escape! 🏡",
+    "intro": "Welcome to your perfect countryside escape!",
     "description": "Tucked away in the heart of Brezane, a charming village near Požarevac, our wooden A-frame house is more than just a place to stay, it’s a peaceful retreat built with love by the Stefanović family. We opened our doors in May 2025, and ever since, we've been sharing our little slice of paradise with guests looking to unwind, unplug, and enjoy nature’s simplicity.",
     "comforts": "Our home is where rustic charm meets modern comfort. Surrounded by greenery and fresh village air, the property offers everything you need for an unforgettable stay:",
     "features": {
-      "pool": "A swimming pool for sunny days ☀️",
-      "patio": "A cozy patio and fully-equipped garden kitchen 🌿",
-      "bbq": "A barbecue area and a traditional Serbian ražanj (Spit Roast) 🍖",
-      "firePit": "A fire pit for starlit storytelling 🔥",
-      "playground": "A fun-filled playground for the little ones 🎠",
-      "backyard": "A large backyard with cornhole, picado, and plenty of space for relaxing 🌳",
-      "petFriendly": "Pet-friendly! Because vacations are better with furry friends 🐾"
+      "pool": "A swimming pool for sunny days",
+      "patio": "A cozy patio and fully-equipped garden kitchen",
+      "bbq": "A barbecue area and a traditional Serbian ražanj (Spit Roast)",
+      "firePit": "A fire pit for starlit storytelling",
+      "playground": "A fun-filled playground for the little ones",
+      "backyard": "A large backyard with cornhole, picado, and plenty of space for relaxing",
+      "petFriendly": "Pet-friendly! Because vacations are better with furry friends"
     },
     "closing": "Whether you're celebrating, recharging, or just escaping the city buzz, our home is your home.",
     "extra": "And if you're up for a mountain adventure, we’ve got you covered there too! The Stefanović family also owns a beautiful apartment in Zlatibor, one of Serbia’s most popular mountain destinations—ideal for winter getaways or summer hiking trips.",
@@ -61,7 +61,7 @@
 			"cable": "Cable TV"
 			},
 		"thingsToSee": {
-			"title": "Things to See Near Our Cottage",
+			"title": "Things to See Near Our House",
 			"viminacium": {
 				"title": "Viminacium - Archaeological Park",
 				"location": "12 km from Požarevac, near Kostolac",
@@ -113,11 +113,12 @@
 		"booking": "Booking",
 		"contact": "Contact"
 	},
-	"Networks": "Follow us",
+	"Networks": "Instagram",
 	"aptTriSoveModal": "Apartment Tri Sove",
+	"aptTriSoveInsta": "Follow Tri Sove", 
 	"gallery": {
 		"title": "Gallery",
-		"p": "Welcome to Walnut Pool House, where every corner is crafted with love ❤️🏡. Imagine yourself lounging by the sparkling pool, a cold drink in hand 🍹☀️.. pure bliss awaits you! Dive into the gallery and let your dream getaway begin! 🌴✨",
+		"p": "Welcome to Walnut Pool House, where every corner is crafted with love. Imagine yourself lounging by the sparkling pool, a cold drink in hand.. pure bliss awaits you! Dive into the gallery and let your dream getaway begin!",
 		"cardTitles" : {
 			"livingRoom": "Living Room",
 			"kitchen": "Kitchen",
@@ -144,6 +145,7 @@
     "invalidEmail": "Invalid Email Format",
     "emailReq": "Email field is required",
     "phoneReq": "Phone Number field is required",
+		"messageReq": "Message field is required",
     "bookingFailed": "Submitting Booking Failed. Try again!",
     "resDetails": "Reservation Details",
     "selectedDates": "Selected dates",
@@ -164,5 +166,18 @@
 			"daily": "daily",
 			"nightly": "nightly"
 		}
-  }
+  },
+	"contactForm": {
+		"messageSent": "Your message has been sent. We will contact you soon.",
+		"contactUs": "Contact us",
+		"sendBtn": "Send",
+		"sendingBtn": "Sending...",
+		"errorMessage": "Sending failed. Please try again.",
+		"fullNamePlaceholder": "Full Name",
+		"emailPlaceholder": "Email",
+		"phonePlaceholder": "Phone",
+		"messagePlaceholder": "Your Message",
+		"contactHeader": "Get in Touch!", 
+	  "contactPageText": "We would love to hear from you! Whether you have questions about our rental property, need more information, or just want to chat before booking, feel free to reach out. Use the form below to contact us directly, and we'll get back to you as soon as possible."
+	}
 }

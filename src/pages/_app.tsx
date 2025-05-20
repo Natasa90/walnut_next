@@ -6,29 +6,62 @@ import { Footer } from "@/components/Footer";
 import { BottomInfo } from "@/components/BottomInfo";
 import { Playfair_Display, Inter } from "next/font/google";
 import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import { BouncingLogo } from "@/components/BouncingLogo";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
 function App({ Component, pageProps }: AppProps) {
-  const { loading } = useI18nReady("common");
+    const { loading: i18nLoading } = useI18nReady("common");
 
-  return (
-    <div className={`${inter.className} min-h-screen flex flex-col relative`}>
-      <Navbar />
+    const router = useRouter();
+    const [pageLoading, setPageLoading] = useState(false);
 
-      <main
-        className={`flex-1 transition-opacity duration-300 ease-in-out ${
-          loading ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <Component {...pageProps} />
-      </main>
+    useEffect(() => {
+        const handleStart = () => setPageLoading(true);
+        const handleComplete = () => setPageLoading(false);
 
-      <BottomInfo />
-      <Footer />
-    </div>
-  );
+        router.events.on("routeChangeStart", handleStart);
+        router.events.on("routeChangeComplete", handleComplete);
+        router.events.on("routeChangeError", handleComplete);
+
+        return () => {
+            router.events.off("routeChangeStart", handleStart);
+            router.events.off("routeChangeComplete", handleComplete);
+            router.events.off("routeChangeError", handleComplete);
+        };
+    }, [router]);
+
+    const showLoadingOverlay = i18nLoading || pageLoading;
+
+    return (
+        <div
+            className={`${inter.className} min-h-screen flex flex-col relative`}
+        >
+            <Navbar />
+
+            <main
+                className={`flex-1 transition-opacity duration-300 ease-in-out ${
+                    showLoadingOverlay
+                        ? "opacity-0 pointer-events-none"
+                        : "opacity-100"
+                }`}
+            >
+                <Component {...pageProps} />
+            </main>
+
+            {showLoadingOverlay && (
+                <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50">
+                    <BouncingLogo />
+                </div>
+            )}
+
+            <BottomInfo />
+            <Footer />
+        </div>
+    );
 }
 
 export default appWithTranslation(App);

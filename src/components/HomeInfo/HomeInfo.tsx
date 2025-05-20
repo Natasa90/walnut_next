@@ -2,12 +2,13 @@ import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { HomePageCard } from "../HomePageCard";
 import { MdArrowForwardIos } from "react-icons/md";
 import { CustomLink } from "../CustomLink";
+import { MdPhotoLibrary } from "react-icons/md";
 
 export const HomeInfo = () => {
 	const t = useCommonTranslation();
 
     return (
-        <section className="flex flex-col-reverse md:flex-col items-center gap-8 my-5 md:px-16">
+        <section className="flex flex-col md:flex-col items-center gap-8 my-5 md:px-16">
             <HomePageCard
                 title={t("home.homeInfo2.title")}
                 subTitle={t("home.homeInfo2.subtitle")}
@@ -33,6 +34,14 @@ export const HomeInfo = () => {
                     src: "/images/Backyard/Backyard8.webp",
                     alt: "Walnut House Backyard Firepit",
                 }}
+								link2={
+									<CustomLink
+											href="/gallery"
+											title={t("nav.gallery")}
+											leftIcon={<MdPhotoLibrary />}
+											rightIcon={<MdArrowForwardIos />}
+									/>
+							}
             />
         </section>
     );
