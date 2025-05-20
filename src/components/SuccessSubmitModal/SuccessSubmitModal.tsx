@@ -1,12 +1,6 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-
-interface SuccessBookingModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    title?: string;
-    children: ReactNode;
-}
+import { SuccessBookingModalProps } from "@/types/Types";
 
 export const SuccessBookingModal: FC<SuccessBookingModalProps> = ({
 	isOpen,

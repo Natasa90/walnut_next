@@ -1,11 +1,6 @@
 import { FC } from "react";
 import { FaTimes } from "react-icons/fa";
-
-interface GalleryModalProps {
-    title: string;
-    imagePaths: string[];
-    onClose: () => void;
-}
+import { GalleryModalProps } from "@/types/Types";
 
 export const GalleryModal: FC<GalleryModalProps> = ({
     title,

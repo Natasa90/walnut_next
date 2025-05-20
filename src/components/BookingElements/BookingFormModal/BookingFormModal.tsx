@@ -5,24 +5,8 @@ import { format } from "date-fns";
 import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { pricePerNight } from "@/lib/const/prices";
 import { differenceInCalendarDays } from "date-fns";
+import { BookingFormModalProps, FormValues } from "@/types/Types";
 import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
-
-interface BookingFormModalProps {
-    dateRange: { startDate: Date; endDate: Date };
-    onClose: () => void;
-    typeOfRent: "daily" | "nightly";
-    onBookingSuccess: () => void;
-}
-
-export interface FormValues {
-    fullName: string;
-    email?: string;
-    phone: string;
-    message?: string;
-    typeOfRent: string;
-    numOfPersons: number;
-    totalPrice: number;
-}
 
 export const BookingFormModal = ({
     dateRange,

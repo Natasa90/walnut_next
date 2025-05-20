@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
-import { useTranslation, UseTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 
 
 const StickyCTA = () => {

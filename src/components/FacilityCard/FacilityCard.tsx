@@ -1,13 +1,8 @@
 import { FC } from "react";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { FacilityCardProps } from "@/types/Types";
 
-
-interface FacilityCardProps {
-    title: string;
-    icon: IconDefinition;
-}
 export const FacilityCard: FC<FacilityCardProps> = ({ title, icon }) => {
 	const { t, loading } = useI18nReady("common");
 

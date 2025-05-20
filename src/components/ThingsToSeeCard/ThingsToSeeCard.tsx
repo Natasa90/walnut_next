@@ -1,15 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-
-interface ThingsToSeeCardProps {
-    title: string;
-    location: string;
-    significance: string;
-    whatToSee: string;
-    bonus?: string;
-    imageSrc: string;
-    href: string;
-}
+import { ThingsToSeeCardProps } from "@/types/Types";
 
 export const ThingsToSeeCard: FC<ThingsToSeeCardProps> = ({
     title,

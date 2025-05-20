@@ -3,11 +3,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { GalleryModal } from '../GalleryModal';
 import { playfair } from "@/lib/fonts";
-
-interface GalleryCardProps {
-  title: string;
-  imagePaths: string[];
-}
+import { GalleryCardProps } from '@/types/Types';
 
 export const GalleryCard: FC<GalleryCardProps> = ({ title, imagePaths }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

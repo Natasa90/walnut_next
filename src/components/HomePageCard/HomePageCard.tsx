@@ -2,24 +2,7 @@ import { FC, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { playfair } from "@/lib/fonts";
 import Image from "next/image";
-
-interface CustomImageProps {
-    src: string;
-    alt: string;
-}
-
-interface HomePageCardProps {
-    title: string;
-    subTitle?: string;
-    paragraph1: string;
-    paragraph2: string;
-    paragraph3?: string;
-    link: ReactNode;
-    link2?: ReactNode;
-    image1: CustomImageProps;
-    image2: CustomImageProps;
-    image3: CustomImageProps;
-}
+import { HomePageCardProps } from "@/types/Types";
 
 export const HomePageCard: FC<HomePageCardProps> = ({
     title,

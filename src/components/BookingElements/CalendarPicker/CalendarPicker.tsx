@@ -3,20 +3,7 @@ import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
-
-export type MyDateRange = {
-    startDate: Date;
-    endDate: Date;
-    key: string;
-};
-
-interface CalendarPickerProps {
-    dateRange: MyDateRange[];
-    handleSelect: (ranges: any) => void;
-    disabledDates?: Date[];
-    onBookClick: () => void;
-    rentType: "daily" | "nightly";
-}
+import { MyDateRange, CalendarPickerProps } from "@/types/Types";
 
 export const CalendarPicker = ({
     dateRange,
