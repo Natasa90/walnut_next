@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
-import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactText } from "@/components/ContactText";
 import { ContactUsExtra } from "@/components/ContactUsExtra";
@@ -34,7 +32,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-export const getStaticProps: GetStaticProps = async (context) => {
-    return loadTranslation(context);
-};

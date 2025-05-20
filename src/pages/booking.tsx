@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { addDays } from "date-fns";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
 import { BookingFormModal } from "@/components/BookingElements/BookingFormModal";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
@@ -167,28 +167,31 @@ const BookingPage = ({
 export default BookingPage;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-    try {
-        const bookings = await getBookedDates();
-        const disabledDates = formatBlockedDates(bookings);
+	try {
+			// Fetch the booking dates and format them
+			const bookings = await getBookedDates();
+			const disabledDates = formatBlockedDates(bookings);
 
-        const translations = await serverSideTranslations(locale, ["common"]);
+			return {
+					props: {
+							// Add the disabled dates to props
+							initialDisabledDates: disabledDates.map((date) =>
+									date.toISOString()
+							),
+							// Load translations for the current locale
+							...(await serverSideTranslations(locale, ["common"])),
+					},
+			};
+	} catch (error) {
+			console.error(error);
 
-        return {
-            props: {
-                initialDisabledDates: disabledDates.map((date) =>
-                    date.toISOString()
-                ),
-                ...translations,
-            },
-        };
-    } catch (error) {
-        const translations = await serverSideTranslations(locale, ["common"]);
-
-        return {
-            props: {
-                disabledDates: [],
-                ...translations,
-            },
-        };
-    }
+			return {
+					props: {
+							disabledDates: [],
+							// Fallback translations in case of an error
+							...(await serverSideTranslations(locale, ["common"])),
+					},
+			};
+	}
 }
+

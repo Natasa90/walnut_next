@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { GetStaticProps } from 'next';
-import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { HomeWelcome } from "@/components/HomeWelcome";
 import { HomeInfo } from "@/components/HomeInfo";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
@@ -40,6 +38,3 @@ export default function Home() {
         </>
     );
 }
-export const getStaticProps: GetStaticProps = async (context) => {
-  return loadTranslation(context);
-};

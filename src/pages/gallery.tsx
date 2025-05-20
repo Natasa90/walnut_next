@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { GalleryCard } from "@/components/GalleryElements/GalleryCard";
 import { playfair } from "@/lib/fonts";
 import path from "path";
@@ -93,12 +92,16 @@ const GalleryPage: FC<GalleryPageProps> = ({ sections }) => {
 export default GalleryPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const basePath = path.join(process.cwd(), "public/images");
+	const basePath = path.join(process.cwd(), "public/images");
 
-    const sectionsWithImages = gallerySections.map((section) => ({
-        ...section,
-        imagePaths: imageLoader(basePath, section.folder),
-    }));
+	const sectionsWithImages = gallerySections.map((section) => ({
+			...section,
+			imagePaths: imageLoader(basePath, section.folder),
+	}));
 
-    return loadTranslation(context, { sections: sectionsWithImages });
+	return {
+			props: {
+					sections: sectionsWithImages,
+			},
+	};
 };
