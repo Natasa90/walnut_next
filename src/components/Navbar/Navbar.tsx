@@ -5,14 +5,12 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { playfair } from "@/lib/fonts";
 import { LanguageSwitcher } from "../LanguageSwitcher";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 export const Navbar = () => {
     const router = useRouter();
-		const { t, loading } = useI18nReady("common");
-    const [menuOpen, setMenuOpen] = useState(false);
-
-		if (loading) return <div>Loading...</div>;
+		const t = useCommonTranslation();
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const links = [
         { href: "/", label: t("nav.home") },

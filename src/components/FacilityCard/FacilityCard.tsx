@@ -1,12 +1,10 @@
 import { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { FacilityCardProps } from "@/types/Types";
 
 export const FacilityCard: FC<FacilityCardProps> = ({ title, icon }) => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     return (
         <div className="flex flex-col items-center justify-center h-38 bg-white rounded-xl shadow-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out cursor-pointer gap-3">
             <FontAwesomeIcon

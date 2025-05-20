@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { Typewriter } from "react-simple-typewriter";
 import { CustomLink } from "../CustomLink";
 import { FaRegCalendarCheck } from "react-icons/fa";
@@ -7,9 +7,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { playfair } from "@/lib/fonts";
 
 export const HomeWelcome = () => {
-    const { t, loading } = useI18nReady("common");
-
-    if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     const words = t("home.homeInfo.typewriterWords", {
         returnObjects: true,
     }) as string[];

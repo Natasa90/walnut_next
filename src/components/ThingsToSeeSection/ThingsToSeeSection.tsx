@@ -2,13 +2,11 @@ import { FC } from "react";
 import { ThingsToSeeCard } from "../ThingsToSeeCard";
 import { thingsToSee } from "@/lib/const/thingsTooSee";
 import { playfair } from "@/lib/fonts";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { motion } from "framer-motion";
 
 export const ThingsToSeeSection: FC = () => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     const thingKeys = [
         "viminacium",
         "milenaPavlovicBarili",

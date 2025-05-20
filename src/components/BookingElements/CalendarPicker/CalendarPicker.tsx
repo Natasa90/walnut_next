@@ -1,5 +1,5 @@
 import { DateRange } from "react-date-range";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
@@ -19,9 +19,7 @@ export const CalendarPicker = ({
     onBookClick,
     rentType,
 }: CalendarPickerProps) => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     return (
         <div className="flex flex-col bg-[#dfd3c3] text-center p-8 rounded-2xl w-11/12 md:w-1/2 mx-auto">
             <h1 className="text-2xl font-semibold text-[#596e79] mb-6">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { pricePerNight } from "@/lib/const/prices";
 import { differenceInCalendarDays } from "date-fns";
 import { BookingFormModalProps, FormValues } from "@/types/Types";
@@ -14,10 +14,8 @@ export const BookingFormModal = ({
     typeOfRent,
     onBookingSuccess,
 }: BookingFormModalProps) => {
-	const { t, loading } = useI18nReady("common");
+	const t = useCommonTranslation();
 	const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
-
-	if (loading) return <div>Loading...</div>;
 
     const initialValues: FormValues = {
         fullName: "",

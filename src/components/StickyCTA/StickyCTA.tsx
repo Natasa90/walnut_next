@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
-import { useTranslation } from "next-i18next";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 
 const StickyCTA = () => {
     const [show, setShow] = useState(false);
 
-		const { t } = useTranslation("common"); 
+		const t = useCommonTranslation();
 
     useEffect(() => {
         const handleScroll = () => {

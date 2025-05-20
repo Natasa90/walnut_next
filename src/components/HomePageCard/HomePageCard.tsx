@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { motion } from "framer-motion";
 import { playfair } from "@/lib/fonts";
 import Image from "next/image";

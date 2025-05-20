@@ -8,11 +8,13 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { BottomInfo } from "@/components/BottomInfo";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
 function App({ Component, pageProps }: AppProps) {
+	const { t, loading } = useI18nReady("common");
     const [isRouteChanging, setIsRouteChanging] = useState(false);
     const [showSpinner, setShowSpinner] = useState(false);
     const router = useRouter();
@@ -43,6 +45,8 @@ function App({ Component, pageProps }: AppProps) {
             router.events.off("routeChangeError", handleComplete);
         };
     }, [router]);
+
+		if (loading) return <div>Loading translations...</div>;
 
     return (
         <div

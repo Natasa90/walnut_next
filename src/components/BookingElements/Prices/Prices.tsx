@@ -1,10 +1,7 @@
-import { useI18nReady } from '@/lib/hooks/useI18nReady';
-import React from 'react';
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 export const Prices = () => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
   return (
     <div className="prices-container p-4 max-w-md mx-auto bg-amber-50 rounded-3xl shadow">
       <h2 className="text-xl font-bold mb-4">{t('prices.title')}</h2>

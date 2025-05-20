@@ -1,5 +1,5 @@
 import { playfair } from "@/lib/fonts";
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { SocialNetworks } from "../SocialNetworks";
 import { CustomLink } from "../CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -7,9 +7,7 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { AptTriSove } from "../AptTriSove";
 
 export const AboutUs = () => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     return (
         <div className="text-justify text-lg leading-relaxed">
             <h1 className={`${playfair.className} text-3xl font-bold mb-4`}>

@@ -1,12 +1,11 @@
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import Image from "next/image";
 import { FaInstagram, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
+
 
 export const AptTriSove = () => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
 
 	return (
 			<motion.div

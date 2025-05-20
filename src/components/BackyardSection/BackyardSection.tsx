@@ -1,14 +1,13 @@
-import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { HomePageCard } from "../HomePageCard";
 import { CustomLink } from "../CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
+
 
 export const BackyardSection = () => {
-	const { t, loading } = useI18nReady("common");
-
-  if (loading) return <div>Loading...</div>;
+	const t = useCommonTranslation();
     return (
         <section className="w-full flex flex-col-reverse md:flex-col items-center gap-8 mt-5 md:px-16">
             <HomePageCard

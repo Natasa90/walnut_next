@@ -1,8 +1,8 @@
 import { FaPhoneAlt } from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 export const ContactUsExtra = () => {
-	const { t } = useTranslation("common");
+	const t = useCommonTranslation();
     return (
         <button
             className="pointer-events-auto flex items-center gap-3 bg-gradient-to-r from-green-700 to-lime-600 hover:from-green-800 hover:to-lime-700 text-white px-6 py-3 rounded-full shadow-xl font-semibold text-base transition-transform hover:scale-105 active:scale-95"
