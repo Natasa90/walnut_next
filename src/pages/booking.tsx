@@ -9,7 +9,7 @@ import { formatBlockedDates } from "@/lib/helpers/formatBlockedDates";
 import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 import { Prices } from "@/components/BookingElements/Prices";
-import { useTranslation } from "next-i18next";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 const BookingPage = ({
     initialDisabledDates,
@@ -33,7 +33,7 @@ const BookingPage = ({
     const [isModalOpen, setIsModalOpen] = useState(false);
 		const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-		const { t } = useTranslation("common");
+		const t = useCommonTranslation();
 
     useEffect(() => {
         const loadDates = async () => {
