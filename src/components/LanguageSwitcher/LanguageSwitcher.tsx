@@ -1,8 +1,13 @@
+import { FC } from "react";
 import { useRouter } from "next/router";
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
-export const LanguageSwitcher = () => {
+interface LanguageSwitcherProps {
+	closeNavBar: () => void; 
+}
+
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ closeNavBar }) => {
     const router = useRouter();
     const { locale, pathname, query, asPath } = router;
 
@@ -27,6 +32,7 @@ export const LanguageSwitcher = () => {
     const changeLanguage = (lng: string) => {
         setIsOpen(false);
         router.push({ pathname, query }, asPath, { locale: lng });
+				closeNavBar(); 
     };
 
     return (

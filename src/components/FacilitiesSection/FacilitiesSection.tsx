@@ -1,10 +1,12 @@
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { playfair } from "@/lib/fonts";
 import { facilities } from "@/lib/const/facilities";
 import { FacilityCard } from "../FacilityCard";
-import { useTranslation } from "react-i18next";
 
 export const FacilitiesSection = () => {
-	const { t } = useTranslation("common")
+	const { t, loading } = useI18nReady("common");
+
+  if (loading) return <div>Loading...</div>;
     return (
         <section className="flex flex-col items-center mx-5 mt-4">
             <h2 className={`${playfair.className} text-center text-3xl text-gray-700`}>

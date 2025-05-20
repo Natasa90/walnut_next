@@ -1,16 +1,18 @@
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { playfair } from "@/lib/fonts";
 import { LanguageSwitcher } from "../LanguageSwitcher";
-import { useTranslation } from "next-i18next";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 
 export const Navbar = () => {
     const router = useRouter();
-    const { t } = useTranslation("common");
+		const { t, loading } = useI18nReady("common");
     const [menuOpen, setMenuOpen] = useState(false);
+
+		if (loading) return <div>Loading...</div>;
 
     const links = [
         { href: "/", label: t("nav.home") },
@@ -19,6 +21,10 @@ export const Navbar = () => {
         { href: "/booking", label: t("nav.booking") },
         { href: "/contact", label: t("nav.contact") },
     ];
+
+		const closeNavbar = () => {
+			setMenuOpen(false);
+	};
 
     return (
         <nav className="shadow-md">
@@ -55,7 +61,7 @@ export const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
-                    <LanguageSwitcher />
+                    <LanguageSwitcher closeNavBar={closeNavbar}/>
                 </div>
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -90,7 +96,7 @@ export const Navbar = () => {
                                 </Link>
                             ))}
                         </div>
-                        <LanguageSwitcher />
+                        <LanguageSwitcher closeNavBar={closeNavbar} />
                     </div>
                 </>
             )}

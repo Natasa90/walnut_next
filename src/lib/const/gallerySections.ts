@@ -1,22 +1,22 @@
 export const gallerySections = [
   {
-    title: 'gallery.cardTitle.livingRoom',
+    title: 'gallery.cardTitles.livingRoom',
     folder: 'livingRoom',
   },
   {
-    title: 'gallery.cardTitle.kitchen',
+    title: 'gallery.cardTitles.kitchen',
     folder: 'kitchen',
   },
   {
-    title: 'gallery.cardTitle.sleepingGallery',
+    title: 'gallery.cardTitles.sleepingGallery',
     folder: 'sleepingGallery',
   },
   {
-    title: 'gallery.cardTitle.bathroom',
+    title: 'gallery.cardTitles.bathroom',
     folder: 'bathroom',
   },
   {
-    title: 'gallery.cardTitle.backyard',
+    title: 'gallery.cardTitles.backyard',
     folder: 'Backyard',
   },
 ];

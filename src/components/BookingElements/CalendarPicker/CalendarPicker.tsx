@@ -1,8 +1,8 @@
 import { DateRange } from "react-date-range";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./CalendarPicker.module.css";
-import { useTranslation } from "react-i18next";
 
 export type MyDateRange = {
     startDate: Date;
@@ -25,7 +25,9 @@ export const CalendarPicker = ({
     onBookClick,
     rentType,
 }: CalendarPickerProps) => {
-	const { t } = useTranslation("common"); 
+	const { t, loading } = useI18nReady("common");
+
+  if (loading) return <div>Loading...</div>;
     return (
         <div className="flex flex-col bg-[#dfd3c3] text-center p-8 rounded-2xl w-11/12 md:w-1/2 mx-auto">
             <h1 className="text-2xl font-semibold text-[#596e79] mb-6">
@@ -72,7 +74,7 @@ export const CalendarPicker = ({
                     disabled={!dateRange[0].startDate || !dateRange[0].endDate}
                     onClick={onBookClick}
                 >
-                    Book
+                    {t("bookingForm.book")}
                 </button>
             </div>
         </div>

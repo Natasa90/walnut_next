@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { pricePerNight } from "@/lib/const/prices";
 import { differenceInCalendarDays } from "date-fns";
 import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
-import { useTranslation } from "next-i18next";
 
 interface BookingFormModalProps {
     dateRange: { startDate: Date; endDate: Date };
@@ -30,6 +30,11 @@ export const BookingFormModal = ({
     typeOfRent,
     onBookingSuccess,
 }: BookingFormModalProps) => {
+	const { t, loading } = useI18nReady("common");
+	const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
+
+	if (loading) return <div>Loading...</div>;
+
     const initialValues: FormValues = {
         fullName: "",
         email: "",
@@ -39,9 +44,6 @@ export const BookingFormModal = ({
         numOfPersons: 2,
         totalPrice: typeOfRent === "daily" ? 150 : 0,
     };
-
-    const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
-    const { t } = useTranslation("common");
 
     const validationSchema = Yup.object({
         fullName: Yup.string().required(t("bookingForm.fullNameReq")),

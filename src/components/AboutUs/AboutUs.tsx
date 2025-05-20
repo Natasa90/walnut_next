@@ -1,5 +1,5 @@
 import { playfair } from "@/lib/fonts";
-import { useTranslation } from "next-i18next";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { SocialNetworks } from "../SocialNetworks";
 import { CustomLink } from "../CustomLink";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -7,8 +7,9 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { AptTriSove } from "../AptTriSove";
 
 export const AboutUs = () => {
-    const { t } = useTranslation("common");
+	const { t, loading } = useI18nReady("common");
 
+  if (loading) return <div>Loading...</div>;
     return (
         <div className="text-justify text-lg leading-relaxed">
             <h1 className={`${playfair.className} text-3xl font-bold mb-4`}>
@@ -28,8 +29,8 @@ export const AboutUs = () => {
             </ul>
             <p className="mb-4">{t("aboutUs.closing")}</p>
             <p className="mb-4">{t("aboutUs.extra")}</p>
-						<p className="mb-4">{t("aboutUs.aptTriSove")}</p>
-						<AptTriSove />
+            <p className="mb-4">{t("aboutUs.aptTriSove")}</p>
+            <AptTriSove />
             <p className="mb-4">{t("aboutUs.note")}</p>
             <p className="mb-8">{t("aboutUs.final")}</p>
             <CustomLink
@@ -38,9 +39,9 @@ export const AboutUs = () => {
                 leftIcon={<FaRegCalendarCheck />}
                 rightIcon={<MdArrowForwardIos />}
             />
-						<div className="mt-4">
-            <SocialNetworks />
-						</div>
+            <div className="mt-4">
+                <SocialNetworks />
+            </div>
         </div>
     );
 };

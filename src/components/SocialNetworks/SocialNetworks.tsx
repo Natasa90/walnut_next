@@ -1,8 +1,10 @@
-import { useTranslation } from "react-i18next";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { FaInstagram, FaArrowRight } from "react-icons/fa";
 
 export const SocialNetworks = () => {
-    const { t } = useTranslation("common");
+	const { t, loading } = useI18nReady("common");
+
+  if (loading) return <div>Loading...</div>;
     return (
         <div className="flex flex-wrap justify-center cursor-pointer shadow-md pb-4">
             <a

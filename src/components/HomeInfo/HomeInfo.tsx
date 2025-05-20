@@ -1,12 +1,12 @@
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 import { HomePageCard } from "../HomePageCard";
 import { MdArrowForwardIos } from "react-icons/md";
 import { CustomLink } from "../CustomLink";
-import { useTranslation } from "react-i18next";
 
 export const HomeInfo = () => {
-    const { t, ready } = useTranslation("common");
+	const { t, loading } = useI18nReady("common");
 
-    if (!ready) return null;
+  if (loading) return <div>Loading...</div>;
 
     return (
         <section className="flex flex-col-reverse md:flex-col items-center gap-8 my-5 md:px-16">

@@ -131,12 +131,12 @@
 	"gallery": {
 		"title": "Galerija",
 		"p": "Dobrodošli u Walnut Pool House, gde je svaki kutak urađen s puno ljubavi ❤️🏡. Zamislite sebe kraj blistavog bazena, sa hladnim pićem u ruci 🍹☀️.. pravo uživanje Vas čeka! Pogledajte galeriju i počnite da sanjate svoj savršen odmor! 🌴✨",
-		"cardTitle" : {
-			"livingRoom": "Dnevni boravak",
-			"kitchen": "Kuhinja",
-			"sleepingGallery": "Galerija za spavanje",
-			"bathroom": "Kupatilo",
-			"backyard": "Dvorište"
+			"cardTitles" : {
+				"livingRoom": "Dnevni boravak",
+				"kitchen": "Kuhinja",
+				"sleepingGallery": "Galerija za spavanje",
+				"bathroom": "Kupatilo",
+				"backyard": "Dvorište"
 		}
 	},
 	"prices": {

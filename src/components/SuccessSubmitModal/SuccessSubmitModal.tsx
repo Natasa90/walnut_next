@@ -1,4 +1,4 @@
-import { FC, useState, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 interface SuccessBookingModalProps {

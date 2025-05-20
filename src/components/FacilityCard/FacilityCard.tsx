@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useTranslation } from "react-i18next";
+import { useI18nReady } from "@/lib/hooks/useI18nReady";
 
 
 interface FacilityCardProps {
@@ -9,7 +9,9 @@ interface FacilityCardProps {
     icon: IconDefinition;
 }
 export const FacilityCard: FC<FacilityCardProps> = ({ title, icon }) => {
-	 const { t } = useTranslation("common");
+	const { t, loading } = useI18nReady("common");
+
+  if (loading) return <div>Loading...</div>;
     return (
         <div className="flex flex-col items-center justify-center h-38 bg-white rounded-xl shadow-xl hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out cursor-pointer gap-3">
             <FontAwesomeIcon
