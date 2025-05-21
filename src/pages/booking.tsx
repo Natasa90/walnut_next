@@ -10,7 +10,7 @@ import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 import { Prices } from "@/components/BookingElements/Prices";
 import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
-import { BouncingLogo } from "@/components/BouncingLogo";
+import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
 
 const BookingPage = ({
     initialDisabledDates,
@@ -32,9 +32,9 @@ const BookingPage = ({
         },
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-		const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-		const t = useCommonTranslation();
+    const t = useCommonTranslation();
 
     useEffect(() => {
         const loadDates = async () => {
@@ -52,15 +52,10 @@ const BookingPage = ({
         );
 
         if (nextAvailable) {
-            const endDate =
-                rentType === "daily"
-                    ? nextAvailable
-                    : addDays(nextAvailable, 1);
-
             setDateRange([
                 {
                     startDate: nextAvailable,
-                    endDate,
+                    endDate: nextAvailable,
                     key: "selection",
                 },
             ]);
@@ -72,25 +67,34 @@ const BookingPage = ({
         const formatted = formatBlockedDates(updated);
         setDisabledDates(formatted);
         setIsModalOpen(false);
-				setShowSuccessModal(true)
+        setShowSuccessModal(true);
     };
 
     const handleSelect = (ranges: any) => {
         const selection = ranges?.selection;
         if (!selection) return;
 
-        if (rentType === "daily") {
-            const selectedDate = selection.startDate;
+        const selectedStart = selection.startDate;
+        const selectedEnd = selection.endDate;
 
+        if (rentType === "daily") {
+            // Always force a single-day selection
             setDateRange([
                 {
-                    startDate: selectedDate,
-                    endDate: selectedDate,
+                    startDate: selectedStart,
+                    endDate: selectedStart,
                     key: "selection",
                 },
             ]);
         } else {
-            setDateRange([selection]);
+            // Allow a full range for nightly
+            setDateRange([
+                {
+                    startDate: selectedStart,
+                    endDate: selectedEnd ?? selectedStart, // fallback in case endDate is undefined
+                    key: "selection",
+                },
+            ]);
         }
     };
     return (
@@ -135,7 +139,9 @@ const BookingPage = ({
                             }
                         >
                             <option value="daily">{t("prices.daily")}</option>
-                            <option value="nightly">{t("prices.nightly")}</option>
+                            <option value="nightly">
+                                {t("prices.nightly")}
+                            </option>
                         </select>
                     </div>
                     <div className="md:flex-[2] shadow-md pb-12">
@@ -159,6 +165,16 @@ const BookingPage = ({
                         onBookingSuccess={handleBookingSuccess}
                     />
                 )}
+                {showSuccessModal && (
+                    <SuccessBookingModal
+                        isOpen={showSuccessModal}
+                        onClose={() => setShowSuccessModal(false)}
+                        title={t("bookingSuccessTitle")}
+                    >
+                        <p>{t("bookingSuccessMessage")}</p>
+                        <p>{t("bookingSuccessSignature")}</p>
+                    </SuccessBookingModal>
+                )}
             </div>
         </>
     );
@@ -167,28 +183,27 @@ const BookingPage = ({
 export default BookingPage;
 
 export async function getStaticProps({ locale }: { locale: string }) {
-	try {
-			const bookings = await getBookedDates();
-			const disabledDates = formatBlockedDates(bookings);
-			const translations = await serverSideTranslations(locale, ["common"]);
+    try {
+        const bookings = await getBookedDates();
+        const disabledDates = formatBlockedDates(bookings);
+        const translations = await serverSideTranslations(locale, ["common"]);
 
-			return {
-					props: {
-							initialDisabledDates: disabledDates.map((date) =>
-									date.toISOString()
-							),
-							...translations,
-					},
-				};
-	} catch (error) {
-			const translations = await serverSideTranslations(locale, ["common"]);
+        return {
+            props: {
+                initialDisabledDates: disabledDates.map((date) =>
+                    date.toISOString()
+                ),
+                ...translations,
+            },
+        };
+    } catch (error) {
+        const translations = await serverSideTranslations(locale, ["common"]);
 
-			return {
-					props: {
-							disabledDates: [],
-							...translations,
-					},
-			};
-	}
+        return {
+            props: {
+                disabledDates: [],
+                ...translations,
+            },
+        };
+    }
 }
-

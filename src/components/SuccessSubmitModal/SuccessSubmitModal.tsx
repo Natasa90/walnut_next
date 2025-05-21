@@ -12,10 +12,10 @@ export const SuccessBookingModal: FC<SuccessBookingModalProps> = ({
 
 	return (
 			<div className="fixed inset-0 z-50 backdrop-blur-sm bg-white/30 flex items-center justify-center px-4">
-					<div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+					<div className="bg-white border border-amber-400 p-6 rounded-lg shadow-lg max-w-md w-full relative">
 							<button
 									onClick={onClose}
-									className="absolute top-3 right-3 text-xl text-gray-600 hover:text-red-500"
+									className="absolute cursor-pointer top-3 right-3 text-xl text-gray-600 hover:text-red-500"
 									aria-label="Close modal"
 							>
 									<AiOutlineClose />

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { format } from "date-fns";
@@ -6,7 +5,7 @@ import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 import { pricePerNight } from "@/lib/const/prices";
 import { differenceInCalendarDays } from "date-fns";
 import { BookingFormModalProps, FormValues } from "@/types/Types";
-import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
+import { generateBookingPDF } from "@/lib/helpers/getPdf";
 
 export const BookingFormModal = ({
     dateRange,
@@ -14,8 +13,7 @@ export const BookingFormModal = ({
     typeOfRent,
     onBookingSuccess,
 }: BookingFormModalProps) => {
-	const t = useCommonTranslation();
-	const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
+    const t = useCommonTranslation();
 
     const initialValues: FormValues = {
         fullName: "",
@@ -74,14 +72,13 @@ export const BookingFormModal = ({
             if (!response.ok) {
                 throw new Error("Failed to submit Booking.");
             }
-
-            setSuccessModalOpen(true);
-						onBookingSuccess();
+            onBookingSuccess();
+						generateBookingPDF(bookingData)
         } catch (error) {
             alert(t("bookingForm.bookingFailed"));
         }
     };
- 
+
     return (
         <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50 px-5">
             <div className="bg-white border border-gray-400 rounded-lg p-8 w-full max-w-md">
@@ -91,7 +88,9 @@ export const BookingFormModal = ({
                 <div className="mb-4 text-center text-gray-700">
                     <p>
                         {t("bookingForm.rentalType")}{" "}
-                        <strong>{t(`bookingForm.rentalTypes.${typeOfRent}`)}</strong>{" "}
+                        <strong>
+                            {t(`bookingForm.rentalTypes.${typeOfRent}`)}
+                        </strong>{" "}
                         {typeOfRent === "nightly" ? (
                             <>
                                 {t("bookingForm.selectedDates")}:{" "}
@@ -251,19 +250,6 @@ export const BookingFormModal = ({
                         );
                     }}
                 </Formik>
-                {isSuccessModalOpen && (
-                    <SuccessBookingModal
-                        isOpen={isSuccessModalOpen}
-												onClose={() => {
-													setSuccessModalOpen(false);
-													onClose(); // <- Closes the whole booking modal after success
-											}}
-                        title={t("bookingSuccessTitle")}
-                    >
-                        <p>{t("bookingSuccessMessage")}</p>
-                        <p>{t("bookingSuccessSignature")}</p>
-                    </SuccessBookingModal>
-                )}
             </div>
         </div>
     );
