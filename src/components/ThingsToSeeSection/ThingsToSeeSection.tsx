@@ -16,13 +16,13 @@ export const ThingsToSeeSection: FC = () => {
         "golubacFortress",
     ];
     return (
-        <section className="w-full py-12 px-4 bg-gray-300 border-t-3 border-gray-400">
+        <section className="w-full py-12 px-4 bg-gray-300 border-y-3 border-amber-200">
             <motion.h2
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.4, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.6 }}
-                className={`${playfair.className} text-2xl text-center mb-10`}
+                className={`${playfair.className} text-2xl text-center mb-10 text-gray-700`}
             >
                 {t("home.thingsToSee.title")}
             </motion.h2>

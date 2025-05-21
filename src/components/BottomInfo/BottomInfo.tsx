@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 
 export const BottomInfo = () => {
   return (
-    <div className="flex flex-col items-start p-4 gap-2 text-center text-sm ml-2">
+    <div className="flex flex-col items-start p-6 gap-2 text-center text-sml">
       <p>
         📍{" "}
         <a

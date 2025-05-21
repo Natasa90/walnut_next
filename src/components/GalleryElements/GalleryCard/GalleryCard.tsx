@@ -24,7 +24,7 @@ export const GalleryCard: FC<GalleryCardProps> = ({ title, imagePaths }) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
         whileHover={{ scale: 1.02 }}
-        className="cursor-pointer w-full max-w-2xl mx-auto p-4 border border-amber-200 rounded-3xl shadow-lg bg-amber-50 mb-8"
+        className="cursor-pointer w-full max-w-2xl mx-auto p-4 border text-center border-amber-200 rounded-3xl shadow-lg bg-amber-50 mb-8"
       >
         <h2 className={`${playfair.className} text-xl font-semibold mb-3`}>{title}</h2>
         <div className="relative">
@@ -44,7 +44,7 @@ export const GalleryCard: FC<GalleryCardProps> = ({ title, imagePaths }) => {
                 key={idx}
                 src={path}
                 alt={`${title} ${idx}`}
-                className="h-48 flex-shrink-0 snap-center object-cover rounded-lg w-full sm:w-64"
+                className="h-120 flex-shrink-0 snap-center object-cover rounded-lg w-full sm:w-64"
                 draggable={false}
               />
             ))}

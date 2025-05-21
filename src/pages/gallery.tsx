@@ -43,11 +43,15 @@ const GalleryPage: FC<GalleryPageProps> = ({ sections }) => {
                 <meta property="og:type" content="website" />
             </Head>
 
-            <div className="text-center px-4">
-                <h1 className={`${playfair.className} text-3xl font-bold my-6`}>
+						<div className="p-6">
+                <h1
+                    className={`${playfair.className} text-3xl text-center font-bold mb-10`}
+                >
                     {t("gallery.title")}
                 </h1>
-                <p className="text-justify px-4 mb-6">{t("gallery.p")}</p>
+                <p className="text-justify mb-10 text-lg">
+                    {t("gallery.p")}
+                </p>
                 <div className="space-y-12">
                     {sections.map(({ title, imagePaths, folder }) => (
                         <GalleryCard
@@ -63,7 +67,7 @@ const GalleryPage: FC<GalleryPageProps> = ({ sections }) => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.6 }}
-								className="mb-8"
+                className="mb-8"
             >
                 <CustomLink
                     href="/booking"

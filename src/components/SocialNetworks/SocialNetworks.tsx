@@ -12,16 +12,16 @@ export const SocialNetworks = () => {
                 className="cursor-pointer"
             >
                 <div
-                    className="flex items-center space-x-3 shadow-xl p-6 m-4 bg-amber-50 rounded-3xl border border-amber-200 hover:shadow-2xl transition-shadow duration-300"
+                    className="flex items-center space-x-2 shadow-xl p-5 mb-7 bg-amber-50 rounded-3xl border border-amber-200 hover:shadow-2xl transition-shadow duration-300"
                     style={{
                         animation: "pulse-scale 1.5s ease-in-out infinite",
                     }}
                 >
-                    <p className="text-lg font-medium text-gray-800">
+                    <p className="text-md font-medium text-gray-800">
                         {t("Networks")}
                     </p>
-                    <FaArrowRight className="text-gray-500 text-lg" />
-                    <FaInstagram className="text-pink-600 text-4xl" />
+                    <FaArrowRight className="text-gray-500 text-sm" />
+                    <FaInstagram className="text-pink-600 text-2xl" />
                 </div>
             </a>
         </div>

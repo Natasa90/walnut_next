@@ -113,9 +113,9 @@
 		"booking": "Booking",
 		"contact": "Contact"
 	},
-	"Networks": "Instagram",
+	"Networks": "@walnut_pool_house",
 	"aptTriSoveModal": "Apartment Tri Sove",
-	"aptTriSoveInsta": "Follow Tri Sove", 
+	"aptTriSoveInsta": "@apartman_tri_sove", 
 	"gallery": {
 		"title": "Gallery",
 		"p": "Welcome to Walnut Pool House, where every corner is crafted with love. Imagine yourself lounging by the sparkling pool, a cold drink in hand.. pure bliss awaits you! Dive into the gallery and let your dream getaway begin!",
@@ -179,5 +179,18 @@
 		"messagePlaceholder": "Your Message",
 		"contactHeader": "Get in Touch!", 
 	  "contactPageText": "We would love to hear from you! Whether you have questions about our rental property, need more information, or just want to chat before booking, feel free to reach out. Use the form below to contact us directly, and we'll get back to you as soon as possible."
-	}
+	},
+	"pricingNotice": {
+    "title": "Pricing Notice",
+    "p1": "Walnut Pool House reserves the right to adjust pricing during holidays or seasonal periods.",
+    "p2": "All prices listed on the website are current and up to date.",
+    "p3": "Children aged 12 and above are considered adults.",
+    "p4": "If you have any questions or concerns, please don’t hesitate to contact us before booking:",
+    "phone": "Phone: +381 60 306 5700",
+    "email": "Email: natasa.golubovic90@gmail.com",
+    "form": "You can also send us an inquiry through",
+		"linkToForm": "Contact Form.",
+    "closing": "Warm regards,",
+    "signature": "Your Walnut Pool House"
+    }
 }

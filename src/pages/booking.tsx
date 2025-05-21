@@ -117,17 +117,16 @@ const BookingPage = ({
                     <div className="md:flex-[1] md:px-6">
                         <Prices />
                     </div>
-
-                    <div className="md:flex-[0_0_200px]">
+                    <div className="flex flex-row justify-center gap-4 md:flex-[0_0_200px]">
                         <label
                             htmlFor="rentType"
-                            className="text-[#596e79] font-medium mb-2 block"
+                            className="text-[#596e79] font-medium mt-1 block "
                         >
                             {t("prices.typeOfRent")}
                         </label>
                         <select
                             id="rentType"
-                            className="w-full px-2 py-1 border rounded-md"
+                            className="px-4 py-1 border rounded-md"
                             value={rentType}
                             onChange={(e) =>
                                 setRentType(
@@ -139,7 +138,7 @@ const BookingPage = ({
                             <option value="nightly">{t("prices.nightly")}</option>
                         </select>
                     </div>
-                    <div className="md:flex-[2]">
+                    <div className="md:flex-[2] shadow-md pb-12">
                         <CalendarPicker
                             dateRange={dateRange}
                             handleSelect={handleSelect}

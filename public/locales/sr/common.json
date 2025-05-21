@@ -126,9 +126,9 @@
     "booking": "Rezervacija",
     "contact": "Kontakt"
 	},
-	"Networks": "Instagram",
+	"Networks": "@walnut_pool_house",
 	"aptTriSoveModal": "Apartman Tri Sove",
-	"aptTriSoveInsta": "Zapratite Tri Sove", 
+	"aptTriSoveInsta": "@apartman_tri_sove", 
 	"gallery": {
 		"title": "Galerija",
 		"p": "Dobrodošli u Walnut Pool House, gde je svaki kutak urađen s puno ljubavi. Zamislite sebe kraj blistavog bazena, sa hladnim pićem u ruci.. pravo uživanje Vas čeka! Pogledajte galeriju i počnite da sanjate svoj savršen odmor!",
@@ -192,6 +192,19 @@
   	"messagePlaceholder": "Vaša poruka",
   	"contactHeader": "Pošaljite nam poruku!",
   	"contactPageText": "Voleli bismo da čujemo vaše mišljenje! Bilo da imate pitanja o našem apartmanu, potrebne su vam dodatne informacije ili jednostavno želite da porazgovarate pre nego što rezervišete, slobodno nam se obratite. Koristite formular ispod kako biste nas direktno kontaktirali, a mi ćemo vam se javiti u najkraćem roku."
-	}
+	},
+	"pricingNotice": {
+    "title": "Napomena o cenama",
+    "p1": "Walnut Pool House zadržava pravo izmene cena u periodima praznika ili sezonskih promena.",
+    "p2": "Sve cene prikazane na sajtu su ažurirane i važeće u trenutku pregleda.",
+    "p3": "Deca starija od 12 godina se računaju kao odrasle osobe.",
+    "p4": "Ukoliko imate bilo kakva pitanja ili nedoumice, slobodno nas kontaktirajte pre rezervacije:",
+    "phone": "Telefon: +381 60 306 5700",
+    "email": "Email: natasa.golubovic90@gmail.com",
+    "form": "Možete nam takođe poslati upit putem",
+		"linkToForm": "Kontakt forme.",
+    "closing": "Srdačno,",
+    "signature": "Vaš Walnut Pool House"
+  }
 }
 

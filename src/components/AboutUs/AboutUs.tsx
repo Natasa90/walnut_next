@@ -10,13 +10,13 @@ export const AboutUs = () => {
     const t = useCommonTranslation();
     return (
         <div className="text-justify text-lg leading-relaxed">
-            <h1 className={`${playfair.className} text-3xl font-bold mb-4`}>
+            <h1 className={`${playfair.className} text-3xl font-bold mb-10`}>
                 {t("aboutUs.title")}
             </h1>
-            <p className="mb-4">{t("aboutUs.intro")}</p>
-            <p className="mb-4">{t("aboutUs.description")}</p>
-            <p className="mb-4">{t("aboutUs.comforts")}</p>
-            <ul className="list-none space-y-2 text-gray-700">
+            <p className="mb-3">{t("aboutUs.intro")}</p>
+            <p className="mb-3">{t("aboutUs.description")}</p>
+            <p className="mb-6">{t("aboutUs.comforts")}</p>
+            <ul className="list-none space-y-2 text-gray-700 shadow-md pb-6">
                 <li className="before:content-['✔️'] before:mr-2 text-emerald-700 font-medium">
                     {t("aboutUs.features.pool")}
                 </li>
@@ -40,19 +40,19 @@ export const AboutUs = () => {
                 </li>
             </ul>
 
-            <p className="mb-4">{t("aboutUs.closing")}</p>
-            <p className="mb-4">{t("aboutUs.extra")}</p>
-            <p className="mb-4">{t("aboutUs.aptTriSove")}</p>
+            <p className="mb-3 mt-6">{t("aboutUs.closing")}</p>
+            <p className="mb-3">{t("aboutUs.extra")}</p>
+            <p className="mb-3">{t("aboutUs.aptTriSove")}</p>
             <AptTriSove />
-            <p className="mb-4">{t("aboutUs.note")}</p>
-            <p className="mb-8">{t("aboutUs.final")}</p>
+            <p className="mb-6">{t("aboutUs.note")}</p>
+            <p className="mb-10 italic">{t("aboutUs.final")}</p>
             <CustomLink
                 href="/booking"
                 title={t("home.homeInfo.linkText")}
                 leftIcon={<FaRegCalendarCheck />}
                 rightIcon={<MdArrowForwardIos />}
             />
-            <div className="mt-4">
+            <div className="mt-8">
                 <SocialNetworks />
             </div>
         </div>

@@ -24,7 +24,7 @@ const ContactPage = () => {
                 />
                 <meta property="og:type" content="website" />
             </Head>
-            <div className="flex flex-wrap my-6 justify-center items-center">
+						<div className="p-6">
                 <ContactText />
                 <ContactForm />
                 <ContactUsExtra />
