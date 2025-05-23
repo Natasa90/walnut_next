@@ -1,16 +1,26 @@
+import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
+import { SuccessModal } from "../SuccessSubmitModal";
 
 export const ContactForm = () => {
-	const t = useCommonTranslation();
+    const [isFormSent, setIsFormSent] = useState<boolean>(false);
+    const t = useCommonTranslation();
 
     const validationSchema = Yup.object({
         fullName: Yup.string().required(t("bookingForm.fullNameReq")),
         email: Yup.string()
             .email(t("bookingForm.invalidEmail"))
             .required(t("bookingForm.emailReq")),
-        phone: Yup.string().required(t("bookingForm.phoneReq")),
+        phone: Yup.string()
+            .matches(/^\+?\d+$/, t("bookingForm.invalidPhone"))
+            .test(
+                "len",
+                t("bookingForm.phoneMin"),
+                (val) => !!val && val?.replace(/\D/g, "").length >= 10
+            )
+            .required(t("bookingForm.phoneReq")),
         message: Yup.string().required(t("bookingForm.messageReq")),
     });
 
@@ -20,17 +30,16 @@ export const ContactForm = () => {
     ) => {
         try {
             const response = await fetch("/api/inquiries", {
-							method: "POST", 
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify(values),
-						}); 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+            });
 
-						if (!response.ok) {
-							throw new Error ("Failed to submit inquiry.")
-						}
-
-						alert (t("contactForm.messageSent"));
-						resetForm(); 
+            if (!response.ok) {
+                throw new Error("Failed to submit inquiry.");
+            }
+            setIsFormSent(true);
+            resetForm();
         } catch (error) {
             alert("Sending failed. Please try again.");
         }
@@ -57,7 +66,9 @@ export const ContactForm = () => {
                             <Field
                                 type="text"
                                 name="fullName"
-                                placeholder={t("contactForm.fullNamePlaceholder")}
+                                placeholder={t(
+                                    "contactForm.fullNamePlaceholder"
+                                )}
                                 className="bg-[#f0ece2] p-4 rounded-xl text-gray-700 w-full"
                             />
                             <ErrorMessage
@@ -87,6 +98,14 @@ export const ContactForm = () => {
                                 name="phone"
                                 placeholder={t("contactForm.phonePlaceholder")}
                                 className="bg-[#f0ece2] p-4 rounded-xl text-gray-700 w-full"
+                                onInput={(
+                                    e: React.ChangeEvent<HTMLInputElement>
+                                ) => {
+                                    e.target.value = e.target.value.replace(
+                                        /[^\d+]/g,
+                                        ""
+                                    );
+                                }}
                             />
                             <ErrorMessage
                                 name="phone"
@@ -99,7 +118,9 @@ export const ContactForm = () => {
                             <Field
                                 as="textarea"
                                 name="message"
-                                placeholder={t("contactForm.messagePlaceholder")}
+                                placeholder={t(
+                                    "contactForm.messagePlaceholder"
+                                )}
                                 className="bg-[#f0ece2] p-4 rounded-xl text-gray-700 h-28 text-start w-full"
                             />
                             <ErrorMessage
@@ -115,12 +136,24 @@ export const ContactForm = () => {
                             className="bg-[#596e79] hover:bg-[#596e45] p-4 rounded-xl w-full"
                         >
                             <p className="text-center text-white font-semibold text-lg">
-                                {isSubmitting ? (t("contactForm.sendingBtn")) : (t("contactForm.sendBtn"))}
+                                {isSubmitting
+                                    ? t("contactForm.sendingBtn")
+                                    : t("contactForm.sendBtn")}
                             </p>
                         </button>
                     </Form>
                 )}
             </Formik>
+            {isFormSent && (
+                <SuccessModal
+                    isOpen={isFormSent}
+										title={t("messageFormSuccessTitle")}
+                    onClose={() => setIsFormSent(false)}
+                >
+                    <p>{t("messageFormSuccessMessage")}</p>
+                    <p>{t("bookingSuccessSignature")}</p>
+                </SuccessModal>
+            )}
         </div>
     );
 };
