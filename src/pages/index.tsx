@@ -8,6 +8,7 @@ import { BackyardSection } from "@/components/BackyardSection";
 import { ThingsToSeeSection } from "@/components/ThingsToSeeSection";
 import { FacilitiesSection } from "@/components/FacilitiesSection";
 import { SocialNetworks } from "@/components/SocialNetworks";
+import { BackToTopButton } from "@/components/BackToTopButton";
 
 export default function Home() {
     return (
@@ -37,6 +38,7 @@ export default function Home() {
             <BackyardSection />
 						<SocialNetworks />
             <ThingsToSeeSection />
+						<BackToTopButton />
         </>
     );
 }
