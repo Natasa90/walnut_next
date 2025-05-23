@@ -12,7 +12,7 @@ export const ThingsToSeeCard: FC<ThingsToSeeCardProps> = ({
     href,
 }) => {
     return (
-        <a href={href}>
+        <a href={href} target="_blank" rel="noopener noreferrer">
             <div className="w-full max-w-sm mx-auto bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out mb-6 md:mb-8">
                 <div className="relative h-48 sm:h-64 md:h-80">
                     <Image
