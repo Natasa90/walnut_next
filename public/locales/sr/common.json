@@ -2,6 +2,8 @@
   "bookingSuccessTitle": "Rezervacija potvrđena!",
   "bookingSuccessMessage": "Vaša rezervacija je uspešno završena, a fajl sa potvrdom se automatski preuzima na Vaš uređaj. Uskoro ćemo Vas kontaktirati. Radujemo se što ćemo Vas ugostiti!",
   "bookingSuccessSignature": "Vaš Walnut Pool House ❤️",
+	"messageFormSuccessTitle": "Hvala na interesovanju!",
+	"messageFormSuccessMessage": "Vaš upit je uspešno poslat. Uskoro ćemo Vam se javiti sa više informacija.",
   "callUs": "Pozovite nas!",
   "aboutUs": {
     "title": "O nama",
@@ -158,6 +160,7 @@
   	"invalidEmail": "Nevažeći format e-pošte",
   	"emailReq": "Polje za e-poštu je obavezno",
   	"phoneReq": "Polje za broj telefona je obavezno",
+		"phoneMin": "Broj telefona mora da sadrži najmanje 9 cifara",
 		"messageReq": "Polje za poruku je obavezno",
   	"bookingFailed": "Slanje rezervacije nije uspelo. Pokušajte ponovo!",
   	"resDetails": "Detalji rezervacije",
@@ -191,7 +194,7 @@
   	"phonePlaceholder": "Telefon",
   	"messagePlaceholder": "Vaša poruka",
   	"contactHeader": "Pošaljite nam poruku!",
-  	"contactPageText": "Voleli bismo da čujemo vaše mišljenje! Bilo da imate pitanja o našem apartmanu, potrebne su vam dodatne informacije ili jednostavno želite da porazgovarate pre nego što rezervišete, slobodno nam se obratite. Koristite formular ispod kako biste nas direktno kontaktirali, a mi ćemo vam se javiti u najkraćem roku."
+  	"contactPageText": "Voleli bismo da čujemo vaše mišljenje! Bilo da imate pitanja o našem apartmanu, potrebne su Vam dodatne informacije ili jednostavno želite da porazgovarate pre nego što rezervišete, slobodno nam se obratite. Koristite formular ispod kako biste nas direktno kontaktirali, a mi ćemo Vam se javiti u najkraćem roku."
 	},
 	"pricingNotice": {
     "title": "Napomena o cenama",

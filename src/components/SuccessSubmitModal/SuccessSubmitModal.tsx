@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { SuccessBookingModalProps } from "@/types/Types";
+import { SuccessModalProps } from "@/types/Types";
 
-export const SuccessBookingModal: FC<SuccessBookingModalProps> = ({
+export const SuccessModal: FC<SuccessModalProps> = ({
 	isOpen,
 	onClose,
 	title,

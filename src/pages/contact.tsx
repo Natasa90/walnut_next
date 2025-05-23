@@ -4,8 +4,12 @@ import { loadTranslation } from "@/lib/helpers/loadTranslation";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactText } from "@/components/ContactText";
 import { ContactUsExtra } from "@/components/ContactUsExtra";
+import { SuccessModal } from "@/components/SuccessSubmitModal";
+import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
 
 const ContactPage = () => {
+    const t = useCommonTranslation();
+
     return (
         <>
             <Head>
@@ -24,7 +28,7 @@ const ContactPage = () => {
                 />
                 <meta property="og:type" content="website" />
             </Head>
-						<div className="p-6">
+            <div className="p-6">
                 <ContactText />
                 <ContactForm />
                 <ContactUsExtra />

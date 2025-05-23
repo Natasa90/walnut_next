@@ -69,7 +69,7 @@ export interface HomePageCardProps {
 	image3: CustomImageProps;
 }
 
-export interface SuccessBookingModalProps {
+export interface SuccessModalProps {
 	isOpen: boolean;
 	onClose: () => void;
 	title?: string;

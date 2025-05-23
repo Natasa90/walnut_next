@@ -28,7 +28,14 @@ export const BookingFormModal = ({
     const validationSchema = Yup.object({
         fullName: Yup.string().required(t("bookingForm.fullNameReq")),
         email: Yup.string().email(t("bookingForm.invalidEmail")).nullable(),
-        phone: Yup.string().required(t("bookingForm.phoneReq")),
+        phone: Yup.string()
+            .matches(/^\+?\d+$/, t("bookingForm.invalidPhone"))
+            .test(
+                "len",
+                t("bookingForm.phoneMin"),
+                (val) => !!val && val?.replace(/\D/g, "").length >= 10
+            )
+            .required(t("bookingForm.phoneReq")),
         message: Yup.string().nullable(),
         numOfPersons: Yup.number().nullable(),
     });
@@ -73,7 +80,7 @@ export const BookingFormModal = ({
                 throw new Error("Failed to submit Booking.");
             }
             onBookingSuccess();
-						generateBookingPDF(bookingData)
+            generateBookingPDF(bookingData);
         } catch (error) {
             alert(t("bookingForm.bookingFailed"));
         }
@@ -167,6 +174,15 @@ export const BookingFormModal = ({
                                     <Field
                                         name="phone"
                                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#596e79]"
+                                        onInput={(
+                                            e: React.ChangeEvent<HTMLInputElement>
+                                        ) => {
+                                            e.target.value =
+                                                e.target.value.replace(
+                                                    /[^\d+]/g,
+                                                    ""
+                                                );
+                                        }}
                                     />
                                     <ErrorMessage
                                         name="phone"

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { addDays } from "date-fns";
 import { CalendarPicker } from "@/components/BookingElements/CalendarPicker";
 import { BookingFormModal } from "@/components/BookingElements/BookingFormModal";
 import { getBookedDates } from "@/lib/helpers/getBookedDates";
@@ -10,7 +9,7 @@ import { MyDateRange } from "@/components/BookingElements/CalendarPicker";
 import { getNextAvailableDate } from "@/lib/helpers/getNextAvailableDate";
 import { Prices } from "@/components/BookingElements/Prices";
 import { useCommonTranslation } from "@/lib/hooks/useCommonTranslation";
-import { SuccessBookingModal } from "@/components/SuccessSubmitModal";
+import { SuccessModal } from "@/components/SuccessSubmitModal";
 
 const BookingPage = ({
     initialDisabledDates,
@@ -78,7 +77,6 @@ const BookingPage = ({
         const selectedEnd = selection.endDate;
 
         if (rentType === "daily") {
-            // Always force a single-day selection
             setDateRange([
                 {
                     startDate: selectedStart,
@@ -87,11 +85,10 @@ const BookingPage = ({
                 },
             ]);
         } else {
-            // Allow a full range for nightly
             setDateRange([
                 {
                     startDate: selectedStart,
-                    endDate: selectedEnd ?? selectedStart, // fallback in case endDate is undefined
+                    endDate: selectedEnd ?? selectedStart, 
                     key: "selection",
                 },
             ]);
@@ -166,14 +163,14 @@ const BookingPage = ({
                     />
                 )}
                 {showSuccessModal && (
-                    <SuccessBookingModal
+                    <SuccessModal
                         isOpen={showSuccessModal}
                         onClose={() => setShowSuccessModal(false)}
                         title={t("bookingSuccessTitle")}
                     >
                         <p>{t("bookingSuccessMessage")}</p>
                         <p>{t("bookingSuccessSignature")}</p>
-                    </SuccessBookingModal>
+                    </SuccessModal>
                 )}
             </div>
         </>
